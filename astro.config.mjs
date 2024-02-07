@@ -27,5 +27,13 @@ export default defineConfig({
 		}),
 		sitemap(),
 		tailwind()
-	]
+	],
+	image: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'assets.tina.io/**'
+			}
+		]
+	}
 })
