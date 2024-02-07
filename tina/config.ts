@@ -8,9 +8,9 @@ export default defineConfig({
 	branch,
 
 	// Get this from tina.io
-	clientId: '84fdc6fb-32d1-4ee1-b355-ff459325bfc5',
+	clientId: '63c34133-8fa0-4cbc-813f-8109618bc0b7',
 	// Get this from tina.io
-	token: 'b30693fc7853fcd79c5383d9741b8b3e0a2a4ac7',
+	token: '32ad00fa69dd798e7c07e4664afebeb51ff5ba63',
 
 	build: {
 		outputFolder: 'admin',
@@ -206,7 +206,7 @@ export default defineConfig({
 	},
 	search: {
 		tina: {
-			indexerToken: 'd6bee4749600903a87e9901bf75019ccccfa0ff7',
+			indexerToken: '533dbe2444a0bc2fc792614b979725015b934f6f',
 			stopwordLanguages: ['jpn']
 		},
 		indexBatchSize: 100,
