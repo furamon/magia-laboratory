@@ -1,0 +1,41 @@
+---
+import BaseLayout from '@/layouts/BaseLayout'
+---
+
+<BaseLayout title='guide'>
+	<div class='flex flex-col container mx-auto'>
+		<h1 class='text-4xl font-bold text-center'>げーむのやりこみ</h1>
+	</div>
+	<p>「ゲームの攻略ややりこみ」ページ。いずれも「未プレイでも読める」ことを心がけています。</p>
+
+	<div class='grid gap-4 grid-cols-1 sm:grid-cols-2 [&>div]:flex [&>div]:flex-col'>
+		<div>
+			<a href='/game/guide/nectaris' class='btn-game'>ネクタリス</a>
+			<p>マジ攻略。PCE版全面+Win98版に有志が移植したPS・GB版全マップの攻略を目指す。</p>
+		</div>
+	</div>
+</BaseLayout>
+
+<style>
+	.btn-game {
+		@apply bg-gray-600 hover:bg-gray-400 text-white rounded-full text-2xl text-center py-2 m-3;
+	}
+</style>
+
+<script>
+	import { animate } from 'motion'
+	const showAnimations = localStorage.getItem('animations') === 'true'
+
+	if (showAnimations) {
+		animate(
+			'.title',
+			{ y: [80, 0], opacity: [0, 1] },
+			{
+				duration: 2.5,
+				opacity: { duration: 3 },
+
+				offset: [0, 0.55, 0.75]
+			}
+		)
+	}
+</script>

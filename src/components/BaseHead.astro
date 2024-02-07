@@ -12,7 +12,7 @@ export interface Props {
 
 const { title, description = siteConfig.description, ogImage, articleDate } = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
-const socialImageURL = new URL(ogImage ? ogImage : '/open-graph.png', Astro.url).href
+const socialImageURL = new URL(ogImage ? ogImage : '/favicon.png', Astro.url).href // TODO:まともな画像
 
 const titleSeparator = '•'
 
@@ -28,7 +28,7 @@ import { AstroFont } from 'astro-font'
 <!-- Global Metadata -->
 <meta charset='utf-8' />
 <meta name='viewport' content='width=device-width,initial-scale=1' />
-<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+<link rel='icon' type='image/png' href='/favicon.png' />
 <meta name='generator' content={Astro.generator} />
 
 <!-- Canonical URL -->

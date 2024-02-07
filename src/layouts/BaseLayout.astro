@@ -9,16 +9,18 @@ import EditBlog from '@/components/editBlog'
 const { title, description, image, articleDate } = Astro.props
 ---
 
-<html lang='en' class='scroll-smooth'>
+<html lang='ja' class='scroll-smooth'>
 	<head>
 		<BaseHead title={title} description={description} ogImage={image} articleDate={articleDate} />
 		<ProviderTheme />
 		<ProviderAnimations />
 	</head>
 
-	<body class='bg-white text-stone-950 dark:bg-[#0a0910] dark:text-white'>
+	<body
+		class=`${Astro.url.pathname.startsWith('/lily') ? 'bg-pink-50 dark:bg-rose-950' : 'bg-white dark:bg-[#0f0f0f]'} text-stone-950  dark:text-white w-full h-full`
+	>
 		<main
-			class='px-5 sm:mx-auto sm:max-w-2xl sm:px-8 lg:px-0 antialiased md:max-w-6xl grid gap-12 mt-4 overflow-hidden md:overflow-visible'
+			class='px-5 sm:mx-auto sm:max-w-2xl sm:px-8 lg:px-24 antialiased md:max-w-6xl grid gap-6 mt-4 overflow-hidden md:overflow-visible'
 		>
 			<Header />
 			<slot />
@@ -26,10 +28,5 @@ const { title, description, image, articleDate } = Astro.props
 		</main>
 		<TwSizeIndicator />
 		<EditBlog />
-		<style>
-			body {
-				margin-left: calc(100vw - 100%); /* prevent layout shift */
-			}
-		</style>
 	</body>
 </html>

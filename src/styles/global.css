@@ -18,7 +18,24 @@
 	h4,
 	h5,
 	h6 {
-		@apply text-zinc-800 dark:text-zinc-100   !important;
+		@apply text-zinc-800 dark:text-zinc-100 text-center !important;
+	}
+
+	.prose h2 {
+		@apply text-3xl;
+	}
+
+	.prose h3 {
+		@apply text-xl;
+	}
+
+	.prose th,
+	td {
+		@apply p-2;
+	}
+
+	.prose img {
+		@apply mx-auto;
 	}
 }
 

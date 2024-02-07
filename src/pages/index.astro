@@ -1,23 +1,85 @@
 ---
-import ListCategories from '@/components/ListCategories'
-import ListPosts from '@/components/ListPosts'
 import TitlePage from '@/components/TitlePage'
 import BaseLayout from '@/layouts/BaseLayout'
-import { getPosts } from '@/utils'
-
-const MAX_POSTS = 5 // max number of posts to show on the home page
-const posts = await getPosts(MAX_POSTS)
 ---
 
 <BaseLayout title='Home'>
-	<TitlePage title='Blog Title' />
-	<ListCategories />
+	<TitlePage title='魔導研究棟' />
 
-	<div>
-		<h2 class='text-lg font-medium tracking-wide text-end'>Latest Posts</h2>
-		<ListPosts FirstBig={true} posts={posts} />
+	<div class='container mx-auto text-center text-xl font-bold'>
+		ゲーム攻略、百合作品などのサイト。<br />
+		 のんびりやってます。いらっしゃいませ。
+	</div>
+	<div
+		class='container flex flex-col md:flex-row flex-auto mx-auto [&_a]:block [&>div]:w-full [&>div]:flex-auto [&>div]:flex-col [&>div]:text-center [&>div>a]:text-4xl [&>div>p]:text-4xl [&>div>*]:font-medium [&>div>*]:tracking-wide [&>div>*]:m-4 [&>div>a]:underline [&>div>div]:flex [&>div>div]:flex-col [&>div>div]:gap-2'
+	>
+		<div>
+			<a href='/game'>Game</a>
+			<div>
+				<a href='/game/guide' class='btn-game'> PlayGuide</a>
+				<a href='/game/playdiary' class='btn-game'> PlayDiary</a>
+				<a href='/game/talk' class='btn-game'> TalkRoom</a>
+				<a
+					href='https://www.notion.so/furamon913/cd55e04977734af082130ce34477dc31?v=5d7d04f5d1e84bc4ab45625fddd98475&pvs=4'
+					class='btn-game'
+				>
+					GameList</a
+				>
+			</div>
+		</div>
+		<div>
+			<a href='/lily'>Lily</a>
+			<div>
+				<a href='/lily/garden' class='btn-lily'> "Assualt Lily"FrontLine</a>
+			</div>
+		</div>
+		<div>
+			<p>etc.</p>
+			<div>
+				<a href='/blog' class='btn-game'> Diary</a>
+				<a href='https://magiasskey.magialabs.blog/' class='btn-game'> Misskey</a>
+			</div>
+			<p>Some Links</p>
+			<div>
+				<a href='https://discord.com/invite/JfE32Nhhzb' class='btn-game'> Discord</a>
+				<a href='https://www.pixiv.net/users/74381242' class='btn-game'> Pixiv</a>
+				<a href='https://m.youtube.com/channel/UCmoakOUjAai3AW1d2Ip_wxg' class='btn-game'>
+					YouTube</a
+				>
+				<a href='https://github.com/Furamon' class='btn-game'> Github</a>
+				<a href='https://twitter.com/FuramonMagia' class='btn-game'> X（Twitter）</a>
+			</div>
+		</div>
+	</div>
+	<div class='container mx-auto text-center'>
+		<h2 class='text-2xl font-bold mb-4'>更新履歴</h2>
+		<table>
+			<thead class='bg-gray-200 dark:bg-gray-700'>
+				<tr class='border-gray-500 dark:border-gray-600 border-2'>
+					<th>日付</th>
+					<th class='w-full'>内容</th>
+				</tr>
+			</thead>
+			<tbody
+				class='bg-gray-100 dark:bg-gray-800 text-left [&_tr]:border-gray-400 [&_tr]:dark:border-gray-700 [&_tr]:border-2'
+			>
+				<tr>
+					<td>2024/02/06</td>
+					<td><span class='font-bold'>リニューアルオープン</span>。別館と統合</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </BaseLayout>
+
+<style>
+	.btn-game {
+		@apply bg-gray-700 hover:bg-gray-500 text-white rounded-full text-center w-full py-3 m-1 mx-auto;
+	}
+	.btn-lily {
+		@apply bg-pink-700 hover:bg-pink-500 text-white rounded-full text-center w-full py-3 m-1 mx-auto;
+	}
+</style>
 
 <script>
 	import { animate } from 'motion'

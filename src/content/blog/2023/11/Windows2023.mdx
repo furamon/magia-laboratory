@@ -1,0 +1,492 @@
+---
+heroImage: /src/images/bg.jpg
+category: Coding
+description: Windowsのフリーソフトと魔改造紹介。WSLも。
+pubDate: 2023-11-28T15:00:00.000Z
+draft: false
+tags:
+  - 環境構築
+  - Windows
+title: Windowsとあっけなく仲直りできた話―フリーアプリいろいろ(2024版)
+---
+
+どーも、Windows党のふらもんです。でもLinuxも好きです。\
+Win11になって2年ほど、もう皆様慣れてきた頃合いだと思います。色々な感想等ございますでしょうが、私は正直大好きです。一番良かったWin7の次に好き。\
+タスクバー中央揃えデフォは偉大です。たたみ制御も復活したので天下無敵（個人の感想です）。
+
+そしてWindowsの良さは大量のソフト資産による拡張性。\
+ということで私はこう魔改造しています。参考になれば。
+
+## はじめに
+
+この記事は2024/1/5にほとんど全部リライトしました。\
+ソフト紹介は申し訳程度で、ほとんど自分用のリンク集です。あしからず申し訳ない。
+
+## 初期設定
+
+### ローカルユーザー名変更
+
+[この手順](https://atmarkit.itmedia.co.jp/ait/articles/2210/21/news023.html)で一発。具体的には
+
+1. （タブレットPCの場合は人形アイコンでスクリーンキーボードを出して）Shift+F10
+2. oobe\BypassNRO.cmd
+
+以上。何故隠してる？
+
+### グラボドライバー
+
+ふっつーに Geforce です。Radeon ともバチバチやってほしいのですが、もうちょっとかかりそうですね。
+
+### Windows Defenderの暴走を止める
+
+今やこれで十分なほど高機能なWindows Defenderですが、実は自分を延々ウイルススキャンするという不具合があり、これでメモリリークしたことがあります。\
+なので下手順で止めましょう。
+
+1. 「Windowsセキュリティ」アイコンから「ウイルスと脅威の防止」→「ウイルスと脅威の防止の設定」→「除外の追加または削除」と進む
+2. 「C:\Program Files\Windows Defender」をフォルダごと除外
+
+参考：[Antimalware Service Executable (MsMpEng)が暴走？抑制・制御方法を解説！](https://webdesign-mania.info/2020/08/antimalware-service-executable.html)
+
+### **[Google日本語入力](https://www.google.co.jp/ime/)**
+
+IMEはお好みですが私はこれ派。
+
+## ソフトいろいろ
+
+### システム系
+
+#### **[Vivaldi](https://vivaldi.com/ja/)**
+
+ブラウザ。とにかく多機能で軽くて最強。というか説明いらないかも（？？？）
+
+#### **[AutoLogon](https://learn.microsoft.com/ja-jp/sysinternals/downloads/autologon)**
+
+個人用デスクトップPC＝他の人が使う可能性なしなのでログイン認証は切っちゃってます。\
+もちろんセキュリティはがら空きになるのでご利用は計画的に。
+
+#### **[EaseUS Backup](https://jp.easeus.com/backup-software/free.html)**
+
+万が一のバックアップ用。システムリカバリまでとなると有料のものしかなく、一番安全そうだったのがこれでした。\
+まだ暫定なのでおすすめあればぜひ。
+
+#### **[alt-ime-ahk-mod](https://github.com/nekocodeX/alt-ime-ahk-mod)**
+
+Altキーでかな英切り替え。英語キーボード大好きマンなので必須。
+
+#### **[7-Zip](https://7-zip.opensource.jp/)**
+
+解凍ソフト。まあこんなところを見てくださってる方には説明不要ですな。早い安いうまい。
+
+#### **[FaithType](https://github.com/m13253/FaithType/blob/master/Readme-ja.md)**
+
+システムフォントのアンチエイリアスを直してくれます。疲れない文字にしてくれます。\
+更に後述の「Meiryo UIも大っきらい」でフォントサイズを大きくすればモアベター。
+
+#### **[Meiryo UIも大っきらい！！](https://www.tatsu-syo.info/MySoft/WinCust/index.html)**
+
+システムフォント変更ソフト。上述の「FaithType」できれいにしたフォントをこれで大きくしたり、自前フォントを使ったりします。\
+Yu Gothic UIかMeiryo UI、あとは後述のIBM Plex Sans JPがオススメ、お好みで。大っきらいじゃないの？は禁句。
+
+#### **[PlemolJP](https://github.com/yuru7/PlemolJP)**
+
+Windows TerminalやVSCode用のプログラミングフォント。\
+Nerd Fontを選ぶとターミナルがめちゃくちゃオシャレに。
+
+#### **[IBM Plex Sans JP](https://github.com/IBM/plex/releases)**
+
+いい感じにMacっぽいきれいフォント。先述の「Meiryo大っきらい」によるシステムフォント設定は「Text」がきれいです。ヒンティングはモニター解像度と相談してきれいな方を。
+
+#### **[CLaunch](https://forest.watch.impress.co.jp/library/software/claunch/)**
+
+昔から有名なランチャーアプリ。デスクトップやスタートメニュー、タスクバーをきれいにするかわりにこれで。\
+マウスの余ったボタンにホットキー機能応用でキーアサインすると神になれます。
+
+#### **[Clibor](https://chigusa-web.com/clibor/)**
+
+クリップボード拡張ソフト。Windows標準にもあるっちゃありますがこっちのほうが格段に便利。\
+定型文機能まであるので使いこなせる人はとことんやってみて自慢してほしいです。
+
+#### **[Upnote](https://getupnote.com/)**
+
+試験運用中のノートアプリ。Notionを使いやすくした感じでなかなかいいです。
+
+#### **[MiniBin](https://www.gigafree.net/utility/recyclebin/minibin.html)**
+
+タスクバー上にゴミ箱を置けます。\
+「CLaunch」にも置けますが万全を期すなら。空っぽかどうかが見て判別できます。
+
+#### **[Thilmera7](https://thilmera.com/)**
+
+コンパクトリソースモニター。\
+リソースが見えてないと不安になる病気持ちなので使っていますが、何度もメモリリークをこれで発見しました。リソースモニターは基本。
+
+#### **[Powertoys](https://learn.microsoft.com/ja-jp/windows/powertoys/install)**
+
+ファイル名一括変更など、なんで初期実装されてないか不思議なほどのマイクロソフト自社開発の 10 徳ナイフ的ソフト。\
+個人的にはマルチタスク強化とキーアサイン、ランチャーがお気に入り。
+
+#### **[X-Mouse Button Control](https://freesoft-100.com/review/x-mouse-button-control.html)**
+
+今は使ってませんが一応。マウスユーティリティのないマウスはこれでボタンアサイン。
+
+#### **[AntimicroX](https://github.com/AntiMicroX/antimicrox 'AntiMicroX')**
+
+ゲームコントローラーに任意キーを割り当てます。\
+昔のゲームを遊ぶほか、クリエイト系ソフトのショートカットデバイス代わりにするなんてことも。
+
+#### **[MonitorKeeper](https://github.com/hunkydoryrepair/MonitorKeeper/releases)**
+
+「マルチモニター下でDisplayPortがウィンドウ配置を覚えてくれない」問題対処用ソフト。\
+これを使えばDisplayPortを抜いて指し直せばウィンドウ配置が元通りに。
+
+#### **[EveryThing](https://forest.watch.impress.co.jp/library/software/everything/)**
+
+爆速ファイル検索ソフト。上述の「Powertoys Run」の拡張機能として使っています。
+
+#### **[System Ninja](https://singularlabs.com/software/system-ninja/)**
+
+完全アンインストーラー・ジャンククリーナー。\
+色々探して一番安全そうかつ使い勝手良かったのがこれでした。無料で大丈夫です。
+
+#### **[WinAero Tweaker](https://winaerotweaker.com)**
+
+Windowsの設定を深くまでいじれます。\
+右クリックのコンテキストメニューを古いやつに戻したりできます。
+
+#### **[TailScale](https://tailscale.com/)**
+
+超お手軽VPN。リモートデスクトップがはかどるほか、NASにも入っているので公衆Wi-Fiスポットも安全！
+
+### メディア系
+
+#### **[Duet Display](https://www.duetdisplay.com/ja/)**
+
+タブレット液タブ化。最近Winタブレットにも対応し神になりました。\
+当初は不安定すぎましたがここのところ安定しており大化け。
+
+#### **[VLC](https://www.videolan.org/vlc/index.ja.html)**
+
+動画プレイヤー。私はVLC派というだけなのでMPCでもなんでもお好みで。
+
+#### **[clever FFmpeg-GUI](https://www.videohelp.com/software/clever-FFmpeg-GUI)**
+
+動画変換ソフト、FFmpegの操作ソフト。一番オシャンティーなのが以下略\
+あると便利です。
+
+#### **[Honeyview](https://jp.bandisoft.com/honeyview/)**
+
+画像ビューアー。Windowsのフォトもなかなかやるのですがこちらの方がさらに多機能で軽いです。\
+webpやらなんやら読めます。
+
+#### **[Pureref](https://www.pureref.com/)**
+
+半クリエイト枠。資料ビューアー。\
+たくさんの画像を自由なサイズでまとめて閲覧可能。Blenderはとにかく資料を要するので超便利。
+
+#### **[Freac](https://forest.watch.impress.co.jp/library/software/bonkenc/)**
+
+音声変換ソフト。これもあると便利。flac圧縮などに使います。
+
+#### **[Mp3Tag](https://www.gigafree.net/media/mu/mp3tag.html)**
+
+音声タグエディタ。曲名出ると幸せ。カバーアート見られると幸せ。以上。
+
+#### **[upconv](http://59414d41.cocolog-nifty.com/blog/2022/11/post-590d49.html)**
+
+疑似ハイレゾ変換。設定次第ですが、かなり化けます。\
+レトロゲーサントラを無理やりリマスターなどしています。
+
+#### **[DTS Sound Unbound](https://dts.com/ja/dts-sound-unbound/)**
+
+（バーチャル）サラウンドシステム。Dolbyもありますが、私の環境だとこっちのほうが聴いてていい感じでした。\
+ヘッドホンでもおすすめ。
+
+### クリエイト・開発系
+
+基本説明のいるソフトではないので以下は一行で。
+
+#### **[Blender](https://www.blender.org/)**
+
+3DCG総合。これがないと始まらない。
+
+#### **[3DCoat](https://3dcoat.com/jp/)**
+
+リトポ・ペイント・スカルプトなど。Blenderの痒いところをハイクオリティに補います。
+
+#### **VRoid Studio**
+
+Steamインストール。アニメキャラメーカー。人型キャラを作るにはこれがあるとないとで作業効率が天地の差。
+
+#### **[Clip Studio](https://www.clipstudio.net/ja/)**
+
+説明いらないから飛ばしていいよね？いいよ（執筆放棄）
+
+#### **[Gimp](https://forest.watch.impress.co.jp/library/software/gimp/)**
+
+操作に癖はありますが超便利。画像で困ったらこれ。
+
+#### **[InkScape](https://inkscape.org/ja/)**
+
+ベクター画像版「困ったらこれ」。
+
+#### **[Visual Studio Code](https://azure.microsoft.com/ja-jp/products/visual-studio-code)**
+
+超軽いのにIDE並の機能なプログラミングエディタ。やっぱりこれだね。
+
+#### **[Git for Windows](https://gitforwindows.org/)**
+
+PC中級者以上の人権ツール。これもなくちゃ始まらない。
+
+#### **[GitHub Desktop](https://desktop.github.com/)**
+
+↑のように書きましたがGUIもあると便利、そこでこれ。手軽にバージョン管理。
+
+#### **[Godot Editor](https://godotengine.org/)**
+
+新鋭ゲームエンジン。軽いし便利でもっと情報増えてほしい。
+
+#### Unity
+
+炎上してますが、VRMを撮影するには未だ必須。なんとかなってほしいのですが……。
+
+#### **RPGツクールMZ**
+
+#### **RPG Developer Bakin**
+
+どちらもSteamインストール。RPG制作ソフト。
+
+#### **[OBS Studio](https://obsproject.com/ja/download)**
+
+プレイ録画。でもたまにミスって悲劇が。Bandicamに戻そうかな……。
+
+#### **[Shotcut](https://shotcut.org/)**
+
+上で取った動画はこれで編集。無料で使い勝手いいのがこれでした。
+
+#### [ゆっくりMovie Maker 4](https://manjubox.net/ymm4/)
+
+ゆっくり実況向けはこっち。使い比べたいが時間がない。
+
+#### **[Audacity](https://forest.watch.impress.co.jp/library/software/audacity/)**
+
+音声編集。実は使ったことはない。
+
+### ゲーム・ドライバ系
+
+これはもう完全に説明不要なので名前だけ。
+
+#### **DisCord**
+
+#### **Steam**
+
+#### **RetroArch**
+
+#### **DLSite Nest**
+
+#### **Project EGG**
+
+#### **Office**
+
+#### **Filco Assist**
+
+#### **エレコムマウスアシスタント**
+
+#### **CyberPower PowerPanel**
+
+### 見た目カスタマイズ
+
+- [MicaForEveryone](https://www.deviantart.com/users/outgoing?https://github.com/MicaForEveryone/MicaForEveryone) - 全アプリに透過エフェクト
+- [RoundedTB](https://github.com/Gniang/RoundedTB) - タスクバーを角丸に
+- [TranslucentTB](https://translucenttb.com/download/) - タスクバーを透明に
+- [Rainmeter](https://www.rainmeter.net) - [このスキン](https://github.com/nek7u/OhTenkiMoe/wiki)でデスクトップに雨雲レーダーを置ける
+
+## **省電力化（自己責任ゾーン）**
+
+### Bios(UEFI)いじり
+
+IntelかRyzenかでも異なりますが、たいてい電圧制限かエコモードで運用しています。空冷もハイエンドCPUも大好きなわがままマンなので。\
+Ryzenは[こちら](https://pc.watch.impress.co.jp/docs/column/shimilabo/1457647.html)が詳しいです。\
+メモリOCは「Power Down Enable」的設定をオンにすればよほど無茶でない限り通ります。Memory Context Restore」、メモリトレーニングも常時オンでも初回起動時にはトレーニングしてくれ、起動時間は短縮します。
+
+### [AfterBurner](https://jp.msi.com/Landing/afterburner/graphics-cards)でグラボ電圧いじり
+
+同上。例えばRTX4070ならメモリ+700Mhzのコア+70Mhz、電力80%といった調子。これで使用電力が8割で性能そのままに。\
+クロック-200Mhzからのカーブエディターの1000mvを2810Mhzにあわせるでも可（もちろん要調整）で、こちらは試したところ性能1%減ったかな？で消費電力6割に。無論上級者向けなので自己責任で。
+
+### ターミナル環境
+
+##### **Windows Terminal インストール**
+
+大前提として、以下の設定はこれ上で行います。
+
+##### **Nyagos・StarShip適用**
+
+以下手順。
+
+1. [ここ](https://zenn.dev/zetamatta/books/5ac80a9ddb35fef9a146)に従ってNyagosインストール
+2. [ここ](https://starship.rs/ja-jp/)に従ってStarShipインストール
+3. [ここ](https://zenn.dev/tkm/scraps/8ad2a85ca44b33)に従い、\~/.nyagosに設定記述、starship適用
+
+以上でトラブらずに設定できました。手抜きだなおい
+
+### Linux設定
+
+WSLにも役立つはずなので強引に紹介。
+
+#### Sheldon
+
+.zshrc に加えてフォントを落っことして設定しておきましょう。PlemolJPがおすすめ。
+下サイト様を参考にしました。
+
+[高速で設定しやすいZsh/BashプラグインマネージャーSheldonの紹介](https://zenn.dev/ganta/articles/e1e0746136ce67)
+
+```shell
+# .zshrc
+export PATH=$PATH:$HOME/.local/bin
+eval "$(sheldon source)"
+
+# History設定
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+setopt share_history
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+
+setopt print_eight_bit
+
+# Control+rで履歴検索
+function peco-select-history() {
+  BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+
+if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
+    autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+    add-zsh-hook chpwd chpwd_recent_dirs
+    zstyle ':completion:*' recent-dirs-insert both
+    zstyle ':chpwd:*' recent-dirs-default true
+    zstyle ':chpwd:*' recent-dirs-max 1000
+fi
+
+# Control+fディレクトリ履歴検索
+function peco-cdr () {
+    local selected_dir="$(cdr -l | sed 's/^[0-9]\+ \+//' | peco --prompt="cdr >" --query "$LBUFFER")"
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+}
+zle -N peco-cdr
+bindkey '^f' peco-cdr
+
+# debでDocker履歴検索
+alias deb='docker exec -it $(docker ps | peco | cut -d " " -f 1) /bin/bash'
+alias dea='docker exec -it $(docker ps | peco | cut -d " " -f 1) /bin/ash'
+
+# Ctrl+]でGHQリポジトリにトベルーラ
+function peco-src () {
+local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+fi
+}
+zle -N peco-src
+bindkey '^]' peco-src
+```
+
+```yaml
+# sheldon.toml
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+[templates]
+defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
+
+[plugins.rm-star-silent]
+inline = "setopt RM_STAR_SILENT"
+
+# https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
+[plugins.brew-completion]
+inline = 'type brew &>/dev/null && FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"'
+
+[plugins.rust-zsh-completions]
+github = "ryutok/rust-zsh-completions"
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+
+[plugins.zsh-autosuggestions]
+github = 'zsh-users/zsh-autosuggestions'
+apply = ["defer"]
+
+[plugins.wakatime-zsh-plugin]
+github = "sobolevn/wakatime-zsh-plugin"
+
+[plugins.starship]
+inline = 'eval "$(starship init zsh)"' # 別途starshipインストール
+
+[plugins.compinit]
+inline = "autoload -Uz compinit && zsh-defer compinit"
+```
+
+#### GHQ\&Peco
+
+```shell
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:longsleep/golang-backports
+sudo apt update
+sudo apt install -y golang-go
+echo 'export GOPATH=$HOME/go' >> ~/.zshrc
+echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.zshrc
+source ~/.zshrc
+go install github.com/x-motemen/ghq@latest
+git config --global ghq.root '~/git'
+sudo apt install peco -y
+```
+
+あとは
+
+```bash
+ghq get リポジトリURL
+```
+
+でウマー。
+
+#### SSH 設定
+
+TailScale SSHで一発。後で加筆します。
+
+#### 言語環境構築
+
+- [Python](https://qiita.com/youkidkk/items/c4fd58a32bf04d9ca6d6#poetry-%E3%81%AE%E5%A0%B4%E5%90%88)
+
+```shell
+sudo apt update
+sudo apt install build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev curl \
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+
+curl https://pyenv.run | bash
+
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+### まとめ
+
+勘のいい人はお気付きの通り、これはMac風魔改造です。\
+これも「MacからWinはできないが逆はできる」というWindowsのカスタマイズ性の賜物ということで一つお願いします。（？？？？？？）
+
+ではでは、Happy Hacking!
