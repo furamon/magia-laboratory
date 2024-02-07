@@ -32,7 +32,7 @@ export default defineConfig({
 		remotePatterns: [
 			{
 				protocol: 'https',
-				hostname: 'assets.tina.io/**'
+				hostname: 'assets.tina.io/*'
 			}
 		]
 	}
