@@ -227,7 +227,7 @@
 			}
 		],
 		"config": {
-			"media": { "tina": { "publicFolder": "", "mediaRoot": "/src/assets/images" } },
+			"media": { "tina": { "publicFolder": "public", "mediaRoot": "images" } },
 			"search": {
 				"tina": {
 					"indexerToken": "533dbe2444a0bc2fc792614b979725015b934f6f",
