@@ -7,7 +7,6 @@ import { remarkReadingTime } from './src/utils/readTime.ts'
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://magialaboratory.com/',
-	// Write here your website url
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
 		drafts: true,
@@ -20,7 +19,10 @@ export default defineConfig({
 		mdx({
 			syntaxHighlight: 'shiki',
 			shikiConfig: {
-				theme: 'material-theme-palenight',
+				experimentalThemes: {
+					light: 'vitesse-light',
+					dark: 'material-theme-palenight'
+				},
 				wrap: true
 			},
 			drafts: true
