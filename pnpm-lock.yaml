@@ -10,7 +10,7 @@ dependencies:
     version: 4.0.5
   astro:
     specifier: 4.5.5
-    version: 4.5.5(typescript@5.4.2)
+    version: 4.5.5(typescript@5.4.3)
   astro-font:
     specifier: ^0.0.78
     version: 0.0.78
@@ -36,7 +36,7 @@ devDependencies:
     version: 1.5.42(@babel/core@7.24.0)(react-dom@18.2.0)(react@18.2.0)
   '@typescript-eslint/parser':
     specifier: ^7.2.0
-    version: 7.2.0(eslint@8.57.0)(typescript@5.4.2)
+    version: 7.2.0(eslint@8.57.0)(typescript@5.4.3)
   clsx:
     specifier: 2.1.0
     version: 2.1.0
@@ -89,8 +89,8 @@ devDependencies:
     specifier: ^1.6.0
     version: 1.6.0(@babel/core@7.24.0)(react-dom@18.2.0)(react@18.2.0)
   typescript:
-    specifier: ^5.4.2
-    version: 5.4.2
+    specifier: ^5.4.3
+    version: 5.4.3
 
 packages:
 
@@ -183,7 +183,7 @@ packages:
       '@astrojs/markdown-remark': 4.3.0
       '@mdx-js/mdx': 3.0.1
       acorn: 8.11.3
-      astro: 4.5.5(typescript@5.4.2)
+      astro: 4.5.5(typescript@5.4.3)
       es-module-lexer: 1.4.1
       estree-util-visit: 2.0.0
       github-slugger: 2.0.0
@@ -226,7 +226,7 @@ packages:
       astro: ^3.0.0 || ^4.0.0
       tailwindcss: ^3.0.24
     dependencies:
-      astro: 4.5.5(typescript@5.4.2)
+      astro: 4.5.5(typescript@5.4.3)
       autoprefixer: 10.4.18(postcss@8.4.35)
       postcss: 8.4.35
       postcss-load-config: 4.0.2(postcss@8.4.35)
@@ -1651,7 +1651,7 @@ packages:
     dependencies:
       '@graphql-tools/utils': 9.2.1(graphql@15.8.0)
       graphql: 15.8.0
-      tslib: 2.4.1
+      tslib: 2.6.2
     dev: true
 
   /@graphql-tools/optimize@1.4.0(graphql@15.8.0):
@@ -1660,7 +1660,7 @@ packages:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
     dependencies:
       graphql: 15.8.0
-      tslib: 2.4.1
+      tslib: 2.6.2
     dev: true
 
   /@graphql-tools/optimize@2.0.0(graphql@15.8.0):
@@ -1681,7 +1681,7 @@ packages:
       '@ardatan/relay-compiler': 12.0.0(graphql@15.8.0)
       '@graphql-tools/utils': 9.2.1(graphql@15.8.0)
       graphql: 15.8.0
-      tslib: 2.4.1
+      tslib: 2.6.2
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -1710,7 +1710,7 @@ packages:
       '@graphql-tools/merge': 8.4.2(graphql@15.8.0)
       '@graphql-tools/utils': 9.2.1(graphql@15.8.0)
       graphql: 15.8.0
-      tslib: 2.4.1
+      tslib: 2.6.2
       value-or-promise: 1.0.12
     dev: true
 
@@ -1733,7 +1733,7 @@ packages:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
     dependencies:
       graphql: 15.8.0
-      tslib: 2.4.1
+      tslib: 2.6.2
     dev: true
 
   /@graphql-tools/utils@9.2.1(graphql@15.8.0):
@@ -1743,7 +1743,7 @@ packages:
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@15.8.0)
       graphql: 15.8.0
-      tslib: 2.4.1
+      tslib: 2.6.2
     dev: true
 
   /@graphql-typed-document-node/core@3.2.0(graphql@15.8.0):
@@ -4230,7 +4230,7 @@ packages:
   /@types/unist@3.0.2:
     resolution: {integrity: sha512-dqId9J8K/vGi5Zr7oo212BGii5m3q5Hxlkwy3WpYuKPklmBEvsbMYYyLxAQpSffdLl/gdW0XUpKWFvYmyoWCoQ==}
 
-  /@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.4.2):
+  /@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.4.3):
     resolution: {integrity: sha512-5FKsVcHTk6TafQKQbuIVkXq58Fnbkd2wDL4LB7AURN7RUOu1utVP+G8+6u3ZhEroW3DF6hyo3ZEXxgKgp4KeCg==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
@@ -4242,11 +4242,11 @@ packages:
     dependencies:
       '@typescript-eslint/scope-manager': 7.2.0
       '@typescript-eslint/types': 7.2.0
-      '@typescript-eslint/typescript-estree': 7.2.0(typescript@5.4.2)
+      '@typescript-eslint/typescript-estree': 7.2.0(typescript@5.4.3)
       '@typescript-eslint/visitor-keys': 7.2.0
       debug: 4.3.4
       eslint: 8.57.0
-      typescript: 5.4.2
+      typescript: 5.4.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4277,7 +4277,7 @@ packages:
     engines: {node: ^16.0.0 || >=18.0.0}
     dev: true
 
-  /@typescript-eslint/typescript-estree@7.2.0(typescript@5.4.2):
+  /@typescript-eslint/typescript-estree@7.2.0(typescript@5.4.3):
     resolution: {integrity: sha512-cyxS5WQQCoBwSakpMrvMXuMDEbhOo9bNHHrNcEWis6XHx6KF518tkF1wBvKIn/tpq5ZpUYK7Bdklu8qY0MsFIA==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
@@ -4293,8 +4293,8 @@ packages:
       is-glob: 4.0.3
       minimatch: 9.0.3
       semver: 7.6.0
-      ts-api-utils: 1.3.0(typescript@5.4.2)
-      typescript: 5.4.2
+      ts-api-utils: 1.3.0(typescript@5.4.3)
+      typescript: 5.4.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -7702,7 +7702,7 @@ packages:
     resolution: {integrity: sha512-4Wz1aTZRUsae1C6hbS/6eahsVlSlq8pNa6sbPUJLjU3XEf1pTBVuk+VRwtxE4uI4D1M7YgG8vYMC+HYXtarbyw==}
     dev: false
 
-  /astro@4.5.5(typescript@5.4.2):
+  /astro@4.5.5(typescript@5.4.3):
     resolution: {integrity: sha512-gZ3jR06dLmY9/SMkKMr+3pRSrUjhuwjnXt+9abFJV3WGwhCnLZbSNsTBrLMsaFHpAS1ReJChcTWyKRCvs/jCIQ==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
@@ -7760,7 +7760,7 @@ packages:
       shiki: 1.2.0
       string-width: 7.1.0
       strip-ansi: 7.1.0
-      tsconfck: 3.0.3(typescript@5.4.2)
+      tsconfck: 3.0.3(typescript@5.4.3)
       unist-util-visit: 5.0.0
       vfile: 6.0.1
       vite: 5.1.6
@@ -15082,20 +15082,20 @@ packages:
   /trough@2.2.0:
     resolution: {integrity: sha512-tmMpK00BjZiUyVyvrBK7knerNgmgvcV/KLVyuma/SC+TQN167GrMRciANTz09+k3zW8L8t60jWO1GpfkZdjTaw==}
 
-  /ts-api-utils@1.3.0(typescript@5.4.2):
+  /ts-api-utils@1.3.0(typescript@5.4.3):
     resolution: {integrity: sha512-UQMIo7pb8WRomKR1/+MFVLTroIvDVtMX3K6OUir8ynLyzB8Jeriont2bTAtmNPa1ekAgN7YPDyf6V+ygrdU+eQ==}
     engines: {node: '>=16'}
     peerDependencies:
       typescript: '>=4.2.0'
     dependencies:
-      typescript: 5.4.2
+      typescript: 5.4.3
     dev: true
 
   /ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
-  /tsconfck@3.0.3(typescript@5.4.2):
+  /tsconfck@3.0.3(typescript@5.4.3):
     resolution: {integrity: sha512-4t0noZX9t6GcPTfBAbIbbIU4pfpCwh0ueq3S4O/5qXI1VwK1outmxhe9dOiEWqMz3MW2LKgDTpqWV+37IWuVbA==}
     engines: {node: ^18 || >=20}
     hasBin: true
@@ -15105,7 +15105,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      typescript: 5.4.2
+      typescript: 5.4.3
 
   /tslib@2.4.1:
     resolution: {integrity: sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==}
@@ -15218,8 +15218,8 @@ packages:
     hasBin: true
     dev: true
 
-  /typescript@5.4.2:
-    resolution: {integrity: sha512-+2/g0Fds1ERlP6JsakQQDXjZdZMM+rqpamFZJEKh4kwTIn3iDkgKtby0CeNd5ATNZ4Ry1ax15TMx0W2V+miizQ==}
+  /typescript@5.4.3:
+    resolution: {integrity: sha512-KrPd3PKaCLr78MalgiwJnA25Nm8HAmdwN3mYUYZgG/wizIo9EainNVQI9/yDavtVFRN2h3k8uf3GLHuhDMgEHg==}
     engines: {node: '>=14.17'}
     hasBin: true
 
