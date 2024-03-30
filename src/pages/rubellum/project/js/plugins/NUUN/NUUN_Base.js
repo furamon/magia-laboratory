@@ -177,6 +177,7 @@ function Sprite_NuunAPngImg() {
 
 Sprite_NuunAPngImg.prototype = Object.create(Sprite.prototype)
 Sprite_NuunAPngImg.prototype.constructor = Sprite_NuunAPngImg
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_Base')
 

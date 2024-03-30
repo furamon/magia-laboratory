@@ -30,6 +30,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_BattleStyleEXInMPP_Pseudo3DBattle = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_BattleStyleEXInMPP_Pseudo3DBattle')
 

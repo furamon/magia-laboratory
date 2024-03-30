@@ -1305,6 +1305,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_StatusScreen = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_StatusScreen')
 	const DecimalMode = eval(parameters['DecimalMode'] || 'true')

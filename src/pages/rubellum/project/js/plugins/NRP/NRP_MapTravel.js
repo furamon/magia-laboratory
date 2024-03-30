@@ -1177,6 +1177,7 @@
 
 // 幅・高さ参照用のマップデータ
 $dataMapTempSpot = null
+
 ;(function () {
 	'use strict'
 

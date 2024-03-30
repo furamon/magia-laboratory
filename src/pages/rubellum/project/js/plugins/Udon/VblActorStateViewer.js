@@ -172,6 +172,7 @@ RPGツクールMZ Version 1.6.1 で動作確認。
 
 var Imported = Imported || {}
 Imported['VblActorStateViewer'] = 1.0
+
 ;(() => {
 	'use strict'
 

@@ -110,6 +110,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_StatusParamEX = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_StatusParamEX')
 	let limitHP = Number(parameters['limitHP'] || -1)

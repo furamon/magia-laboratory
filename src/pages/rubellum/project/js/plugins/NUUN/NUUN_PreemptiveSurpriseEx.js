@@ -500,6 +500,7 @@
 
 var Imported = Imported || {}
 Imported.NNUUN_PreemptiveSurpriseEx = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_PreemptiveSurpriseEx')
 	const PreemptiveSurpriseSetting =

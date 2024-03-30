@@ -136,6 +136,7 @@
 		name: getPluginName(),
 		parameter: readParameter()
 	}
+
 	;(() => {
 		/**
 		 * メニュー項目の追加

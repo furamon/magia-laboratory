@@ -1042,6 +1042,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_GaugeValueEX = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_GaugeValueEX')
 	const ValueDigits = String(parameters['ValueDigits'])

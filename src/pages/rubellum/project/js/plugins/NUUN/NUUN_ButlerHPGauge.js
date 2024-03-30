@@ -379,6 +379,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_ButlerHPGauge = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_ButlerHPGauge')
 	const HPPosition = Number(parameters['HPPosition'] || 0)

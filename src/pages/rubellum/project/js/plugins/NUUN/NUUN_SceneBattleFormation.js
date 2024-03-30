@@ -246,6 +246,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_SceneBattleFormation = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_SceneBattleFormation')
 	const parameters2 = PluginManager.parameters('NUUN_SceneFormation')

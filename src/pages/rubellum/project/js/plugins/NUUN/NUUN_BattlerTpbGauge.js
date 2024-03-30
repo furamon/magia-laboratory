@@ -206,6 +206,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_BattlerTpbGauge = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_BattlerTpbGauge')
 	const ActorTpbPosition = Number(parameters['ActorTpbPosition'] || -1)

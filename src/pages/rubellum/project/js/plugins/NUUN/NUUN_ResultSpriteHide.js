@@ -45,6 +45,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_ResultSpriteHide = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_ResultSpriteHide')
 	const SptiteHideObj =

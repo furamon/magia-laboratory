@@ -563,6 +563,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_CommandIcon = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_CommandIcon')
 	const CommadData = DataManager.nuun_structureData(parameters['CommadIcon'])

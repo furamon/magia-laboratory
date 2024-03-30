@@ -1320,6 +1320,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_SaveScreen = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_SaveScreen')
 	const BackUiWidth = eval(parameters['BackUiWidth'] || 'true')

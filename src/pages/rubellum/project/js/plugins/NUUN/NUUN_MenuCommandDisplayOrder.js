@@ -95,6 +95,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_MenuCommandDisplayOrder = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_MenuCommandDisplayOrder')
 	const MenuCommandSetting =

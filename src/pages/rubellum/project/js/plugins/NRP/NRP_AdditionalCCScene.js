@@ -993,6 +993,7 @@ function Windows_SelectClasses() {
 
 Windows_SelectClasses.prototype = Object.create(Window_Selectable.prototype)
 Windows_SelectClasses.prototype.constructor = Windows_SelectClasses
+
 ;(function () {
 	'use strict'
 

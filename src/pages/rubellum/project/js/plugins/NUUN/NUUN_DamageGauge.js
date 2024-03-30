@@ -211,6 +211,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_DamageGauge = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_DamageGauge')
 	const DamageGaugeSetting =

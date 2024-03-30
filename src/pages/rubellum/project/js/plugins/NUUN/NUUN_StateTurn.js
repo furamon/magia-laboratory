@@ -223,6 +223,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_StateTurn = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_StateTurn')
 	const ActorStateIconVisible = eval(parameters['ActorStateIconVisible'] || 'true')

@@ -268,6 +268,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_EventRange = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_EventRange')
 	const EventRecognitionRange = Number(parameters['EventRecognitionRange'] || 30)

@@ -45,6 +45,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_NotButtonUI = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_NotButtonUI')
 

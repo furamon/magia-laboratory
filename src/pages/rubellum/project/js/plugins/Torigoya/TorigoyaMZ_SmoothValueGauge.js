@@ -91,6 +91,7 @@
 		name: getPluginName(),
 		parameter: readParameter()
 	}
+
 	;(() => {
 		Torigoya.SmoothValueGauge.parameter.advancedTargetClassList.forEach((targetSpriteName) => {
 			const targetSprite = findGlobalObject(targetSpriteName.trim())

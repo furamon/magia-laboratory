@@ -74,6 +74,7 @@ YukiKP.CriticalCalculation = YukiKP.CriticalCalculation || {}
  * ver 1.1.0 : コア1.5.0のアップデートによって
  *             動作しなくなっていた問題を修正。
  */
+
 ;(() => {
 	'use strict'
 	const pluginName = 'YKP_CriticalCalculation'

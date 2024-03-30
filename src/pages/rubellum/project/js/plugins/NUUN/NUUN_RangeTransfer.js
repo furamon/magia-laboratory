@@ -84,6 +84,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_RangeTransfer = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_RangeTransfer')
 	const RangeTransferModeSwitchId = Number(parameters['RangeTransferModeSwitchId'] || 0)

@@ -36,6 +36,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_StateTurnCount = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_StateTurnCount')
 	const StateTurnReset = eval(parameters['StateTurnReset'] || 'false')

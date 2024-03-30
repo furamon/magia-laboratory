@@ -538,6 +538,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_PassiveSkill = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_PassiveSkill')
 	const PassiveSkillConditions =

@@ -188,6 +188,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_ManaShield = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_ManaShield')
 	const MPShieldMode = eval(parameters['MPShieldMode'] || 'HpDamage')

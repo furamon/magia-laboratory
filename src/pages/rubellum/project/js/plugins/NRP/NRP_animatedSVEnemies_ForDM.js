@@ -151,6 +151,7 @@ Imported.AnimatedSVEnemies = true
 
 var Rexal = Rexal || {}
 Rexal.ASVE = Rexal.ASVE || {}
+
 ;(function () {
 	'use strict'
 

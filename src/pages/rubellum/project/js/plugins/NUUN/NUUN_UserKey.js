@@ -658,6 +658,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_BankSystem = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_UserKey')
 	const UserKey =

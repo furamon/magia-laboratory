@@ -431,6 +431,7 @@
 	}
 
 	Torigoya.EnemyHpBar.Sprite_EnemyHpGauge = Sprite_EnemyHpGauge
+
 	;(() => {
 		const upstream_Sprite_Enemy_initMembers = Sprite_Enemy.prototype.initMembers
 		Sprite_Enemy.prototype.initMembers = function () {

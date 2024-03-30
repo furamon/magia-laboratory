@@ -68,6 +68,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_BattlerOverlayBase = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_BattlerOverlayBase')
 	const ConflictScale = eval(parameters['ConflictScale']) || 'Img'

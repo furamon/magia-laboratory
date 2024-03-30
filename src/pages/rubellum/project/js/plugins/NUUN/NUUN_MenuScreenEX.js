@@ -2517,6 +2517,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_MenuScreenEX = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_MenuScreenEX')
 	Nuun_PluginParams.getPluginParams(document.currentScript)

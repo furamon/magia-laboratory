@@ -127,6 +127,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_TpCircularGauge = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_TpCircularGauge')
 	const TPFontSize = Number(parameters['TPFontSize'] || -6)

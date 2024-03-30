@@ -52,6 +52,7 @@
 			return this.isCastingTimeGauge() ? this._battler.tpbCastTime() : base.apply(this, arguments)
 		}
 	})()
+
 	;(function () {
 		const base = Sprite_Gauge.prototype.currentMaxValue
 		Sprite_Gauge.prototype.currentMaxValue = function () {
@@ -60,6 +61,7 @@
 				: base.apply(this, arguments)
 		}
 	})()
+
 	;(function () {
 		const base = Sprite_Gauge.prototype.gaugeColor1
 		Sprite_Gauge.prototype.gaugeColor1 = function () {
@@ -68,6 +70,7 @@
 				: base.apply(this, arguments)
 		}
 	})()
+
 	;(function () {
 		const base = Sprite_Gauge.prototype.gaugeColor2
 		Sprite_Gauge.prototype.gaugeColor2 = function () {

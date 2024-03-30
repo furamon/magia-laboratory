@@ -29,6 +29,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_MenuStatusAllSelectFix = true
+
 ;(() => {
 	Window_Selectable.prototype.refreshCursorForAll = function () {
 		//再定義

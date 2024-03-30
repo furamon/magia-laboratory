@@ -62,6 +62,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_MaxBattleMembers = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_MaxBattleMembers')
 	const MaxBattleMemberNum = Number(parameters['MaxBattleMemberNum'] || 4)

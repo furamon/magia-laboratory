@@ -172,6 +172,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_Scope_confirmation = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_Scope_confirmation')
 	const ForUserSelect = eval(parameters['ForUserSelect'] || 'false')

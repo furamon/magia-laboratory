@@ -279,6 +279,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_StealableItems = true
+
 ;(() => {
 	'use strict'
 	const parameters = PluginManager.parameters('NUUN_StealableItems')

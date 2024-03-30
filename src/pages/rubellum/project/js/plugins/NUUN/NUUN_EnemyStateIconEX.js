@@ -95,6 +95,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_EnemyStateIconEX = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_EnemyStateIconEX')
 	const EnemyStatePosition = Number(parameters['EnemyStatePosition'] || 0)

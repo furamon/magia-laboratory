@@ -77,6 +77,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_CancelCastTime = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_CancelCastTime')
 	const CancelTpbChargeRate = eval(parameters['CancelTpbChargeRate'] || true)

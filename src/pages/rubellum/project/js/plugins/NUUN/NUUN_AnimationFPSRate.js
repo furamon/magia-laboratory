@@ -149,6 +149,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_AnimationFPSRate = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_AnimationFPSRate')
 	const param = JSON.parse(

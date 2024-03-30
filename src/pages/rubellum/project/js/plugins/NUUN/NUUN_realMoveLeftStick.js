@@ -105,6 +105,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_realMoveLeftStick = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_realMoveLeftStick')
 	const GamepadLeftStickMaxSpeed = Number(parameters['GamepadLeftStickMaxSpeed'] || 4)

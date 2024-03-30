@@ -40,6 +40,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_ItemUseCount = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_ItemUseCount')
 

@@ -73,6 +73,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_MultiElement = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_MultiElement')
 

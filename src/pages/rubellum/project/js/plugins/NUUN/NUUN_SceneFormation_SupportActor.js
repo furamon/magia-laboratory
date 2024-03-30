@@ -44,6 +44,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_SceneFormation_SupportActor = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_SceneFormation_SupportActor')
 	const parameters2 = PluginManager.parameters('NUUN_SceneFormation')

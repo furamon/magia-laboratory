@@ -147,6 +147,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_FinalAttack = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_FinalAttack')
 	const param = JSON.parse(

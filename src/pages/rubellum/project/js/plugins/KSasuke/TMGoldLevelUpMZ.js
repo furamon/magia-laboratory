@@ -148,6 +148,7 @@ Imported.TMGoldLevelUp = true
 
 TMParam = window.TMParam || {}
 TMPlugin = window.TMPlugin || {}
+
 ;(() => {
 	//
 	// process parameters

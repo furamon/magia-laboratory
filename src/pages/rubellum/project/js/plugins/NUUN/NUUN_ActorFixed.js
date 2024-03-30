@@ -83,6 +83,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_ActorFixed = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_ActorFixed')
 	const ActorFixedMovable = eval(parameters['ActorFixedMovable'] || 'false')

@@ -155,6 +155,7 @@ Imported.SS6PlayerRPGMakerMZ = true
  * @min 1
  *
  */
+
 ;(function (loaders, display, meshExtras, ticker, filterColorMatrix, constants) {
 	'use strict'
 

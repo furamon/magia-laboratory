@@ -155,6 +155,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_EventPlayerDirection = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_EventPlayerDirection')
 	const PlayerBackDirectionSwitch = Number(parameters['PlayerBackDirectionSwitch'] || 0)

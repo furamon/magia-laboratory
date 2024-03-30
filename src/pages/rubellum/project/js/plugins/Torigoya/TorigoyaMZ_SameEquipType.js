@@ -56,6 +56,7 @@
 		name: getPluginName(),
 		parameter: readParameter()
 	}
+
 	;(() => {
 		const upstream_Game_Actor_equipSlots = Game_Actor.prototype.equipSlots
 		Game_Actor.prototype.equipSlots = function () {

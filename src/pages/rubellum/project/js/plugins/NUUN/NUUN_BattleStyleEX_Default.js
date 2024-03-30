@@ -2808,6 +2808,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_BattleStyleEX_Default = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_BattleStyleEX_Default')
 	const params = {}

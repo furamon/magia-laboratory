@@ -400,6 +400,7 @@ function Sprite_ShopCustomizeActor() {
 }
 Sprite_ShopCustomizeActor.prototype = Object.create(Sprite.prototype)
 Sprite_ShopCustomizeActor.prototype.constructor = Sprite_ShopCustomizeActor
+
 ;(function () {
 	'use strict'
 

@@ -776,6 +776,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_ConditionsBase = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_ConditionsBase')
 	const TriggerConditions =

@@ -31,6 +31,7 @@
 
 var Imported = Imported || {}
 Imported[PluginManagerEx.findPluginName(document.currentScript)] = true
+
 ;(() => {
 	'use strict'
 

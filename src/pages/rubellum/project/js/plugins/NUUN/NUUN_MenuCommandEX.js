@@ -417,6 +417,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_MenuCommandEX = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_MenuCommandEX')
 	const MenuCommandSetting =

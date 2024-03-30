@@ -784,6 +784,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_PartyLimitGauge = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_PartyLimitGauge')
 	try {

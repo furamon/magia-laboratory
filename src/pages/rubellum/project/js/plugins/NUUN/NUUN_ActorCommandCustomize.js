@@ -88,6 +88,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_ActorCommandCustomize = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_ActorCommandCustomize')
 	const ActorCommand =

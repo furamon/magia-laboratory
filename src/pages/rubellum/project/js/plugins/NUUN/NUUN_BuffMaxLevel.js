@@ -155,6 +155,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_BuffMaxLevel = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_BuffMaxLevel')
 	const buffParams = []

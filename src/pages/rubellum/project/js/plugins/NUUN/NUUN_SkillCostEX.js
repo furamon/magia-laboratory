@@ -235,6 +235,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_SkillCostEX = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_SkillCostEX')
 

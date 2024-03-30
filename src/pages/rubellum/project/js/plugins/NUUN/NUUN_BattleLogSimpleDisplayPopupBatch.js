@@ -391,6 +391,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_BattleLogSimpleDisplayPopupBatch = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_BattleLogSimpleDisplayPopupBatch')
 	const LogWindowMode = Number(parameters['LogWindowMode'] || 1)

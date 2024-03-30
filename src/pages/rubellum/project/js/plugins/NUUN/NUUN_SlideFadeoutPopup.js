@@ -149,6 +149,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_SlideFadeoutPopup = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_SlideFadeoutPopup')
 	const PopupClass =

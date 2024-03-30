@@ -183,6 +183,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_LateralBoundPopUp = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_LateralBoundPopUp')
 	const PopupClass =

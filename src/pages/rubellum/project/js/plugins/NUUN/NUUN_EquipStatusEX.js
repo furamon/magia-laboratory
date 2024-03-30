@@ -1665,6 +1665,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_EquipStatusEX = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_EquipStatusEX')
 	const ContentsHeight = Number(parameters['ContentsHeight'] || 36)

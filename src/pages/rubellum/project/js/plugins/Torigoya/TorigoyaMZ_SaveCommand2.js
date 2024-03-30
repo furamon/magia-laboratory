@@ -125,6 +125,7 @@
 		isBusy: false,
 		requestCall: undefined
 	}
+
 	;(() => {
 		// -------------------------------------------------------------------------
 		// Game_Interpreter

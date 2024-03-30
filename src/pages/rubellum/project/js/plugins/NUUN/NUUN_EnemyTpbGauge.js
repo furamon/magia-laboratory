@@ -117,6 +117,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_EnemyTpbGauge = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_EnemyTpbGauge')
 	const TpbPosition = Number(parameters['TpbPosition'] || 0)

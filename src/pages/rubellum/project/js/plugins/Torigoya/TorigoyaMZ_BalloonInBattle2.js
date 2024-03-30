@@ -1538,6 +1538,7 @@
 	}
 
 	Torigoya.BalloonInBattle.TalkBuilder = new TalkBuilder()
+
 	;(() => {
 		const talkSetCache = new Map()
 

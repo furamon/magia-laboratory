@@ -138,6 +138,7 @@
 $dynamicReadText = []
 // 読込判定に使う一時領域
 $dynamicReadTextTemp = []
+
 ;(function () {
 	'use strict'
 

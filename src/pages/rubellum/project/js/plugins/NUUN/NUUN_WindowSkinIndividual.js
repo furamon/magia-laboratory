@@ -199,6 +199,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_WindowSkinIndividual = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_WindowSkinIndividual')
 	const WindowSkinIndividual =

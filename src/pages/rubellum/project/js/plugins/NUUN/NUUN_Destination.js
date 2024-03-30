@@ -61,6 +61,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_Destination = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_Destination')
 	const DestinationList =

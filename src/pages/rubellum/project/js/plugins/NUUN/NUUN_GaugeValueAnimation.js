@@ -152,6 +152,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_GaugeValueAnimation = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_GaugeValueAnimation')
 	const UpdateFlameValue =

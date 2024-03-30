@@ -54,6 +54,7 @@ function Sprite_NUUN_RadarChart() {
 
 Sprite_NUUN_RadarChart.prototype = Object.create(Sprite.prototype)
 Sprite_NUUN_RadarChart.prototype.constructor = Sprite_NUUN_RadarChart
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_RadarChartBase')
 	const ChartBaseWidth = Number(parameters['ChartBaseWidth'] || 300)

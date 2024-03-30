@@ -647,6 +647,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_SkillCostShowEX = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_SkillCostShowEX')
 	const CostWidth = String(parameters['CostWidth'] || '000')

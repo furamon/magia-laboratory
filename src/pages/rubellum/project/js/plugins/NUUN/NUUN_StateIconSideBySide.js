@@ -548,6 +548,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_StateIconSideBySide = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_StateIconSideBySide')
 	let StateIconWidth = Number(parameters['StateIconWidth'] || 0)

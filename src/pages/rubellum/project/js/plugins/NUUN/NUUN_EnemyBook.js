@@ -6121,6 +6121,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_EnemyBook = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_EnemyBook')
 

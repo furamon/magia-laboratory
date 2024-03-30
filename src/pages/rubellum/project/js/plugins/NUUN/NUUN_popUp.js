@@ -838,6 +838,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_popUp = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_popUp')
 	const PopUpMode = eval(parameters['PopUpMode']) || 'default'

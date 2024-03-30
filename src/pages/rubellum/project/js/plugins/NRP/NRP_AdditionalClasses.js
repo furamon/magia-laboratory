@@ -1129,6 +1129,7 @@ AdditionalClass.prototype.initialize = function (actor, classId) {
 	this._data = $dataClasses[classId]
 	this.setLevel()
 }
+
 ;(function () {
 	'use strict'
 

@@ -250,6 +250,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_SkillLearning = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_SkillLearning')
 	const SkillLearningText = String(parameters['SkillLearningText'])

@@ -882,6 +882,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_SymbolEncounter = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_SymbolEncounter')
 	const SymbolEncountSetting =

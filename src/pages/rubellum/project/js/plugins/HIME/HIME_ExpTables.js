@@ -136,6 +136,7 @@ var Imported = Imported || {}
 var TH = TH || {}
 Imported.ExpTables = 1
 TH.ExpTables = TH.ExpTables || {}
+
 ;(function ($) {
 	$.params = PluginManager.parameters('HIME_ExpTables')
 	$.actorFilename = $.params['Actor Exp Filename'].trim()

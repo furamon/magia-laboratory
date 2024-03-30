@@ -294,6 +294,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_BattleStyleEX = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_BattleStyleEX')
 	const params = NuunManager.getBattleStyleParams()

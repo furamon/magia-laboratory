@@ -336,6 +336,7 @@
  */
 var Imported = Imported || {}
 Imported.NUUN_BattlerMPGauge = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_BattlerMPGauge')
 	const MPPosition = Number(parameters['MPPosition'] || 0)

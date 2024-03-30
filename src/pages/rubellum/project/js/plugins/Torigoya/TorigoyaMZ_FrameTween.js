@@ -356,6 +356,7 @@
 		group: Tween._globalGroup,
 		create: Tween.create
 	}
+
 	;(() => {
 		const upstream_updateScene = SceneManager.updateScene
 		SceneManager.updateScene = function () {

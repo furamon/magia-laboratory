@@ -507,6 +507,7 @@
 
 var Imported = Imported || {}
 Imported.NUUN_EnemyCondPicture = true
+
 ;(() => {
 	const parameters = PluginManager.parameters('NUUN_EnemyCondPicture')
 	const EnemyCondPictureData =
