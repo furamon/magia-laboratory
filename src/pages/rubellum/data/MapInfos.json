@@ -1,0 +1,80 @@
+[
+	{
+		"id": 0,
+		"expanded": true,
+		"name": "廃墟",
+		"order": 1,
+		"parentId": 0,
+		"scrollX": 604.5,
+		"scrollY": 793
+	},
+	{
+		"id": 1,
+		"expanded": true,
+		"name": "---テンプレイベント---",
+		"order": 1,
+		"parentId": 0,
+		"scrollX": 614,
+		"scrollY": 792.5
+	},
+	{
+		"id": 2,
+		"expanded": true,
+		"name": "拠点",
+		"order": 2,
+		"parentId": 0,
+		"scrollX": 614,
+		"scrollY": 792.5,
+		"quick": false
+	},
+	{
+		"id": 3,
+		"expanded": true,
+		"name": "D1:てすっと",
+		"order": 3,
+		"parentId": 0,
+		"scrollX": 614,
+		"scrollY": 792.5,
+		"quick": false
+	},
+	{
+		"id": 4,
+		"expanded": true,
+		"name": "1階",
+		"order": 4,
+		"parentId": 3,
+		"scrollX": 614,
+		"scrollY": 793.5,
+		"quick": false
+	},
+	{
+		"id": 5,
+		"expanded": true,
+		"name": "D2:らすだーん",
+		"order": 5,
+		"parentId": 0,
+		"scrollX": 614,
+		"scrollY": 792.5,
+		"quick": false
+	},
+	{
+		"id": 6,
+		"expanded": true,
+		"name": "1階",
+		"order": 6,
+		"parentId": 5,
+		"scrollX": 614,
+		"scrollY": 792.5,
+		"quick": false
+	},
+	{
+		"id": 7,
+		"expanded": true,
+		"name": "2階",
+		"order": 7,
+		"parentId": 5,
+		"scrollX": 626,
+		"scrollY": 792.5,
+		"quick": false
+	}
+]
