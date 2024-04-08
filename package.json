@@ -34,20 +34,20 @@
 	},
 	"dependencies": {
 		"@astrojs/rss": "4.0.5",
-		"astro": "4.5.5",
-		"astro-font": "^0.0.78"
+		"astro": "4.5.16",
+		"astro-font": "^0.0.80"
 	},
 	"devDependencies": {
-		"@astrojs/mdx": "2.2.0",
-		"@astrojs/sitemap": "3.1.1",
+		"@astrojs/mdx": "2.2.4",
+		"@astrojs/sitemap": "3.1.2",
 		"@astrojs/tailwind": "5.1.0",
 		"@pagefind/default-ui": "^1.1.0",
-		"@tailwindcss/typography": "0.5.10",
+		"@tailwindcss/typography": "0.5.12",
 		"@tinacms/cli": "^1.5.43",
-		"@typescript-eslint/parser": "^7.5.0",
+		"@typescript-eslint/parser": "^7.6.0",
 		"clsx": "2.1.0",
-		"eslint": "^8.57.0",
-		"eslint-plugin-astro": "^0.31.4",
+		"eslint": "^9.0.0",
+		"eslint-plugin-astro": "^0.34.0",
 		"eslint-plugin-jsx-a11y": "^6.8.0",
 		"husky": "^9.0.11",
 		"lint-staged": "^15.2.2",
@@ -60,7 +60,7 @@
 		"reading-time": "^1.5.0",
 		"slugify": "^1.6.6",
 		"tailwind-merge": "2.2.2",
-		"tailwindcss": "3.4.1",
+		"tailwindcss": "3.4.3",
 		"tinacms": "^1.6.1",
 		"typescript": "^5.4.4"
 	},
