@@ -49,6 +49,20 @@ const lily = defineCollection({
 		})
 })
 
+const novel = defineCollection({
+	// Type-check frontmatter using a schema
+	schema: () =>
+		z.object({
+			title: z.string().max(80),
+			pubDate: z
+				.string()
+				.or(z.date())
+				.transform((val) => new Date(val)),
+			draft: z.boolean().default(false),
+			rssSchema
+		})
+})
+
 export const blogCollections = {
 	blog
 }
@@ -59,4 +73,8 @@ export const gameCollections = {
 
 export const lilyCollections = {
 	lily
+}
+
+export const novelCollections = {
+	novel
 }

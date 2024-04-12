@@ -201,6 +201,54 @@ export default defineConfig({
 						]
 					}
 				]
+			},
+			{
+				name: 'novel',
+				label: 'Novel Page',
+				path: 'src/content/novel',
+				format: 'mdx',
+				fields: [
+					{
+						type: 'datetime',
+						name: 'pubDate',
+						label: 'Publication Date',
+						required: true
+					},
+					{
+						name: 'draft',
+						label: 'Draft',
+						type: 'boolean',
+						description: 'If this is checked the post will not be published'
+					},
+					{
+						type: 'string',
+						name: 'title',
+						label: 'Title',
+						isTitle: true,
+						required: true
+					},
+					{
+						type: 'rich-text',
+						label: 'Body',
+						name: 'SButton',
+						isBody: true,
+						templates: [
+							// Custom Components
+							{
+								label: 'SButton',
+								name: 'SButton',
+								fields: [
+									{
+										type: 'rich-text',
+										label: 'SButton',
+										name: 'children',
+										isBody: true
+									}
+								]
+							}
+						]
+					}
+				]
 			}
 		]
 	},

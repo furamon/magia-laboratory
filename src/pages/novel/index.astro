@@ -1,0 +1,57 @@
+---
+import BaseLayout from '@/layouts/BaseLayout'
+---
+
+<BaseLayout title='Novel'>
+	<div class='flex flex-col container mx-auto [&>p]:mb-4'>
+		<h1 class='text-4xl font-bold text-center mb-8'>Yggdrasil Rubellum - ユグドラシル・ルベルム</h1>
+		<p>
+			はるかかなたの世界。生き物が生まれて間もない頃に、破壊と殺戮を繰り返す邪神竜ーーガルザインがいた。<br
+			/>
+			激しい神々との戦いの末、邪竜ガルザインを封じるべく一人の人間の勇者が立ち上がった。<br />
+			その勇者リリエルは幾重にも日が沈み登る勝負の末、ガルザインを封じた。<br />
+
+			そしてその文明はいつしか大木ーー世界樹を作り上げた。<br />
+			その大木、世界樹を人々が渡り行き交い、人間、亜人、魔物、機械、魔法ーー数多の文明が交錯する中、すべての垣根を超えて暮らしていた。<br
+			/>
+			ガルザインの名前も時の流れでおとぎ話として忘れられようとしていた……。<br />
+		</p>
+		<p>
+			※主人公とヒロインともに女性の王道ファンタジー（機械あり）だよ<br />
+			※完結の保証はないよ。あしからず。
+		</p>
+
+		<div class='grid gap-4 grid-cols-1 sm:grid-cols-2 my-8 [&>div]:flex [&>div]:flex-col'>
+			<div>
+				<a href='/novel/toc' class='btn-game'> ストーリー本編</a>
+			</div>
+			<div>
+				<a href='#' class='btn-game'>設定資料</a>
+			</div>
+		</div>
+	</div>
+</BaseLayout>
+
+<style>
+	.btn-game {
+		@apply bg-gray-600 hover:bg-gray-400 text-white rounded-full text-2xl text-center py-2 m-3;
+	}
+</style>
+
+<script>
+	import { animate } from 'motion'
+	const showAnimations = localStorage.getItem('animations') === 'true'
+
+	if (showAnimations) {
+		animate(
+			'.title',
+			{ y: [80, 0], opacity: [0, 1] },
+			{
+				duration: 2.5,
+				opacity: { duration: 3 },
+
+				offset: [0, 0.55, 0.75]
+			}
+		)
+	}
+</script>
