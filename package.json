@@ -34,20 +34,20 @@
 	},
 	"dependencies": {
 		"@astrojs/rss": "4.0.5",
-		"astro": "4.6.1",
+		"astro": "4.6.3",
 		"astro-font": "^0.0.80",
 		"sharp": "^0.33.3"
 	},
 	"devDependencies": {
-		"@astrojs/mdx": "2.3.0",
-		"@astrojs/sitemap": "3.1.2",
+		"@astrojs/mdx": "2.3.1",
+		"@astrojs/sitemap": "3.1.4",
 		"@astrojs/tailwind": "5.1.0",
 		"@pagefind/default-ui": "^1.1.0",
 		"@tailwindcss/typography": "0.5.12",
 		"@tinacms/cli": "^1.5.43",
 		"@typescript-eslint/parser": "^7.7.0",
 		"clsx": "2.1.0",
-		"eslint": "^9.0.0",
+		"eslint": "^9.1.0",
 		"eslint-plugin-astro": "^0.34.0",
 		"eslint-plugin-jsx-a11y": "^6.8.0",
 		"husky": "^9.0.11",
@@ -60,7 +60,7 @@
 		"prettier-plugin-astro": "^0.13.0",
 		"reading-time": "^1.5.0",
 		"slugify": "^1.6.6",
-		"tailwind-merge": "2.2.2",
+		"tailwind-merge": "2.3.0",
 		"tailwindcss": "3.4.3",
 		"tinacms": "^1.6.1",
 		"typescript": "^5.4.5"
@@ -75,5 +75,6 @@
 			"sharp": "^0.33.0",
 			"better-sqlite3": "^9.4.5"
 		}
-	}
+	},
+	"packageManager": "pnpm@9.0.4+sha512.c374b52de3de88c58fd8333df664a737279cdb0e1344ba4054d3b1fffa9a1a3670854f755dca4f16adea3f14be9896a7fcaf167409fe0c1ad60475271dafe81a"
 }
