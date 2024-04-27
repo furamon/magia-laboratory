@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content'
 import PageLayout from '@/layouts/PageLayout'
 
 export async function getStaticPaths() {
-	const entries = await getCollection('novel')
+	const entries = await getCollection('text')
 	return entries.map((entry) => ({
 		params: { slug: entry.slug },
 		props: { entry }
