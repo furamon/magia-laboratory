@@ -17,7 +17,7 @@ importers:
         version: 4.0.5
       astro:
         specifier: 4.7.1
-        version: 4.7.1(@types/node@20.12.8)(typescript@5.4.5)
+        version: 4.7.1(@types/node@20.12.10)(typescript@5.4.5)
       astro-font:
         specifier: ^0.0.80
         version: 0.0.80
@@ -27,13 +27,13 @@ importers:
     devDependencies:
       '@astrojs/mdx':
         specifier: 2.3.1
-        version: 2.3.1(astro@4.7.1(@types/node@20.12.8)(typescript@5.4.5))
+        version: 2.3.1(astro@4.7.1(@types/node@20.12.10)(typescript@5.4.5))
       '@astrojs/sitemap':
         specifier: 3.1.4
         version: 3.1.4
       '@astrojs/tailwind':
         specifier: 5.1.0
-        version: 5.1.0(astro@4.7.1(@types/node@20.12.8)(typescript@5.4.5))(tailwindcss@3.4.3)
+        version: 5.1.0(astro@4.7.1(@types/node@20.12.10)(typescript@5.4.5))(tailwindcss@3.4.3)
       '@pagefind/default-ui':
         specifier: ^1.1.0
         version: 1.1.0
@@ -42,7 +42,7 @@ importers:
         version: 0.5.13(tailwindcss@3.4.3)
       '@tinacms/cli':
         specifier: ^1.5.45
-        version: 1.5.45(@babel/core@7.24.5)(@babel/template@7.24.0)(@types/node@20.12.8)(@types/react@18.3.1)(encoding@0.1.13)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(rollup@4.17.2)
+        version: 1.5.45(@babel/core@7.24.5)(@babel/template@7.24.0)(@types/node@20.12.10)(@types/react@18.3.1)(encoding@0.1.13)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(rollup@4.17.2)
       '@typescript-eslint/parser':
         specifier: ^7.8.0
         version: 7.8.0(eslint@9.2.0)(typescript@5.4.5)
@@ -1888,14 +1888,14 @@ packages:
   '@types/node@17.0.45':
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
 
-  '@types/node@20.12.8':
-    resolution: {integrity: sha512-NU0rJLJnshZWdE/097cdCBbyW1h4hEg0xpovcoAQYHl8dnEyp/NAOiE45pvc+Bd1Dt+2r94v2eGFpQJ4R7g+2w==}
+  '@types/node@20.12.10':
+    resolution: {integrity: sha512-Eem5pH9pmWBHoGAT8Dr5fdc5rYA+4NAovdM4EktRPVAAiJhmWWfQrA0cFhAbOsQdSfIHjAud6YdkbL69+zSKjw==}
 
   '@types/parse-json@4.0.2':
     resolution: {integrity: sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw==}
 
-  '@types/prismjs@1.26.3':
-    resolution: {integrity: sha512-A0D0aTXvjlqJ5ZILMz3rNfDBOx9hHxLZYv2by47Sm/pqW35zzjusrZTryatjN/Rf8Us2gZrJD+KeHbUSTux1Cw==}
+  '@types/prismjs@1.26.4':
+    resolution: {integrity: sha512-rlAnzkW2sZOjbqZ743IHUhFcvzaGbqijwOu8QZnZCjfQzBqFE3s4lOTJEsxikImav9uzz/42I+O7YUs1mWgMlg==}
 
   '@types/prop-types@15.7.12':
     resolution: {integrity: sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==}
@@ -3098,8 +3098,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  electron-to-chromium@1.4.756:
-    resolution: {integrity: sha512-RJKZ9+vEBMeiPAvKNWyZjuYyUqMndcP1f335oHqn3BEQbs2NFtVrnK5+6Xg5wSM9TknNNpWghGDUCKGYF+xWXw==}
+  electron-to-chromium@1.4.758:
+    resolution: {integrity: sha512-/o9x6TCdrYZBMdGeTifAP3wlF/gVT+TtWJe3BSmtNh92Mw81U9hrYwW9OAGUh+sEOX/yz5e34sksqRruZbjYrw==}
 
   emoji-regex@10.3.0:
     resolution: {integrity: sha512-QpLs9D9v9kArv4lfDEgg1X/gN5XLnf/A6l9cs8SPZLRZR3ZkY9+kwIQTxm+fsSej5UMYGE8fdoaZVIBlqG0XTw==}
@@ -3624,8 +3624,8 @@ packages:
   hast-util-parse-selector@4.0.0:
     resolution: {integrity: sha512-wkQCkSYoOGCRKERFWcxMVMOcYE2K1AaNLU8DXS9arxnLOUEWbOXKXiJUNzEpqZ3JOKpnha3jkFrumEjVliDe7A==}
 
-  hast-util-raw@9.0.2:
-    resolution: {integrity: sha512-PldBy71wO9Uq1kyaMch9AHIghtQvIwxBUkv823pKmkTM3oV1JxtsTNYdevMxvUHqcnOAuO65JKU2+0NOxc2ksA==}
+  hast-util-raw@9.0.3:
+    resolution: {integrity: sha512-ICWvVOF2fq4+7CMmtCPD5CM4QKjPbHpPotE6+8tDooV0ZuyJVUzHsrNX+O5NaRbieTf0F7FfeBOMAwi6Td0+yQ==}
 
   hast-util-to-estree@3.1.0:
     resolution: {integrity: sha512-lfX5g6hqVh9kjS/B9E2gSkvHH4SZNiQFiqWS0x9fENzEl+8W12RqdRxX6d/Cwxi30tPQs3bIO+aolQJNp1bIyw==}
@@ -4015,8 +4015,8 @@ packages:
   isomorphic-fetch@3.0.0:
     resolution: {integrity: sha512-qvUtwJ3j6qwsF3jLxkZ72qCgjMysPzDfeV240JHiGZsANBYd+EEuu35v7dfrJ9Up0Ak07D7GGSkGhCHTqg/5wA==}
 
-  isomorphic-git@1.25.8:
-    resolution: {integrity: sha512-OEiufTOmoVOsbVYTlNxIdzv8FPrJ1wMeFVajRTZqRgD5zEMsQqNZFxe2DAzA94L+SuIFp5rxzizxoIQYbrk9FA==}
+  isomorphic-git@1.25.9:
+    resolution: {integrity: sha512-s/KFSOP2/0I8EK0RreK9ZHurUW2At30jDEp1W0WUWT0ANtEKt4ArQbSgoUsZ0tyTiiUnTvR3MYx6BtrHwAEa1Q==}
     engines: {node: '>=12'}
     hasBin: true
 
@@ -4278,10 +4278,6 @@ packages:
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
-
-  lru-cache@6.0.0:
-    resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
-    engines: {node: '>=10'}
 
   magic-string@0.27.0:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
@@ -5592,8 +5588,8 @@ packages:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
     hasBin: true
 
-  semver@7.6.0:
-    resolution: {integrity: sha512-EnwXhrlwXMk9gKu5/flx5sv/an57AkRplG3hTK68W7FRDN+k+OWBj65M7719OkA82XLBxrcX0KSHj+X5COhOVg==}
+  semver@7.6.1:
+    resolution: {integrity: sha512-f/vbBsu+fOiYt+lmwZV0rVwJScl46HppnOA1ZvIuBWKOTlllpyJ3bfVax76/OrhCH38dyxoDIA8K7uB963IYgA==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -6447,9 +6443,6 @@ packages:
   yallist@3.1.1:
     resolution: {integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==}
 
-  yallist@4.0.0:
-    resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
-
   yaml@1.10.2:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
     engines: {node: '>= 6'}
@@ -6501,8 +6494,8 @@ packages:
     peerDependencies:
       zod: ^3.23.3
 
-  zod@3.23.6:
-    resolution: {integrity: sha512-RTHJlZhsRbuA8Hmp/iNL7jnfc4nZishjsanDAfEY1QpDQZCahUp3xDzl+zfweE9BklxMUcgBgS1b7Lvie/ZVwA==}
+  zod@3.23.7:
+    resolution: {integrity: sha512-NBeIoqbtOiUMomACV/y+V3Qfs9+Okr18vR5c/5pHClPpufWOrsx8TENboDPe265lFdfewX2yBtNTLPvnmCxwog==}
 
   zustand@3.7.2:
     resolution: {integrity: sha512-PIJDIZKtokhof+9+60cpockVOq05sJzHCriyvaLBmEJixseQ1a5Kdov6fWZfWOu5SK9c+FhH1jU0tntLxRJYMA==}
@@ -6578,12 +6571,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@2.3.1(astro@4.7.1(@types/node@20.12.8)(typescript@5.4.5))':
+  '@astrojs/mdx@2.3.1(astro@4.7.1(@types/node@20.12.10)(typescript@5.4.5))':
     dependencies:
       '@astrojs/markdown-remark': 5.1.0
       '@mdx-js/mdx': 3.0.1
       acorn: 8.11.3
-      astro: 4.7.1(@types/node@20.12.8)(typescript@5.4.5)
+      astro: 4.7.1(@types/node@20.12.10)(typescript@5.4.5)
       es-module-lexer: 1.5.2
       estree-util-visit: 2.0.0
       github-slugger: 2.0.0
@@ -6612,11 +6605,11 @@ snapshots:
     dependencies:
       sitemap: 7.1.1
       stream-replace-string: 2.0.0
-      zod: 3.23.6
+      zod: 3.23.7
 
-  '@astrojs/tailwind@5.1.0(astro@4.7.1(@types/node@20.12.8)(typescript@5.4.5))(tailwindcss@3.4.3)':
+  '@astrojs/tailwind@5.1.0(astro@4.7.1(@types/node@20.12.10)(typescript@5.4.5))(tailwindcss@3.4.3)':
     dependencies:
-      astro: 4.7.1(@types/node@20.12.8)(typescript@5.4.5)
+      astro: 4.7.1(@types/node@20.12.10)(typescript@5.4.5)
       autoprefixer: 10.4.19(postcss@8.4.38)
       postcss: 8.4.38
       postcss-load-config: 4.0.2(postcss@8.4.38)
@@ -7214,9 +7207,9 @@ snapshots:
     dependencies:
       tslib: 2.6.2
 
-  '@graphiql/react@0.18.0(@codemirror/language@6.0.0)(@types/node@20.12.8)(@types/react@18.3.1)(graphql@15.8.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
+  '@graphiql/react@0.18.0(@codemirror/language@6.0.0)(@types/node@20.12.10)(@types/react@18.3.1)(graphql@15.8.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@graphiql/toolkit': 0.8.4(@types/node@20.12.8)(graphql@15.8.0)
+      '@graphiql/toolkit': 0.8.4(@types/node@20.12.10)(graphql@15.8.0)
       '@headlessui/react': 1.7.19(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@radix-ui/react-dialog': 1.0.5(@types/react@18.3.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@radix-ui/react-dropdown-menu': 2.0.6(@types/react@18.3.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
@@ -7241,11 +7234,11 @@ snapshots:
       - '@types/react-dom'
       - graphql-ws
 
-  '@graphiql/toolkit@0.8.4(@types/node@20.12.8)(graphql@15.8.0)':
+  '@graphiql/toolkit@0.8.4(@types/node@20.12.10)(graphql@15.8.0)':
     dependencies:
       '@n1ru4l/push-pull-async-iterable-iterator': 3.2.0
       graphql: 15.8.0
-      meros: 1.3.0(@types/node@20.12.8)
+      meros: 1.3.0(@types/node@20.12.10)
     transitivePeerDependencies:
       - '@types/node'
 
@@ -8307,17 +8300,17 @@ snapshots:
 
   '@tanstack/virtual-core@3.5.0': {}
 
-  '@tinacms/app@1.2.41(@babel/core@7.24.5)(@babel/template@7.24.0)(@types/node@20.12.8)(@types/react@18.3.1)(yup@0.32.11)':
+  '@tinacms/app@1.2.41(@babel/core@7.24.5)(@babel/template@7.24.0)(@types/node@20.12.10)(@types/react@18.3.1)(yup@0.32.11)':
     dependencies:
       '@codemirror/language': 6.0.0
-      '@graphiql/toolkit': 0.8.4(@types/node@20.12.8)(graphql@15.8.0)
+      '@graphiql/toolkit': 0.8.4(@types/node@20.12.10)(graphql@15.8.0)
       '@headlessui/react': 1.6.6(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@heroicons/react': 1.0.6(react@17.0.2)
       '@monaco-editor/react': 4.4.5(monaco-editor@0.31.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@tinacms/mdx': 1.3.24(react@17.0.2)(yup@0.32.11)
       '@xstate/react': 3.0.0(@types/react@18.3.1)(react@17.0.2)
       final-form: 4.20.10
-      graphiql: 3.0.0-alpha.1(@codemirror/language@6.0.0)(@types/node@20.12.8)(@types/react@18.3.1)(graphql@15.8.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
+      graphiql: 3.0.0-alpha.1(@codemirror/language@6.0.0)(@types/node@20.12.10)(@types/react@18.3.1)(graphql@15.8.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       graphql: 15.8.0
       monaco-editor: 0.31.0
       postcss: 8.4.38
@@ -8327,7 +8320,7 @@ snapshots:
       tailwindcss: 3.4.3
       tinacms: 1.6.3(@babel/core@7.24.5)(@babel/template@7.24.0)(@types/react@18.3.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       typescript: 4.9.5
-      zod: 3.23.6
+      zod: 3.23.7
     transitivePeerDependencies:
       - '@babel/core'
       - '@babel/template'
@@ -8351,7 +8344,7 @@ snapshots:
       - xstate
       - yup
 
-  '@tinacms/cli@1.5.45(@babel/core@7.24.5)(@babel/template@7.24.0)(@types/node@20.12.8)(@types/react@18.3.1)(encoding@0.1.13)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(rollup@4.17.2)':
+  '@tinacms/cli@1.5.45(@babel/core@7.24.5)(@babel/template@7.24.0)(@types/node@20.12.10)(@types/react@18.3.1)(encoding@0.1.13)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(rollup@4.17.2)':
     dependencies:
       '@graphql-codegen/core': 2.6.8(graphql@15.8.0)
       '@graphql-codegen/plugin-helpers': 5.0.3(graphql@15.8.0)
@@ -8367,13 +8360,13 @@ snapshots:
       '@tailwindcss/aspect-ratio': 0.4.2(tailwindcss@3.4.3)
       '@tailwindcss/line-clamp': 0.3.1(tailwindcss@3.4.3)
       '@tailwindcss/typography': 0.5.13(tailwindcss@3.4.3)
-      '@tinacms/app': 1.2.41(@babel/core@7.24.5)(@babel/template@7.24.0)(@types/node@20.12.8)(@types/react@18.3.1)(yup@0.32.11)
+      '@tinacms/app': 1.2.41(@babel/core@7.24.5)(@babel/template@7.24.0)(@types/node@20.12.10)(@types/react@18.3.1)(yup@0.32.11)
       '@tinacms/datalayer': 1.2.34(react@17.0.2)
       '@tinacms/graphql': 1.4.34(react@17.0.2)
       '@tinacms/metrics': 1.0.2(encoding@0.1.13)(fs-extra@9.1.0)
       '@tinacms/schema-tools': 1.4.15(react@17.0.2)(yup@0.32.11)
       '@tinacms/search': 1.0.19(encoding@0.1.13)(react@17.0.2)(yup@0.32.11)
-      '@vitejs/plugin-react': 3.1.0(vite@4.5.3(@types/node@20.12.8))
+      '@vitejs/plugin-react': 3.1.0(vite@4.5.3(@types/node@20.12.10))
       ajv: 6.12.6
       altair-express-middleware: 4.0.6
       auto-bind: 4.0.0
@@ -8416,10 +8409,10 @@ snapshots:
       typanion: 3.13.0
       typescript: 4.3.5
       url-pattern: 1.0.3
-      vite: 4.5.3(@types/node@20.12.8)
+      vite: 4.5.3(@types/node@20.12.10)
       yarn: 1.22.22
       yup: 0.32.11
-      zod: 3.23.6
+      zod: 3.23.7
     transitivePeerDependencies:
       - '@babel/core'
       - '@babel/template'
@@ -8477,7 +8470,7 @@ snapshots:
       glob-parent: 6.0.2
       graphql: 15.8.0
       gray-matter: 4.0.3
-      isomorphic-git: 1.25.8
+      isomorphic-git: 1.25.9
       js-sha1: 0.6.0
       js-yaml: 3.14.1
       jsonpath-plus: 6.0.1
@@ -8542,7 +8535,7 @@ snapshots:
       react: 17.0.2
       url-pattern: 1.0.3
       yup: 0.32.11
-      zod: 3.23.6
+      zod: 3.23.7
 
   '@tinacms/search@1.0.19(encoding@0.1.13)(react@17.0.2)(yup@0.32.11)':
     dependencies:
@@ -8646,14 +8639,14 @@ snapshots:
 
   '@types/node@17.0.45': {}
 
-  '@types/node@20.12.8':
+  '@types/node@20.12.10':
     dependencies:
       undici-types: 5.26.5
     optional: true
 
   '@types/parse-json@4.0.2': {}
 
-  '@types/prismjs@1.26.3': {}
+  '@types/prismjs@1.26.4': {}
 
   '@types/prop-types@15.7.12': {}
 
@@ -8709,7 +8702,7 @@ snapshots:
       globby: 11.1.0
       is-glob: 4.0.3
       minimatch: 9.0.4
-      semver: 7.6.0
+      semver: 7.6.1
       ts-api-utils: 1.3.0(typescript@5.4.5)
     optionalDependencies:
       typescript: 5.4.5
@@ -9903,14 +9896,14 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-react@3.1.0(vite@4.5.3(@types/node@20.12.8))':
+  '@vitejs/plugin-react@3.1.0(vite@4.5.3(@types/node@20.12.10))':
     dependencies:
       '@babel/core': 7.24.5
       '@babel/plugin-transform-react-jsx-self': 7.24.5(@babel/core@7.24.5)
       '@babel/plugin-transform-react-jsx-source': 7.24.1(@babel/core@7.24.5)
       magic-string: 0.27.0
       react-refresh: 0.14.2
-      vite: 4.5.3(@types/node@20.12.8)
+      vite: 4.5.3(@types/node@20.12.10)
     transitivePeerDependencies:
       - supports-color
 
@@ -10094,14 +10087,14 @@ snapshots:
       espree: 10.0.1
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.6.0
+      semver: 7.6.1
     transitivePeerDependencies:
       - supports-color
       - typescript
 
   astro-font@0.0.80: {}
 
-  astro@4.7.1(@types/node@20.12.8)(typescript@5.4.5):
+  astro@4.7.1(@types/node@20.12.10)(typescript@5.4.5):
     dependencies:
       '@astrojs/compiler': 2.8.0
       '@astrojs/internal-helpers': 0.4.0
@@ -10153,19 +10146,19 @@ snapshots:
       prompts: 2.4.2
       rehype: 13.0.1
       resolve: 1.22.8
-      semver: 7.6.0
+      semver: 7.6.1
       shiki: 1.4.0
       string-width: 7.1.0
       strip-ansi: 7.1.0
       tsconfck: 3.0.3(typescript@5.4.5)
       unist-util-visit: 5.0.0
       vfile: 6.0.1
-      vite: 5.2.11(@types/node@20.12.8)
-      vitefu: 0.2.5(vite@5.2.11(@types/node@20.12.8))
+      vite: 5.2.11(@types/node@20.12.10)
+      vitefu: 0.2.5(vite@5.2.11(@types/node@20.12.10))
       which-pm: 2.1.1
       yargs-parser: 21.1.1
-      zod: 3.23.6
-      zod-to-json-schema: 3.23.0(zod@3.23.6)
+      zod: 3.23.7
+      zod-to-json-schema: 3.23.0(zod@3.23.7)
     optionalDependencies:
       sharp: 0.33.3
     transitivePeerDependencies:
@@ -10337,7 +10330,7 @@ snapshots:
   browserslist@4.23.0:
     dependencies:
       caniuse-lite: 1.0.30001616
-      electron-to-chromium: 1.4.756
+      electron-to-chromium: 1.4.758
       node-releases: 2.0.14
       update-browserslist-db: 1.0.15(browserslist@4.23.0)
 
@@ -10772,7 +10765,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.4.756: {}
+  electron-to-chromium@1.4.758: {}
 
   emoji-regex@10.3.0: {}
 
@@ -10963,7 +10956,7 @@ snapshots:
   eslint-compat-utils@0.5.0(eslint@9.2.0):
     dependencies:
       eslint: 9.2.0
-      semver: 7.6.0
+      semver: 7.6.1
 
   eslint-plugin-astro@1.1.2(eslint@9.2.0)(typescript@5.4.5):
     dependencies:
@@ -11435,10 +11428,10 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  graphiql@3.0.0-alpha.1(@codemirror/language@6.0.0)(@types/node@20.12.8)(@types/react@18.3.1)(graphql@15.8.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
+  graphiql@3.0.0-alpha.1(@codemirror/language@6.0.0)(@types/node@20.12.10)(@types/react@18.3.1)(graphql@15.8.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
     dependencies:
-      '@graphiql/react': 0.18.0(@codemirror/language@6.0.0)(@types/node@20.12.8)(@types/react@18.3.1)(graphql@15.8.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
-      '@graphiql/toolkit': 0.8.4(@types/node@20.12.8)(graphql@15.8.0)
+      '@graphiql/react': 0.18.0(@codemirror/language@6.0.0)(@types/node@20.12.10)(@types/react@18.3.1)(graphql@15.8.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
+      '@graphiql/toolkit': 0.8.4(@types/node@20.12.10)(graphql@15.8.0)
       graphql: 15.8.0
       graphql-language-service: 5.2.0(graphql@15.8.0)
       markdown-it: 12.3.2
@@ -11521,7 +11514,7 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.4
 
-  hast-util-raw@9.0.2:
+  hast-util-raw@9.0.3:
     dependencies:
       '@types/hast': 3.0.4
       '@types/unist': 3.0.2
@@ -11564,7 +11557,7 @@ snapshots:
       '@types/unist': 3.0.2
       ccount: 2.0.1
       comma-separated-tokens: 2.0.3
-      hast-util-raw: 9.0.2
+      hast-util-raw: 9.0.3
       hast-util-whitespace: 3.0.0
       html-void-elements: 3.0.0
       mdast-util-to-hast: 13.1.0
@@ -11934,7 +11927,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  isomorphic-git@1.25.8:
+  isomorphic-git@1.25.9:
     dependencies:
       async-lock: 1.4.1
       clean-git-ref: 2.0.1
@@ -12172,10 +12165,6 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
-
-  lru-cache@6.0.0:
-    dependencies:
-      yallist: 4.0.0
 
   magic-string@0.27.0:
     dependencies:
@@ -12569,9 +12558,9 @@ snapshots:
 
   merge2@1.4.1: {}
 
-  meros@1.3.0(@types/node@20.12.8):
+  meros@1.3.0(@types/node@20.12.10):
     optionalDependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.12.10
 
   methods@1.1.2: {}
 
@@ -13227,7 +13216,7 @@ snapshots:
 
   node-abi@3.62.0:
     dependencies:
-      semver: 7.6.0
+      semver: 7.6.1
 
   node-fetch@2.6.13(encoding@0.1.13):
     dependencies:
@@ -13594,7 +13583,7 @@ snapshots:
 
   prism-react-renderer@2.3.1(react@17.0.2):
     dependencies:
-      '@types/prismjs': 1.26.3
+      '@types/prismjs': 1.26.4
       clsx: 2.1.1
       react: 17.0.2
 
@@ -13896,7 +13885,7 @@ snapshots:
   rehype-raw@7.0.0:
     dependencies:
       '@types/hast': 3.0.4
-      hast-util-raw: 9.0.2
+      hast-util-raw: 9.0.3
       vfile: 6.0.1
 
   rehype-stringify@10.0.0:
@@ -14177,9 +14166,7 @@ snapshots:
 
   semver@6.3.1: {}
 
-  semver@7.6.0:
-    dependencies:
-      lru-cache: 6.0.0
+  semver@7.6.1: {}
 
   send@0.18.0:
     dependencies:
@@ -14250,7 +14237,7 @@ snapshots:
     dependencies:
       color: 4.2.3
       detect-libc: 2.0.3
-      semver: 7.6.0
+      semver: 7.6.1
     optionalDependencies:
       '@img/sharp-darwin-arm64': 0.33.3
       '@img/sharp-darwin-x64': 0.33.3
@@ -14651,7 +14638,7 @@ snapshots:
       slate-react: 0.97.2(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(slate@0.94.1)
       webfontloader: 1.6.28
       yup: 0.32.11
-      zod: 3.23.6
+      zod: 3.23.7
     transitivePeerDependencies:
       - '@babel/core'
       - '@babel/template'
@@ -15056,27 +15043,27 @@ snapshots:
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.2
 
-  vite@4.5.3(@types/node@20.12.8):
+  vite@4.5.3(@types/node@20.12.10):
     dependencies:
       esbuild: 0.18.20
       postcss: 8.4.38
       rollup: 3.29.4
     optionalDependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.12.10
       fsevents: 2.3.3
 
-  vite@5.2.11(@types/node@20.12.8):
+  vite@5.2.11(@types/node@20.12.10):
     dependencies:
       esbuild: 0.20.2
       postcss: 8.4.38
       rollup: 4.17.2
     optionalDependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.12.10
       fsevents: 2.3.3
 
-  vitefu@0.2.5(vite@5.2.11(@types/node@20.12.8)):
+  vitefu@0.2.5(vite@5.2.11(@types/node@20.12.10)):
     optionalDependencies:
-      vite: 5.2.11(@types/node@20.12.8)
+      vite: 5.2.11(@types/node@20.12.10)
 
   vscode-languageserver-types@3.17.5: {}
 
@@ -15191,8 +15178,6 @@ snapshots:
 
   yallist@3.1.1: {}
 
-  yallist@4.0.0: {}
-
   yaml@1.10.2: {}
 
   yaml@2.3.4: {}
@@ -15246,11 +15231,11 @@ snapshots:
       property-expr: 2.0.6
       toposort: 2.0.2
 
-  zod-to-json-schema@3.23.0(zod@3.23.6):
+  zod-to-json-schema@3.23.0(zod@3.23.7):
     dependencies:
-      zod: 3.23.6
+      zod: 3.23.7
 
-  zod@3.23.6: {}
+  zod@3.23.7: {}
 
   zustand@3.7.2(react@17.0.2):
     optionalDependencies:
