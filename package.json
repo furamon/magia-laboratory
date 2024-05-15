@@ -34,8 +34,8 @@
 	},
 	"dependencies": {
 		"@astrojs/rss": "4.0.5",
-		"astro": "4.8.0",
-		"astro-font": "^0.0.80",
+		"astro": "4.8.3",
+		"astro-font": "^0.0.81",
 		"sharp": "^0.33.3"
 	},
 	"devDependencies": {
@@ -45,10 +45,10 @@
 		"@pagefind/default-ui": "^1.1.0",
 		"@tailwindcss/typography": "0.5.13",
 		"@tinacms/cli": "^1.5.45",
-		"@typescript-eslint/parser": "^7.8.0",
+		"@typescript-eslint/parser": "^7.9.0",
 		"clsx": "2.1.1",
 		"eslint": "^9.2.0",
-		"eslint-plugin-astro": "^1.1.2",
+		"eslint-plugin-astro": "^1.2.0",
 		"eslint-plugin-jsx-a11y": "^6.8.0",
 		"husky": "^9.0.11",
 		"lint-staged": "^15.2.2",
