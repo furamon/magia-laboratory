@@ -1,6 +1,20 @@
 ---
 import TitlePage from '@/components/TitlePage'
 import BaseLayout from '@/layouts/BaseLayout'
+import { getCollection } from 'astro:content'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkGfm from 'remark-gfm'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
+
+const posts = await getCollection('blog')
+const latestPost = await unified()
+	.use(remarkParse)
+	.use(remarkGfm)
+	.use(remarkRehype)
+	.use(rehypeStringify)
+	.process(posts.slice(-1)[0].body)
 ---
 
 <BaseLayout title='Home'>
@@ -38,6 +52,7 @@ import BaseLayout from '@/layouts/BaseLayout'
 			<p>etc.</p>
 			<div>
 				<a href='/text' class='btn-game'> Text</a>
+				<a href='/text/changelog' class='btn-game'> Changelog</a>
 				<a href='/blog' class='btn-game'> Diary</a>
 				<a href='https://flamy.magialabs.blog/' class='btn-game'> Misskey</a>
 			</div>
@@ -53,29 +68,15 @@ import BaseLayout from '@/layouts/BaseLayout'
 			</div>
 		</div>
 	</div>
+
 	<div class='container mx-auto text-center'>
-		<h2 class='text-2xl font-bold mb-4'>更新履歴</h2>
-		<table>
-			<thead class='bg-gray-200 dark:bg-gray-700'>
-				<tr class='border-gray-500 dark:border-gray-600 border-2'>
-					<th>日付</th>
-					<th class='w-full'>内容</th>
-				</tr>
-			</thead>
-			<tbody
-				class='bg-gray-100 dark:bg-gray-800 text-left [&_tr]:border-gray-400 [&_tr]:dark:border-gray-700 [&_tr]:border-2'
-			>
-				<tr>
-					<td>2024/04/20</td>
-					<td>雑記置き追加</td>
-				</tr>
-				<tr>
-					<td>2024/02/06</td>
-					<td><span class='font-bold'>リニューアルオープン</span>。別館と統合</td>
-				</tr>
-			</tbody>
-		</table>
+		<h2 class='text-3xl font-bold mb-4'>最終更新</h2>
+		<h3 class='text-2xl font-bold'>
+			<a href={`/blog/post/${posts.slice(-1)[0].slug}`}>{posts.slice(-1)[0].data.title}</a>
+		</h3>
 	</div>
+
+	<div class='text-xl leading-loose' set:html={latestPost} />
 
 	<style>
 		.btn-game {

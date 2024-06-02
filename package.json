@@ -36,7 +36,12 @@
 		"@astrojs/rss": "4.0.6",
 		"astro": "4.9.1",
 		"astro-font": "^0.0.81",
-		"sharp": "^0.33.4"
+		"rehype-stringify": "^10.0.0",
+		"remark-gfm": "^4.0.0",
+		"remark-parse": "^11.0.0",
+		"remark-rehype": "^11.1.0",
+		"sharp": "^0.33.4",
+		"unified": "^11.0.4"
 	},
 	"devDependencies": {
 		"@astrojs/mdx": "3.0.1",

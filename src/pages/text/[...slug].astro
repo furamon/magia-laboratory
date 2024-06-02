@@ -15,7 +15,9 @@ const { Content } = await entry.render()
 ---
 
 <PageLayout title={entry.data.title}>
-	<div class='prose prose:lg md:prose-xl [&>*]:mb-4 dark:prose-invert min-w-full'>
+	<div
+		class='prose prose:lg md:prose-xl [&>*]:mb-4 dark:prose-invert min-w-full [&>table]:border-2 [&>table]:border-black [&>table]:mx-auto [&>table]:bg-gray-150 [&_th]:border-2 [&_th]:border-gray-500 [&_td]:border-2 [&_td]:border-gray-500'
+	>
 		<Content />
 	</div>
 </PageLayout>
