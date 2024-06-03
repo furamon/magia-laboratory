@@ -13,11 +13,11 @@ const posts = await getPosts(MAX_POSTS)
 
 <BaseLayout title='Blog'>
 	<TitlePage title='Blog' />
-	<div class='flex gap-4 border-b-2 -z-80 dark:border-gray-600'>
+	<!-- <div class='flex gap-4 border-b-2 -z-80 dark:border-gray-600'>
 		<ListCategories />
 		<a href='/blog/tags'><TagIcon /></a>
 		<Search />
-	</div>
+	</div> -->
 	<div>
 		<h2 class='text-lg font-medium tracking-wide text-end'>Latest Post</h2>
 		<ListPosts FirstBig={true} posts={posts} />
