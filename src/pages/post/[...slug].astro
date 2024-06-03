@@ -2,7 +2,7 @@
 import { type CollectionEntry, getCollection } from 'astro:content'
 import BlogPost from '@/layouts/BlogPost'
 import Code from '@/components/mdx/Code'
-import ListRelatedPosts from '@/components/ListRelatedPosts'
+// import ListRelatedPosts from '@/components/ListRelatedPosts'
 import Share from '@/components/Share'
 import TableOfContents from '@/components/TableOfContents'
 import { getPosts } from '@/utils'
@@ -60,10 +60,10 @@ const disqusEnabled = disqusConfig.enabled
 			</div>
 
 			<!-- related posts -->
-			<footer>
+			<!-- <footer>
 				<h2 class='font-bold text-lg dark:text-white mb-6'>Artículos Relacionados</h2>
 				<ListRelatedPosts posts={relatedPosts} />
-			</footer>
+			</footer> -->
 		</article>
 	</div>
 
