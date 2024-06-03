@@ -51,17 +51,6 @@ export default defineConfig({
 					},
 					{
 						type: 'string',
-						name: 'tags',
-						required: true,
-						label: 'Tags',
-						description: 'Tags for this post',
-						list: true,
-						ui: {
-							component: 'tags'
-						}
-					},
-					{
-						type: 'string',
 						name: 'title',
 						label: 'Title',
 						isTitle: true,

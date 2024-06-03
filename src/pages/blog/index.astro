@@ -1,14 +1,14 @@
 ---
 import ListPosts from '@/components/ListPosts'
-import TagIcon from '@/components/icons/TagIcon'
+// import TagIcon from '@/components/icons/TagIcon'
 // import ListCategories from '@/components/ListCategories'
 import TitlePage from '@/components/TitlePage'
 import BaseLayout from '@/layouts/BaseLayout'
-import Search from '@/components/Search'
-import { getPosts } from '@/utils'
+// import Search from '@/components/Search'
+// import { getPosts } from '@/utils'
 
 const MAX_POSTS = 5 // max number of posts to show on the home page
-const posts = await getPosts(MAX_POSTS)
+// const posts = await getPosts(MAX_POSTS)
 ---
 
 <BaseLayout title='Blog'>
@@ -20,7 +20,7 @@ const posts = await getPosts(MAX_POSTS)
 	</div> -->
 	<div>
 		<h2 class='text-lg font-medium tracking-wide text-end'>Latest Post</h2>
-		<ListPosts FirstBig={true} posts={posts} />
+		<!-- <ListPosts FirstBig={true} posts={posts} /> -->
 	</div>
 </BaseLayout>
 
