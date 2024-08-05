@@ -19,8 +19,8 @@ importers:
         specifier: 4.12.3
         version: 4.12.3(@types/node@22.0.2)(typescript@5.5.4)
       astro-font:
-        specifier: ^0.0.81
-        version: 0.0.81
+        specifier: ^0.1.81
+        version: 0.1.81
       rehype-stringify:
         specifier: ^10.0.0
         version: 10.0.0
@@ -2416,8 +2416,8 @@ packages:
     resolution: {integrity: sha512-8hJaCuqxObShWl2wEsnASqh/DbQ2O+S66m0Q3ctJlzBPEQ4pfGwwama3FCjZO3GDLQsjvn1T0v93Vxyu/+5fGw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  astro-font@0.0.81:
-    resolution: {integrity: sha512-VmK4kqzNpOAt2LASVbw2cbbe9sD6K30E7jOjqzHxHieHMTWInkdOljtzHmNGvKr3P0MeF4Wy+Z7j6CdETFecDA==}
+  astro-font@0.1.81:
+    resolution: {integrity: sha512-rbrv/+ZSYdgyjBlhkAqfCjMxqqo6iEwnSo/rAdDt/POILsF0ChxMFhefIIzKEukrRGtVjEj1lrLRYk+AdV9scQ==}
 
   astro@4.12.3:
     resolution: {integrity: sha512-rFcRktbZk8CsHufLOB51gYAia3RTuOyaBD8iZXRHP7Oqo6QviquNaa/5U6RoUqyF5KS8vyq/ldJ5jfboJzxuuw==}
@@ -9698,7 +9698,7 @@ snapshots:
       - supports-color
       - typescript
 
-  astro-font@0.0.81: {}
+  astro-font@0.1.81: {}
 
   astro@4.12.3(@types/node@22.0.2)(typescript@5.5.4):
     dependencies:
