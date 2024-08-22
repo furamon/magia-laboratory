@@ -41,12 +41,13 @@ import MoonIcon from '@/components/icons/MoonIcon'
 			</span>
 		</button>
 	</button>
-	<script is:inline>
-		const button = document.getElementById('toggle-theme')
-		function setButtonPresssed() {
-			const bodyThemeIsDark = document.documentElement.classList.contains('dark')
-			button.setAttribute('aria-pressed', String(bodyThemeIsDark))
-		}
-		setButtonPresssed()
-	</script></theme-toggle
->
+</theme-toggle>
+
+<script is:inline>
+	const button = document.getElementById('toggle-theme')
+	function setButtonPresssed() {
+		const bodyThemeIsDark = document.documentElement.classList.contains('dark')
+		button.setAttribute('aria-pressed', String(bodyThemeIsDark))
+	}
+	setButtonPresssed()
+</script>
