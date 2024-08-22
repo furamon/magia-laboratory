@@ -1,12 +1,11 @@
 ---
 // Inspired by -> https://github.com/chrismwilliams/astro-theme-cactus/blob/main/src/components/Search.astro
-
 import '@pagefind/default-ui/css/ui.css'
 import SearchIcon from '@/components/icons/SearchIcon'
 ---
 
 <site-search id='search' class='ms-auto'>
-	<button data-open-modal disabled class='flex items-center justify-center rounded-md'>
+	<button data-open-modal disabled class='flex items-center justify-center rounded-md gap-1'>
 		<SearchIcon />
 		<!-- <span class='md:hidden text-2xl'> Search</span> -->
 	</button>
@@ -37,7 +36,6 @@ import SearchIcon from '@/components/icons/SearchIcon'
 		</div>
 	</dialog>
 </site-search>
-
 <script>
 	import { animate } from 'motion'
 	class SiteSearch extends HTMLElement {
@@ -47,7 +45,6 @@ import SearchIcon from '@/components/icons/SearchIcon'
 			const closeBtn = this.querySelector<HTMLButtonElement>('button[data-close-modal]')!
 			const dialog = this.querySelector('dialog')!
 			const dialogFrame = this.querySelector('.dialog-frame')!
-
 			const onWindowClick = (event: MouseEvent) => {
 				// make sure the click is outside the of the dialog
 				if (
@@ -57,6 +54,12 @@ import SearchIcon from '@/components/icons/SearchIcon'
 					closeModal()
 			}
 
+			const handleEscKey = (e: KeyboardEvent) => {
+				if (e.key === 'Escape' && dialog.open) {
+					closeModal()
+					window.removeEventListener('keydown', handleEscKey)
+				} else return
+			}
 			const openModal = (event?: MouseEvent) => {
 				dialog.showModal()
 
@@ -75,19 +78,20 @@ import SearchIcon from '@/components/icons/SearchIcon'
 				this.querySelector('input')?.focus()
 				event?.stopPropagation()
 				window.addEventListener('click', onWindowClick)
+				window.addEventListener('keydown', handleEscKey)
 			}
 
 			const closeModal = () => {
 				dialog.close()
 				document.body.classList.remove('overflow-hidden')
 				window.removeEventListener('click', onWindowClick)
+				window.addEventListener('keydown', handleEscKey)
 			}
 
 			openBtn.addEventListener('click', openModal)
 			openBtn.disabled = false
 			closeBtn.addEventListener('click', closeModal)
 			document.addEventListener('astro:after-swap', closeModal)
-
 			// Listen for `/` keyboard shortcut
 			window.addEventListener('keydown', (e) => {
 				if (e.key === '/' && !dialog.open) {
@@ -95,7 +99,6 @@ import SearchIcon from '@/components/icons/SearchIcon'
 					e.preventDefault()
 				}
 			})
-
 			window.addEventListener('DOMContentLoaded', () => {
 				if (import.meta.env.DEV) return
 				const onIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1))
@@ -112,10 +115,8 @@ import SearchIcon from '@/components/icons/SearchIcon'
 			})
 		}
 	}
-
 	customElements.define('site-search', SiteSearch)
 </script>
-
 <style is:global>
 	.dark {
 		--pagefind-ui-primary: #eeeeee;
