@@ -34,7 +34,7 @@
 	},
 	"dependencies": {
 		"@astrojs/rss": "4.0.7",
-		"astro": "4.14.5",
+		"astro": "4.15.1",
 		"astro-font": "^0.1.81",
 		"rehype-stringify": "^10.0.0",
 		"remark-gfm": "^4.0.0",
@@ -44,11 +44,11 @@
 		"unified": "^11.0.5"
 	},
 	"devDependencies": {
-		"@astrojs/mdx": "3.1.4",
+		"@astrojs/mdx": "3.1.5",
 		"@astrojs/sitemap": "3.1.6",
 		"@astrojs/tailwind": "5.1.0",
 		"@pagefind/default-ui": "^1.1.0",
-		"@tailwindcss/typography": "0.5.14",
+		"@tailwindcss/typography": "0.5.15",
 		"@tinacms/cli": "^1.6.1",
 		"@typescript-eslint/parser": "^8.3.0",
 		"clsx": "2.1.1",
@@ -56,7 +56,7 @@
 		"eslint-plugin-astro": "^1.2.3",
 		"eslint-plugin-jsx-a11y": "^6.9.0",
 		"husky": "^9.1.5",
-		"lint-staged": "^15.2.9",
+		"lint-staged": "^15.2.10",
 		"mdast-util-to-string": "^4.0.0",
 		"motion": "^10.18.0",
 		"pagefind": "^1.1.0",
