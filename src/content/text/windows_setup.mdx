@@ -334,10 +334,9 @@ Ryzen 7900X前提です。マザーボードはMSI B650M Mortar。
 こんな感じで温度90℃以下で定格超えパフォーマンス。\
 メモリOCは「Power Down Enable」的設定をオンにすればよほど無茶でない限り通ります。「Memory Context Restore」、メモリトレーニングも常時オンでも初回起動時にはトレーニングしてくれ、起動時間は短縮します。
 
-### [AfterBurner](https://jp.msi.com/Landing/afterburner/graphics-cards)でグラボ電圧いじり
+### [Nvidia App](https://www.nvidia.com/ja-jp/software/nvidia-app/)でグラボ電圧いじり
 
-同上。例えばRTX4070ならメモリ+700Mhzのコア+70Mhz、電力80%といった調子。これで使用電力が8割で性能そのままに。\
-クロック-200Mhzからのカーブエディターの1000mvを2810Mhzにあわせるでも可（もちろん要調整）で、こちらは試したところ性能1%減ったかな？で消費電力6割に。無論上級者向けなので自己責任で。
+例えばRTX4070なら電圧65%の電力105%（もちろん要調整）で、試したところ性能1%減ったかな？で消費電力6割に。無論上級者向けなので自己責任で。
 
 ### ターミナル環境
 
@@ -392,7 +391,7 @@ fisher install edc/bass
 nano ~/.config/fish/config.fish # bass source something.bash 追記
 ```
 
-最後のbassはfishでbashコマンドが打てるやつです。```bass コマンド```で使用可。
+最後のbassはfishでbashコマンドが打てるやつです。`bass コマンド`で使用可。
 
 #### **SSH 設定**
 
