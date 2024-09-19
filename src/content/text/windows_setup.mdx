@@ -336,7 +336,7 @@ Ryzen 7900X前提です。マザーボードはMSI B650M Mortar。
 
 ### [Nvidia App](https://www.nvidia.com/ja-jp/software/nvidia-app/)でグラボ電圧いじり
 
-例えばRTX4070なら電圧65%の電力105%（もちろん要調整）で、試したところ性能1%減ったかな？で消費電力6割に。無論上級者向けなので自己責任で。
+例えばRTX4070なら電圧30%の電力105%（もちろん要調整）で、試したところ消費電力7割かつ性能が定格よりアップ。無論上級者向けなので自己責任で。
 
 ### ターミナル環境
 
@@ -371,6 +371,7 @@ chsh -s /usr/bin/fish
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.12.0
 nano ~/.config/fish/config.fish # source ~/.asdf/asdf.fish 追記
+source  ~/.config/fish/config.fish
 mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
 sudo apt install fzf -y
 sudo apt install bat -y
@@ -388,7 +389,6 @@ fisher install 0rax/fish-bd
 sudo apt install wslu
 nano ~/.config/fish/config.fish # export BROWSER=wslview 追記
 fisher install edc/bass
-nano ~/.config/fish/config.fish # bass source something.bash 追記
 ```
 
 最後のbassはfishでbashコマンドが打てるやつです。`bass コマンド`で使用可。
