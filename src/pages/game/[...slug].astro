@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import PageLayout from "@/layouts/PageLayout";
-import { YouTube } from "astro-embed";
 
 export async function getStaticPaths() {
   const entries = await getCollection("game");
