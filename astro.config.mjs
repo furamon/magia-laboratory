@@ -4,38 +4,36 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import { remarkReadingTime } from './src/utils/readTime.ts'
 
+import playformCompress from '@playform/compress';
+
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://magialaboratory.com/',
-	markdown: {
-		remarkPlugins: [remarkReadingTime],
-		drafts: true,
-		shikiConfig: {
-			theme: 'material-theme-palenight',
-			wrap: true
-		}
-	},
-	integrations: [
-		mdx({
-			syntaxHighlight: 'shiki',
-			shikiConfig: {
-				experimentalThemes: {
-					light: 'vitesse-light',
-					dark: 'material-theme-palenight'
-				},
-				wrap: true
-			},
-			drafts: true
-		}),
-		sitemap(),
-		tailwind()
-	],
-	image: {
-		remotePatterns: [
-			{
-				protocol: 'https',
-				hostname: 'assets.tina.io'
-			}
-		]
-	}
+    site: 'https://magialaboratory.com/',
+    markdown: {
+        remarkPlugins: [remarkReadingTime],
+        drafts: true,
+        shikiConfig: {
+            theme: 'material-theme-palenight',
+            wrap: true
+        }
+    },
+    integrations: [mdx({
+        syntaxHighlight: 'shiki',
+        shikiConfig: {
+            experimentalThemes: {
+                light: 'vitesse-light',
+                dark: 'material-theme-palenight'
+            },
+            wrap: true
+        },
+        drafts: true
+		}), sitemap(), tailwind(), playformCompress()],
+    image: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'assets.tina.io'
+            }
+        ]
+    }
 })
