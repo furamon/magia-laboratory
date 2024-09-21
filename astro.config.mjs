@@ -4,8 +4,6 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import { remarkReadingTime } from './src/utils/readTime.ts'
 
-import playformCompress from '@playform/compress';
-
 // https://astro.build/config
 export default defineConfig({
     site: 'https://magialaboratory.com/',
@@ -27,7 +25,7 @@ export default defineConfig({
             wrap: true
         },
         drafts: true
-		}), sitemap(), tailwind(), playformCompress()],
+		}), sitemap(), tailwind()],
     image: {
         remotePatterns: [
             {

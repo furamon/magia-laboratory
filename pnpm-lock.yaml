@@ -14,13 +14,13 @@ importers:
     dependencies:
       '@astro-community/astro-embed-youtube':
         specifier: ^0.5.3
-        version: 0.5.3(astro@4.15.8(@types/node@22.5.5)(lightningcss@1.25.1)(rollup@4.22.4)(terser@5.31.3)(typescript@5.6.2))
+        version: 0.5.3(astro@4.15.8(@types/node@22.5.5)(lightningcss@1.27.0)(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2))
       '@astrojs/rss':
         specifier: 4.0.7
         version: 4.0.7
       astro:
         specifier: 4.15.8
-        version: 4.15.8(@types/node@22.5.5)(lightningcss@1.25.1)(rollup@4.22.4)(terser@5.31.3)(typescript@5.6.2)
+        version: 4.15.8(@types/node@22.5.5)(lightningcss@1.27.0)(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2)
       astro-font:
         specifier: ^0.1.81
         version: 0.1.81
@@ -37,7 +37,7 @@ importers:
         specifier: ^11.1.1
         version: 11.1.1
       sharp:
-        specifier: ^0.33.0
+        specifier: ^0.33.5
         version: 0.33.5
       unified:
         specifier: ^11.0.5
@@ -45,13 +45,13 @@ importers:
     devDependencies:
       '@astrojs/mdx':
         specifier: 3.1.7
-        version: 3.1.7(astro@4.15.8(@types/node@22.5.5)(lightningcss@1.25.1)(rollup@4.22.4)(terser@5.31.3)(typescript@5.6.2))
+        version: 3.1.7(astro@4.15.8(@types/node@22.5.5)(lightningcss@1.27.0)(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2))
       '@astrojs/sitemap':
         specifier: 3.1.6
         version: 3.1.6
       '@astrojs/tailwind':
         specifier: 5.1.1
-        version: 5.1.1(astro@4.15.8(@types/node@22.5.5)(lightningcss@1.25.1)(rollup@4.22.4)(terser@5.31.3)(typescript@5.6.2))(tailwindcss@3.4.12)
+        version: 5.1.1(astro@4.15.8(@types/node@22.5.5)(lightningcss@1.27.0)(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2))(tailwindcss@3.4.12)
       '@pagefind/default-ui':
         specifier: ^1.1.1
         version: 1.1.1
@@ -60,7 +60,7 @@ importers:
         version: 0.5.15(tailwindcss@3.4.12)
       '@tinacms/cli':
         specifier: ^1.6.4
-        version: 1.6.4(@codemirror/language@6.10.3)(@types/node@22.5.5)(@types/react@18.3.8)(abstract-level@1.0.4)(encoding@0.1.13)(immer@10.1.1)(lightningcss@1.25.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.22.4)(scheduler@0.23.2)(sucrase@3.35.0)(terser@5.31.3)
+        version: 1.6.4(@codemirror/language@6.10.3)(@types/node@22.5.5)(@types/react@18.3.8)(abstract-level@2.0.0)(encoding@0.1.13)(immer@10.1.1)(lightningcss@1.27.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.22.4)(scheduler@0.23.2)(sucrase@3.35.0)(terser@5.33.0)
       '@typescript-eslint/parser':
         specifier: ^8.6.0
         version: 8.6.0(eslint@9.11.0(jiti@1.21.6))(typescript@5.6.2)
@@ -114,7 +114,7 @@ importers:
         version: 3.4.12
       tinacms:
         specifier: ^2.2.4
-        version: 2.2.4(@types/react@18.3.8)(abstract-level@1.0.4)(encoding@0.1.13)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(sucrase@3.35.0)(typescript@5.6.2)
+        version: 2.2.4(@types/react@18.3.8)(abstract-level@2.0.0)(encoding@0.1.13)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(sucrase@3.35.0)(typescript@5.6.2)
       typescript:
         specifier: ^5.6.2
         version: 5.6.2
@@ -2709,6 +2709,10 @@ packages:
     resolution: {integrity: sha512-eUP/6pbXBkMbXFdx4IH2fVgvB7M0JvR7/lIL33zcs0IBcwjdzSSl31TOJsaCzmKSSDF9h8QYSOJux4Nd4YJqFg==}
     engines: {node: '>=12'}
 
+  abstract-level@2.0.0:
+    resolution: {integrity: sha512-8vjY8/cluwJhbYyE1JjPMTPslT8bpkFF/Oe24KiW3jUAwV9hleHilw3ipHPK5w2pyvOYDnmUSC7w1/aKLzgi/Q==}
+    engines: {node: '>=16'}
+
   accepts@1.3.8:
     resolution: {integrity: sha512-PYAthTa2m2VKxuvSD3DPC/Gy+U+sOA1LAuT8mkmRuvw+NACSaeXEQ+NHcVF7rONl6qcaxV3Uuemwawk+7+SJLw==}
     engines: {node: '>= 0.6'}
@@ -4453,6 +4457,10 @@ packages:
     resolution: {integrity: sha512-PbXpve8rKeNcZ9C1mUicC9auIYFyGpkV9/i6g76tLgANwWhtG2v7I4xNBUlkn3lE2/dZF3Pi0ygYGtLc4RXXdA==}
     engines: {node: '>=12'}
 
+  level-supports@6.0.0:
+    resolution: {integrity: sha512-UU226PsfiFWLRPmuqgB3eADtvZM8WYv+aCnAl93B/2Ca+vgn9+b7o2boA7yOY2ri7Kk5Wk4aHxl3eNimpYZnxw==}
+    engines: {node: '>=16'}
+
   level-transcoder@1.0.1:
     resolution: {integrity: sha512-t7bFwFtsQeD8cl8NIoQ2iwxA0CL/9IFw7/9gAjOonH0PWTTiRfY7Hq+Ejbsxh86tXobDQ6IOiddjNYIfOBs06w==}
     engines: {node: '>=12'}
@@ -4461,62 +4469,68 @@ packages:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
 
-  lightningcss-darwin-arm64@1.25.1:
-    resolution: {integrity: sha512-G4Dcvv85bs5NLENcu/s1f7ehzE3D5ThnlWSDwE190tWXRQCQaqwcuHe+MGSVI/slm0XrxnaayXY+cNl3cSricw==}
+  lightningcss-darwin-arm64@1.27.0:
+    resolution: {integrity: sha512-Gl/lqIXY+d+ySmMbgDf0pgaWSqrWYxVHoc88q+Vhf2YNzZ8DwoRzGt5NZDVqqIW5ScpSnmmjcgXP87Dn2ylSSQ==}
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [darwin]
 
-  lightningcss-darwin-x64@1.25.1:
-    resolution: {integrity: sha512-dYWuCzzfqRueDSmto6YU5SoGHvZTMU1Em9xvhcdROpmtOQLorurUZz8+xFxZ51lCO2LnYbfdjZ/gCqWEkwixNg==}
+  lightningcss-darwin-x64@1.27.0:
+    resolution: {integrity: sha512-0+mZa54IlcNAoQS9E0+niovhyjjQWEMrwW0p2sSdLRhLDc8LMQ/b67z7+B5q4VmjYCMSfnFi3djAAQFIDuj/Tg==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [darwin]
 
-  lightningcss-freebsd-x64@1.25.1:
-    resolution: {integrity: sha512-hXoy2s9A3KVNAIoKz+Fp6bNeY+h9c3tkcx1J3+pS48CqAt+5bI/R/YY4hxGL57fWAIquRjGKW50arltD6iRt/w==}
+  lightningcss-freebsd-x64@1.27.0:
+    resolution: {integrity: sha512-n1sEf85fePoU2aDN2PzYjoI8gbBqnmLGEhKq7q0DKLj0UTVmOTwDC7PtLcy/zFxzASTSBlVQYJUhwIStQMIpRA==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [freebsd]
 
-  lightningcss-linux-arm-gnueabihf@1.25.1:
-    resolution: {integrity: sha512-tWyMgHFlHlp1e5iW3EpqvH5MvsgoN7ZkylBbG2R2LWxnvH3FuWCJOhtGcYx9Ks0Kv0eZOBud789odkYLhyf1ng==}
+  lightningcss-linux-arm-gnueabihf@1.27.0:
+    resolution: {integrity: sha512-MUMRmtdRkOkd5z3h986HOuNBD1c2lq2BSQA1Jg88d9I7bmPGx08bwGcnB75dvr17CwxjxD6XPi3Qh8ArmKFqCA==}
     engines: {node: '>= 12.0.0'}
     cpu: [arm]
     os: [linux]
 
-  lightningcss-linux-arm64-gnu@1.25.1:
-    resolution: {integrity: sha512-Xjxsx286OT9/XSnVLIsFEDyDipqe4BcLeB4pXQ/FEA5+2uWCCuAEarUNQumRucnj7k6ftkAHUEph5r821KBccQ==}
+  lightningcss-linux-arm64-gnu@1.27.0:
+    resolution: {integrity: sha512-cPsxo1QEWq2sfKkSq2Bq5feQDHdUEwgtA9KaB27J5AX22+l4l0ptgjMZZtYtUnteBofjee+0oW1wQ1guv04a7A==}
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
 
-  lightningcss-linux-arm64-musl@1.25.1:
-    resolution: {integrity: sha512-IhxVFJoTW8wq6yLvxdPvyHv4NjzcpN1B7gjxrY3uaykQNXPHNIpChLB52+wfH+yS58zm1PL4LemUp8u9Cfp6Bw==}
+  lightningcss-linux-arm64-musl@1.27.0:
+    resolution: {integrity: sha512-rCGBm2ax7kQ9pBSeITfCW9XSVF69VX+fm5DIpvDZQl4NnQoMQyRwhZQm9pd59m8leZ1IesRqWk2v/DntMo26lg==}
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
 
-  lightningcss-linux-x64-gnu@1.25.1:
-    resolution: {integrity: sha512-RXIaru79KrREPEd6WLXfKfIp4QzoppZvD3x7vuTKkDA64PwTzKJ2jaC43RZHRt8BmyIkRRlmywNhTRMbmkPYpA==}
+  lightningcss-linux-x64-gnu@1.27.0:
+    resolution: {integrity: sha512-Dk/jovSI7qqhJDiUibvaikNKI2x6kWPN79AQiD/E/KeQWMjdGe9kw51RAgoWFDi0coP4jinaH14Nrt/J8z3U4A==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
 
-  lightningcss-linux-x64-musl@1.25.1:
-    resolution: {integrity: sha512-TdcNqFsAENEEFr8fJWg0Y4fZ/nwuqTRsIr7W7t2wmDUlA8eSXVepeeONYcb+gtTj1RaXn/WgNLB45SFkz+XBZA==}
+  lightningcss-linux-x64-musl@1.27.0:
+    resolution: {integrity: sha512-QKjTxXm8A9s6v9Tg3Fk0gscCQA1t/HMoF7Woy1u68wCk5kS4fR+q3vXa1p3++REW784cRAtkYKrPy6JKibrEZA==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
 
-  lightningcss-win32-x64-msvc@1.25.1:
-    resolution: {integrity: sha512-9KZZkmmy9oGDSrnyHuxP6iMhbsgChUiu/NSgOx+U1I/wTngBStDf2i2aGRCHvFqj19HqqBEI4WuGVQBa2V6e0A==}
+  lightningcss-win32-arm64-msvc@1.27.0:
+    resolution: {integrity: sha512-/wXegPS1hnhkeG4OXQKEMQeJd48RDC3qdh+OA8pCuOPCyvnm/yEayrJdJVqzBsqpy1aJklRCVxscpFur80o6iQ==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [arm64]
+    os: [win32]
+
+  lightningcss-win32-x64-msvc@1.27.0:
+    resolution: {integrity: sha512-/OJLj94Zm/waZShL8nB5jsNj3CfNATLCTyFxZyouilfTmSoLDX7VlVAmhPHoZWVFp4vdmoiEbPEYC8HID3m6yw==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [win32]
 
-  lightningcss@1.25.1:
-    resolution: {integrity: sha512-V0RMVZzK1+rCHpymRv4URK2lNhIRyO8g7U7zOFwVAhJuat74HtkjIQpQRKNCwFEYkRGpafOpmXXLoaoBcyVtBg==}
+  lightningcss@1.27.0:
+    resolution: {integrity: sha512-8f7aNmS1+etYSLHht0fQApPc2kNO8qGRutifN5rVIc6Xo6ABsEbqOr758UwI7ALVbTt4x1fllKt0PYgzD9S3yQ==}
     engines: {node: '>= 12.0.0'}
 
   lilconfig@2.1.0:
@@ -4671,6 +4685,10 @@ packages:
 
   material-colors@1.2.6:
     resolution: {integrity: sha512-6qE4B9deFBIa9YSpOc9O0Sgc43zTeVYbgDT5veRKSlB2+ZuHNoVVxA1L/ckMUayV9Ay9y7Z/SZCLcGteW9i7bg==}
+
+  maybe-combine-errors@1.0.0:
+    resolution: {integrity: sha512-eefp6IduNPT6fVdwPp+1NgD0PML1NU5P6j1Mj5nz1nidX8/sWY7119WL8vTAHgqfsY74TzW0w1XPgdYEKkGZ5A==}
+    engines: {node: '>=10'}
 
   mdast-util-compact@4.1.1:
     resolution: {integrity: sha512-h/UFPIkf4ZlJw50k9UC+CkY+/urhFHZB25GXGh0f+kbqSulzZMSEGWeFjAe2jEQsFu9bSjf0s/TdZXsjvtmxIQ==}
@@ -6254,8 +6272,8 @@ packages:
     resolution: {integrity: sha512-P7xDawxO9T1yjR2oiTfgw7BzvyrdsbakUT6PJsgaAeFmSV+6h3fnXtmZJf4ynef6HVamYgs7Wf5I75UBV15ddQ==}
     engines: {node: '>=6'}
 
-  terser@5.31.3:
-    resolution: {integrity: sha512-pAfYn3NIZLyZpa83ZKigvj6Rn9c/vd5KfYGX7cN1mnzqgDcxWvrU5ZtAfIKhEXz9nRecw4z3LXkjaq96/qZqAA==}
+  terser@5.33.0:
+    resolution: {integrity: sha512-JuPVaB7s1gdFKPKTelwUyRq5Sid2A3Gko2S0PncwdBq7kN9Ti9HPWDQ06MPsEDGsZeVESjKEnyGy68quBk1w6g==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -6902,9 +6920,9 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@astro-community/astro-embed-youtube@0.5.3(astro@4.15.8(@types/node@22.5.5)(lightningcss@1.25.1)(rollup@4.22.4)(terser@5.31.3)(typescript@5.6.2))':
+  '@astro-community/astro-embed-youtube@0.5.3(astro@4.15.8(@types/node@22.5.5)(lightningcss@1.27.0)(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2))':
     dependencies:
-      astro: 4.15.8(@types/node@22.5.5)(lightningcss@1.25.1)(rollup@4.22.4)(terser@5.31.3)(typescript@5.6.2)
+      astro: 4.15.8(@types/node@22.5.5)(lightningcss@1.27.0)(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2)
       lite-youtube-embed: 0.3.3
 
   '@astrojs/compiler@2.10.3': {}
@@ -6934,12 +6952,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@3.1.7(astro@4.15.8(@types/node@22.5.5)(lightningcss@1.25.1)(rollup@4.22.4)(terser@5.31.3)(typescript@5.6.2))':
+  '@astrojs/mdx@3.1.7(astro@4.15.8(@types/node@22.5.5)(lightningcss@1.27.0)(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2))':
     dependencies:
       '@astrojs/markdown-remark': 5.2.0
       '@mdx-js/mdx': 3.0.1
       acorn: 8.12.1
-      astro: 4.15.8(@types/node@22.5.5)(lightningcss@1.25.1)(rollup@4.22.4)(terser@5.31.3)(typescript@5.6.2)
+      astro: 4.15.8(@types/node@22.5.5)(lightningcss@1.27.0)(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2)
       es-module-lexer: 1.5.4
       estree-util-visit: 2.0.0
       gray-matter: 4.0.3
@@ -6969,9 +6987,9 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.23.8
 
-  '@astrojs/tailwind@5.1.1(astro@4.15.8(@types/node@22.5.5)(lightningcss@1.25.1)(rollup@4.22.4)(terser@5.31.3)(typescript@5.6.2))(tailwindcss@3.4.12)':
+  '@astrojs/tailwind@5.1.1(astro@4.15.8(@types/node@22.5.5)(lightningcss@1.27.0)(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2))(tailwindcss@3.4.12)':
     dependencies:
-      astro: 4.15.8(@types/node@22.5.5)(lightningcss@1.25.1)(rollup@4.22.4)(terser@5.31.3)(typescript@5.6.2)
+      astro: 4.15.8(@types/node@22.5.5)(lightningcss@1.27.0)(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2)
       autoprefixer: 10.4.20(postcss@8.4.47)
       postcss: 8.4.47
       postcss-load-config: 4.0.2(postcss@8.4.47)
@@ -8793,7 +8811,7 @@ snapshots:
 
   '@tanstack/virtual-core@3.10.8': {}
 
-  '@tinacms/app@2.1.4(@codemirror/language@6.10.3)(@types/node@22.5.5)(@types/react@18.3.8)(abstract-level@1.0.4)(encoding@0.1.13)(immer@10.1.1)(scheduler@0.23.2)(sucrase@3.35.0)(yup@0.32.11)':
+  '@tinacms/app@2.1.4(@codemirror/language@6.10.3)(@types/node@22.5.5)(@types/react@18.3.8)(abstract-level@2.0.0)(encoding@0.1.13)(immer@10.1.1)(scheduler@0.23.2)(sucrase@3.35.0)(yup@0.32.11)':
     dependencies:
       '@graphiql/toolkit': 0.8.4(@types/node@22.5.5)(graphql@15.8.0)
       '@headlessui/react': 1.6.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -8807,7 +8825,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-router-dom: 6.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      tinacms: 2.2.4(@types/react@18.3.8)(abstract-level@1.0.4)(encoding@0.1.13)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(sucrase@3.35.0)(typescript@5.6.2)
+      tinacms: 2.2.4(@types/react@18.3.8)(abstract-level@2.0.0)(encoding@0.1.13)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(sucrase@3.35.0)(typescript@5.6.2)
       typescript: 5.6.2
       zod: 3.23.8
     transitivePeerDependencies:
@@ -8825,7 +8843,7 @@ snapshots:
       - supports-color
       - yup
 
-  '@tinacms/cli@1.6.4(@codemirror/language@6.10.3)(@types/node@22.5.5)(@types/react@18.3.8)(abstract-level@1.0.4)(encoding@0.1.13)(immer@10.1.1)(lightningcss@1.25.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.22.4)(scheduler@0.23.2)(sucrase@3.35.0)(terser@5.31.3)':
+  '@tinacms/cli@1.6.4(@codemirror/language@6.10.3)(@types/node@22.5.5)(@types/react@18.3.8)(abstract-level@2.0.0)(encoding@0.1.13)(immer@10.1.1)(lightningcss@1.27.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.22.4)(scheduler@0.23.2)(sucrase@3.35.0)(terser@5.33.0)':
     dependencies:
       '@graphql-codegen/core': 2.6.8(graphql@15.8.0)
       '@graphql-codegen/plugin-helpers': 5.0.4(graphql@15.8.0)
@@ -8839,12 +8857,12 @@ snapshots:
       '@svgr/core': 8.1.0(typescript@5.6.2)
       '@tailwindcss/aspect-ratio': 0.4.2(tailwindcss@3.4.12)
       '@tailwindcss/typography': 0.5.15(tailwindcss@3.4.12)
-      '@tinacms/app': 2.1.4(@codemirror/language@6.10.3)(@types/node@22.5.5)(@types/react@18.3.8)(abstract-level@1.0.4)(encoding@0.1.13)(immer@10.1.1)(scheduler@0.23.2)(sucrase@3.35.0)(yup@0.32.11)
+      '@tinacms/app': 2.1.4(@codemirror/language@6.10.3)(@types/node@22.5.5)(@types/react@18.3.8)(abstract-level@2.0.0)(encoding@0.1.13)(immer@10.1.1)(scheduler@0.23.2)(sucrase@3.35.0)(yup@0.32.11)
       '@tinacms/graphql': 1.5.2(react@18.3.1)(typescript@5.6.2)
       '@tinacms/metrics': 1.0.5(encoding@0.1.13)(fs-extra@9.1.0)
       '@tinacms/schema-tools': 1.6.2(react@18.3.1)(yup@0.32.11)
-      '@tinacms/search': 1.0.28(abstract-level@1.0.4)(encoding@0.1.13)(react@18.3.1)(sucrase@3.35.0)(typescript@5.6.2)(yup@0.32.11)
-      '@vitejs/plugin-react': 3.1.0(vite@4.5.5(@types/node@22.5.5)(lightningcss@1.25.1)(terser@5.31.3))
+      '@tinacms/search': 1.0.28(abstract-level@2.0.0)(encoding@0.1.13)(react@18.3.1)(sucrase@3.35.0)(typescript@5.6.2)(yup@0.32.11)
+      '@vitejs/plugin-react': 3.1.0(vite@4.5.5(@types/node@22.5.5)(lightningcss@1.27.0)(terser@5.33.0))
       altair-express-middleware: 7.3.6
       auto-bind: 4.0.0
       body-parser: 1.20.3
@@ -8871,10 +8889,10 @@ snapshots:
       prompts: 2.4.2
       readable-stream: 4.5.2
       tailwindcss: 3.4.12
-      tinacms: 2.2.4(@types/react@18.3.8)(abstract-level@1.0.4)(encoding@0.1.13)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(sucrase@3.35.0)(typescript@5.6.2)
+      tinacms: 2.2.4(@types/react@18.3.8)(abstract-level@2.0.0)(encoding@0.1.13)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(sucrase@3.35.0)(typescript@5.6.2)
       typanion: 3.13.0
       typescript: 5.6.2
-      vite: 4.5.5(@types/node@22.5.5)(lightningcss@1.25.1)(terser@5.31.3)
+      vite: 4.5.5(@types/node@22.5.5)(lightningcss@1.27.0)(terser@5.33.0)
       yup: 0.32.11
       zod: 3.23.8
     transitivePeerDependencies:
@@ -9030,13 +9048,13 @@ snapshots:
       yup: 1.4.0
       zod: 3.23.8
 
-  '@tinacms/search@1.0.28(abstract-level@1.0.4)(encoding@0.1.13)(react@18.3.1)(sucrase@3.35.0)(typescript@5.6.2)(yup@0.32.11)':
+  '@tinacms/search@1.0.28(abstract-level@2.0.0)(encoding@0.1.13)(react@18.3.1)(sucrase@3.35.0)(typescript@5.6.2)(yup@0.32.11)':
     dependencies:
       '@tinacms/graphql': 1.5.2(react@18.3.1)(typescript@5.6.2)
       '@tinacms/schema-tools': 1.6.2(react@18.3.1)(yup@0.32.11)
       memory-level: 1.0.0
       node-fetch: 2.7.0(encoding@0.1.13)
-      search-index: 4.0.0(abstract-level@1.0.4)
+      search-index: 4.0.0(abstract-level@2.0.0)
       sqlite-level: 1.2.0(sucrase@3.35.0)
       stopword: 2.0.8
     transitivePeerDependencies:
@@ -9048,13 +9066,13 @@ snapshots:
       - typescript
       - yup
 
-  '@tinacms/search@1.0.28(abstract-level@1.0.4)(encoding@0.1.13)(react@18.3.1)(sucrase@3.35.0)(typescript@5.6.2)(yup@1.4.0)':
+  '@tinacms/search@1.0.28(abstract-level@2.0.0)(encoding@0.1.13)(react@18.3.1)(sucrase@3.35.0)(typescript@5.6.2)(yup@1.4.0)':
     dependencies:
       '@tinacms/graphql': 1.5.2(react@18.3.1)(typescript@5.6.2)
       '@tinacms/schema-tools': 1.6.2(react@18.3.1)(yup@1.4.0)
       memory-level: 1.0.0
       node-fetch: 2.7.0(encoding@0.1.13)
-      search-index: 4.0.0(abstract-level@1.0.4)
+      search-index: 4.0.0(abstract-level@2.0.0)
       sqlite-level: 1.2.0(sucrase@3.35.0)
       stopword: 2.0.8
     transitivePeerDependencies:
@@ -9872,14 +9890,14 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-react@3.1.0(vite@4.5.5(@types/node@22.5.5)(lightningcss@1.25.1)(terser@5.31.3))':
+  '@vitejs/plugin-react@3.1.0(vite@4.5.5(@types/node@22.5.5)(lightningcss@1.27.0)(terser@5.33.0))':
     dependencies:
       '@babel/core': 7.25.2
       '@babel/plugin-transform-react-jsx-self': 7.24.7(@babel/core@7.25.2)
       '@babel/plugin-transform-react-jsx-source': 7.24.7(@babel/core@7.25.2)
       magic-string: 0.27.0
       react-refresh: 0.14.2
-      vite: 4.5.5(@types/node@22.5.5)(lightningcss@1.25.1)(terser@5.31.3)
+      vite: 4.5.5(@types/node@22.5.5)(lightningcss@1.27.0)(terser@5.33.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -9902,6 +9920,16 @@ snapshots:
       level-transcoder: 1.0.1
       module-error: 1.0.2
       queue-microtask: 1.2.3
+
+  abstract-level@2.0.0:
+    dependencies:
+      buffer: 6.0.3
+      is-buffer: 2.0.5
+      level-supports: 6.0.0
+      level-transcoder: 1.0.1
+      maybe-combine-errors: 1.0.0
+      module-error: 1.0.2
+    optional: true
 
   accepts@1.3.8:
     dependencies:
@@ -10055,7 +10083,7 @@ snapshots:
 
   astro-font@0.1.81: {}
 
-  astro@4.15.8(@types/node@22.5.5)(lightningcss@1.25.1)(rollup@4.22.4)(terser@5.31.3)(typescript@5.6.2):
+  astro@4.15.8(@types/node@22.5.5)(lightningcss@1.27.0)(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2):
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/internal-helpers': 0.4.1
@@ -10114,8 +10142,8 @@ snapshots:
       tsconfck: 3.1.3(typescript@5.6.2)
       unist-util-visit: 5.0.0
       vfile: 6.0.3
-      vite: 5.4.7(@types/node@22.5.5)(lightningcss@1.25.1)(terser@5.31.3)
-      vitefu: 1.0.2(vite@5.4.7(@types/node@22.5.5)(lightningcss@1.25.1)(terser@5.31.3))
+      vite: 5.4.7(@types/node@22.5.5)(lightningcss@1.27.0)(terser@5.33.0)
+      vitefu: 1.0.2(vite@5.4.7(@types/node@22.5.5)(lightningcss@1.27.0)(terser@5.33.0))
       which-pm: 3.0.0
       xxhash-wasm: 1.0.2
       yargs-parser: 21.1.1
@@ -10323,7 +10351,7 @@ snapshots:
   camel-case@4.1.2:
     dependencies:
       pascal-case: 3.1.2
-      tslib: 2.7.0
+      tslib: 2.6.3
 
   camelcase-css@2.0.1: {}
 
@@ -10338,7 +10366,7 @@ snapshots:
   capital-case@1.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.7.0
+      tslib: 2.6.3
       upper-case-first: 2.0.2
 
   catering@2.1.1: {}
@@ -10525,7 +10553,7 @@ snapshots:
   constant-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.7.0
+      tslib: 2.6.3
       upper-case: 2.0.2
 
   content-disposition@0.5.4:
@@ -11185,11 +11213,11 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  fergies-inverted-index@12.0.0(abstract-level@1.0.4):
+  fergies-inverted-index@12.0.0(abstract-level@2.0.0):
     dependencies:
       browser-level: 1.0.1
       charwise: 3.0.1
-      level-read-stream: 1.1.0(abstract-level@1.0.4)
+      level-read-stream: 1.1.0(abstract-level@2.0.0)
       memory-level: 1.0.0
       traverse: 0.6.7
     transitivePeerDependencies:
@@ -11600,7 +11628,7 @@ snapshots:
   header-case@2.0.4:
     dependencies:
       capital-case: 1.0.4
-      tslib: 2.7.0
+      tslib: 2.6.3
 
   hey-listen@1.0.8: {}
 
@@ -12005,13 +12033,16 @@ snapshots:
     dependencies:
       language-subtag-registry: 0.3.23
 
-  level-read-stream@1.1.0(abstract-level@1.0.4):
+  level-read-stream@1.1.0(abstract-level@2.0.0):
     dependencies:
       readable-stream: 3.6.2
     optionalDependencies:
-      abstract-level: 1.0.4
+      abstract-level: 2.0.0
 
   level-supports@4.0.1: {}
+
+  level-supports@6.0.0:
+    optional: true
 
   level-transcoder@1.0.1:
     dependencies:
@@ -12023,46 +12054,50 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
-  lightningcss-darwin-arm64@1.25.1:
+  lightningcss-darwin-arm64@1.27.0:
     optional: true
 
-  lightningcss-darwin-x64@1.25.1:
+  lightningcss-darwin-x64@1.27.0:
     optional: true
 
-  lightningcss-freebsd-x64@1.25.1:
+  lightningcss-freebsd-x64@1.27.0:
     optional: true
 
-  lightningcss-linux-arm-gnueabihf@1.25.1:
+  lightningcss-linux-arm-gnueabihf@1.27.0:
     optional: true
 
-  lightningcss-linux-arm64-gnu@1.25.1:
+  lightningcss-linux-arm64-gnu@1.27.0:
     optional: true
 
-  lightningcss-linux-arm64-musl@1.25.1:
+  lightningcss-linux-arm64-musl@1.27.0:
     optional: true
 
-  lightningcss-linux-x64-gnu@1.25.1:
+  lightningcss-linux-x64-gnu@1.27.0:
     optional: true
 
-  lightningcss-linux-x64-musl@1.25.1:
+  lightningcss-linux-x64-musl@1.27.0:
     optional: true
 
-  lightningcss-win32-x64-msvc@1.25.1:
+  lightningcss-win32-arm64-msvc@1.27.0:
     optional: true
 
-  lightningcss@1.25.1:
+  lightningcss-win32-x64-msvc@1.27.0:
+    optional: true
+
+  lightningcss@1.27.0:
     dependencies:
       detect-libc: 1.0.3
     optionalDependencies:
-      lightningcss-darwin-arm64: 1.25.1
-      lightningcss-darwin-x64: 1.25.1
-      lightningcss-freebsd-x64: 1.25.1
-      lightningcss-linux-arm-gnueabihf: 1.25.1
-      lightningcss-linux-arm64-gnu: 1.25.1
-      lightningcss-linux-arm64-musl: 1.25.1
-      lightningcss-linux-x64-gnu: 1.25.1
-      lightningcss-linux-x64-musl: 1.25.1
-      lightningcss-win32-x64-msvc: 1.25.1
+      lightningcss-darwin-arm64: 1.27.0
+      lightningcss-darwin-x64: 1.27.0
+      lightningcss-freebsd-x64: 1.27.0
+      lightningcss-linux-arm-gnueabihf: 1.27.0
+      lightningcss-linux-arm64-gnu: 1.27.0
+      lightningcss-linux-arm64-musl: 1.27.0
+      lightningcss-linux-x64-gnu: 1.27.0
+      lightningcss-linux-x64-musl: 1.27.0
+      lightningcss-win32-arm64-msvc: 1.27.0
+      lightningcss-win32-x64-msvc: 1.27.0
     optional: true
 
   lilconfig@2.1.0: {}
@@ -12239,6 +12274,9 @@ snapshots:
   markdown-table@3.0.3: {}
 
   material-colors@1.2.6: {}
+
+  maybe-combine-errors@1.0.0:
+    optional: true
 
   mdast-util-compact@4.1.1:
     dependencies:
@@ -13417,7 +13455,7 @@ snapshots:
   param-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.7.0
+      tslib: 2.6.3
 
   parent-module@1.0.1:
     dependencies:
@@ -13474,12 +13512,12 @@ snapshots:
   pascal-case@3.1.2:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.7.0
+      tslib: 2.6.3
 
   path-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.7.0
+      tslib: 2.6.3
 
   path-exists@4.0.0: {}
 
@@ -14150,12 +14188,12 @@ snapshots:
     dependencies:
       compute-scroll-into-view: 3.1.0
 
-  search-index@4.0.0(abstract-level@1.0.4):
+  search-index@4.0.0(abstract-level@2.0.0):
     dependencies:
       browser-level: 1.0.1
       charwise: 3.0.1
-      fergies-inverted-index: 12.0.0(abstract-level@1.0.4)
-      level-read-stream: 1.1.0(abstract-level@1.0.4)
+      fergies-inverted-index: 12.0.0(abstract-level@2.0.0)
+      level-read-stream: 1.1.0(abstract-level@2.0.0)
       lru-cache: 10.0.0
       memory-level: 1.0.0
       ngraminator: 3.0.2
@@ -14194,7 +14232,7 @@ snapshots:
   sentence-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.7.0
+      tslib: 2.6.3
       upper-case-first: 2.0.2
 
   serve-static@1.16.2:
@@ -14591,7 +14629,7 @@ snapshots:
 
   term-vector@1.0.0: {}
 
-  terser@5.31.3:
+  terser@5.33.0:
     dependencies:
       '@jridgewell/source-map': 0.3.6
       acorn: 8.12.1
@@ -14609,7 +14647,7 @@ snapshots:
     dependencies:
       any-promise: 1.3.0
 
-  tinacms@2.2.4(@types/react@18.3.8)(abstract-level@1.0.4)(encoding@0.1.13)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(sucrase@3.35.0)(typescript@5.6.2):
+  tinacms@2.2.4(@types/react@18.3.8)(abstract-level@2.0.0)(encoding@0.1.13)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(sucrase@3.35.0)(typescript@5.6.2):
     dependencies:
       '@ariakit/react': 0.4.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@floating-ui/dom': 1.6.11
@@ -14629,7 +14667,7 @@ snapshots:
       '@react-hook/window-size': 3.1.1(react@18.3.1)
       '@tinacms/mdx': 1.4.2(react@18.3.1)(typescript@5.6.2)(yup@1.4.0)
       '@tinacms/schema-tools': 1.6.2(react@18.3.1)(yup@1.4.0)
-      '@tinacms/search': 1.0.28(abstract-level@1.0.4)(encoding@0.1.13)(react@18.3.1)(sucrase@3.35.0)(typescript@5.6.2)(yup@1.4.0)
+      '@tinacms/search': 1.0.28(abstract-level@2.0.0)(encoding@0.1.13)(react@18.3.1)(sucrase@3.35.0)(typescript@5.6.2)(yup@1.4.0)
       '@udecode/cn': 33.0.0(@types/react@18.3.8)(class-variance-authority@0.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwind-merge@2.5.2)
       '@udecode/plate': 36.5.9(@types/react@18.3.8)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(slate-history@0.100.0(slate@0.103.0))(slate-hyperscript@0.100.0(slate@0.103.0))(slate-react@0.107.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(slate@0.103.0))(slate@0.103.0)
       '@udecode/plate-autoformat': 36.5.6(@udecode/plate-common@36.5.9(@types/react@18.3.8)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(slate-history@0.100.0(slate@0.103.0))(slate-hyperscript@0.100.0(slate@0.103.0))(slate-react@0.107.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(slate@0.103.0))(slate@0.103.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(slate-history@0.100.0(slate@0.103.0))(slate-hyperscript@0.100.0(slate@0.103.0))(slate-react@0.107.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(slate@0.103.0))(slate@0.103.0)
@@ -15075,7 +15113,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vite@4.5.5(@types/node@22.5.5)(lightningcss@1.25.1)(terser@5.31.3):
+  vite@4.5.5(@types/node@22.5.5)(lightningcss@1.27.0)(terser@5.33.0):
     dependencies:
       esbuild: 0.18.20
       postcss: 8.4.47
@@ -15083,10 +15121,10 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.5.5
       fsevents: 2.3.3
-      lightningcss: 1.25.1
-      terser: 5.31.3
+      lightningcss: 1.27.0
+      terser: 5.33.0
 
-  vite@5.4.7(@types/node@22.5.5)(lightningcss@1.25.1)(terser@5.31.3):
+  vite@5.4.7(@types/node@22.5.5)(lightningcss@1.27.0)(terser@5.33.0):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.47
@@ -15094,12 +15132,12 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.5.5
       fsevents: 2.3.3
-      lightningcss: 1.25.1
-      terser: 5.31.3
+      lightningcss: 1.27.0
+      terser: 5.33.0
 
-  vitefu@1.0.2(vite@5.4.7(@types/node@22.5.5)(lightningcss@1.25.1)(terser@5.31.3)):
+  vitefu@1.0.2(vite@5.4.7(@types/node@22.5.5)(lightningcss@1.27.0)(terser@5.33.0)):
     optionalDependencies:
-      vite: 5.4.7(@types/node@22.5.5)(lightningcss@1.25.1)(terser@5.31.3)
+      vite: 5.4.7(@types/node@22.5.5)(lightningcss@1.27.0)(terser@5.33.0)
 
   vscode-languageserver-types@3.17.5: {}
 
