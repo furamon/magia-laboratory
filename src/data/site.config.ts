@@ -10,7 +10,7 @@ interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
 	author: 'ふらもん', // Site author
-	title: '魔導研究棟', // Site title.
+	title: 'Magia Laboratory', // Site title.
 	description: 'CGとかゲームとかのふらもんの部屋。', // Description to display in the meta tags
 	lang: 'ja-JP',
 	ogLocale: 'ja_JP',
