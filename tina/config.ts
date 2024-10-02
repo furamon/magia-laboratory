@@ -1,5 +1,5 @@
 import { CATEGORIES } from '../src/data/categories.ts'
-import { defineConfig,tinaTableTemplate } from 'tinacms'
+import { defineConfig } from 'tinacms'
 
 // Your hosting provider likely exposes this as an environment variable
 const branch = 'main'
@@ -76,19 +76,6 @@ export default defineConfig({
 								]
 							}
 						]
-					},
-					{
-						label: 'Table',
-						name: 'table',
-						type: 'object',
-						fields: [
-							{
-								type: 'rich-text',
-								label: 'Body',
-								name: '_body',
-								templates: [tinaTableTemplate]
-							}
-						]
 					}
 				]
 			},
@@ -135,19 +122,6 @@ export default defineConfig({
 										isBody: true
 									}
 								]
-							}
-						]
-					},
-					{
-						label: 'Table',
-						name: 'table',
-						type: 'object',
-						fields: [
-							{
-								type: 'rich-text',
-								label: 'Body',
-								name: '_body',
-								templates: [tinaTableTemplate]
 							}
 						]
 					}
@@ -198,19 +172,6 @@ export default defineConfig({
 								]
 							}
 						]
-					},
-					{
-						label: 'Table',
-						name: 'table',
-						type: 'object',
-						fields: [
-							{
-								type: 'rich-text',
-								label: 'Body',
-								name: '_body',
-								templates: [tinaTableTemplate]
-							}
-						]
 					}
 				]
 			},
@@ -259,19 +220,6 @@ export default defineConfig({
 								]
 							}
 						]
-					},
-					{
-						label: 'Table',
-						name: 'table',
-						type: 'object',
-						fields: [
-							{
-								type: 'rich-text',
-								label: 'Body',
-								name: '_body',
-								templates: [tinaTableTemplate]
-							}
-						]
 					}
 				]
 			},
@@ -318,19 +266,6 @@ export default defineConfig({
 										isBody: true
 									}
 								]
-							}
-						]
-					},
-					{
-						label: 'Table',
-						name: 'table',
-						type: 'object',
-						fields: [
-							{
-								type: 'rich-text',
-								label: 'Body',
-								name: '_body',
-								templates: [tinaTableTemplate]
 							}
 						]
 					}
