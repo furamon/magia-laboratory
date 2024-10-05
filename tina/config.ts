@@ -59,7 +59,8 @@ export default defineConfig({
 					{
 						type: 'rich-text',
 						label: 'Body',
-						name: '_body',
+						name: 'body',
+						isBody: true,
 						templates: [tinaTableTemplate]
 					}
 				]
@@ -92,7 +93,8 @@ export default defineConfig({
 					{
 						type: 'rich-text',
 						label: 'Body',
-						name: '_body',
+						name: 'body',
+						isBody: true,
 						templates: [tinaTableTemplate]
 					}
 				]
@@ -125,7 +127,8 @@ export default defineConfig({
 					{
 						type: 'rich-text',
 						label: 'Body',
-						name: '_body',
+						name: 'body',
+						isBody: true,
 						templates: [tinaTableTemplate]
 					}
 				]
@@ -158,7 +161,8 @@ export default defineConfig({
 					{
 						type: 'rich-text',
 						label: 'Body',
-						name: '_body',
+						name: 'body',
+						isBody: true,
 						templates: [tinaTableTemplate]
 					}
 				]
@@ -191,7 +195,8 @@ export default defineConfig({
 					{
 						type: 'rich-text',
 						label: 'Body',
-						name: '_body',
+						name: 'body',
+						isBody: true,
 						templates: [tinaTableTemplate]
 					}
 				]
