@@ -6,7 +6,6 @@ import Code from '@/components/mdx/Code'
 import Share from '@/components/Share'
 import TableOfContents from '@/components/TableOfContents'
 import { getPosts } from '@/utils'
-import Table from '@/components/mdx/Table'
 import Disqus from '@/components/Disqus'
 import { disqusConfig } from '@/data/disqus.config'
 
@@ -56,7 +55,7 @@ const disqusEnabled = disqusConfig.enabled
 		<!-- post -->
 		<article class='max-w-full w-full'>
 			<div class='prose prose-lg md:prose-xl dark:prose-invert mb-12 min-w-full'>
-				<Content components={{ pre: Code, Table }} />
+				<Content components={{ pre: Code }} />
 			</div>
 
 			<!-- related posts -->
