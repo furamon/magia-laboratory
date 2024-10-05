@@ -1,5 +1,6 @@
 import { CATEGORIES } from '../src/data/categories.ts'
 import { defineConfig } from 'tinacms'
+import { tinaTableTemplate } from 'tinacms'
 
 // Your hosting provider likely exposes this as an environment variable
 const branch = 'main'
@@ -59,23 +60,8 @@ export default defineConfig({
 					{
 						type: 'rich-text',
 						label: 'Body',
-						name: 'SButton',
-						isBody: true,
-						templates: [
-							// Custom Components
-							{
-								label: 'SButton',
-								name: 'SButton',
-								fields: [
-									{
-										type: 'rich-text',
-										label: 'SButton',
-										name: 'children',
-										isBody: true
-									}
-								]
-							}
-						]
+						name: 'Table',
+						templates: [tinaTableTemplate]
 					}
 				]
 			},
@@ -107,23 +93,8 @@ export default defineConfig({
 					{
 						type: 'rich-text',
 						label: 'Body',
-						name: 'SButton',
-						isBody: true,
-						templates: [
-							// Custom Components
-							{
-								label: 'SButton',
-								name: 'SButton',
-								fields: [
-									{
-										type: 'rich-text',
-										label: 'SButton',
-										name: 'children',
-										isBody: true
-									}
-								]
-							}
-						]
+						name: 'Table',
+						templates: [tinaTableTemplate]
 					}
 				]
 			},
@@ -155,23 +126,8 @@ export default defineConfig({
 					{
 						type: 'rich-text',
 						label: 'Body',
-						name: 'SButton',
-						isBody: true,
-						templates: [
-							// Custom Components
-							{
-								label: 'SButton',
-								name: 'SButton',
-								fields: [
-									{
-										type: 'rich-text',
-										label: 'SButton',
-										name: 'children',
-										isBody: true
-									}
-								]
-							}
-						]
+						name: 'Table',
+						templates: [tinaTableTemplate]
 					}
 				]
 			},
@@ -203,23 +159,8 @@ export default defineConfig({
 					{
 						type: 'rich-text',
 						label: 'Body',
-						name: 'SButton',
-						isBody: true,
-						templates: [
-							// Custom Components
-							{
-								label: 'SButton',
-								name: 'SButton',
-								fields: [
-									{
-										type: 'rich-text',
-										label: 'SButton',
-										name: 'children',
-										isBody: true
-									}
-								]
-							}
-						]
+						name: 'Table',
+						templates: [tinaTableTemplate]
 					}
 				]
 			},
@@ -251,23 +192,8 @@ export default defineConfig({
 					{
 						type: 'rich-text',
 						label: 'Body',
-						name: 'SButton',
-						isBody: true,
-						templates: [
-							// Custom Components
-							{
-								label: 'SButton',
-								name: 'SButton',
-								fields: [
-									{
-										type: 'rich-text',
-										label: 'SButton',
-										name: 'children',
-										isBody: true
-									}
-								]
-							}
-						]
+						name: 'Table',
+						templates: [tinaTableTemplate]
 					}
 				]
 			}
