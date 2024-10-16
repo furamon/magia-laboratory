@@ -37,11 +37,11 @@
 	.prose img {
 		@apply mx-auto;
 	}
-  html.dark .shiki,
-  html.dark .shiki span {
-    --shiki-color: var(--shiki-dark);
-    background-color: var(--color-gray-900);
-  }
+	html.dark .shiki,
+	html.dark .shiki span {
+		--shiki-color: var(--shiki-dark);
+		background-color: var(--color-gray-900);
+	}
 }
 
 .glass {
@@ -53,4 +53,9 @@
 
 .shadow {
 	box-shadow: -5px 3px 8px 1px rgba(0, 0, 0, 0.12);
+}
+
+/* 隠しリンク */
+.hidden-link {
+	display: inline-block;
 }
