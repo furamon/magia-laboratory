@@ -444,46 +444,127 @@ winget install Microsoft.powershell
 
 WSLにも役立つはずなので強引に紹介。Debuntu前提。
 
-#### Fish設定
-
-起動が早いし使いやすいのでFishでいきます。
-
-[https://qiita.com/irongineer/items/e5462d79bcaa903905b7](https://qiita.com/irongineer/items/e5462d79bcaa903905b7)
-
-[https://qiita.com/eduidl/items/dc2f29cac7232a9a97d8](https://qiita.com/eduidl/items/dc2f29cac7232a9a97d8)
-
 ```shell
-sudo apt install zip unzip -y
+# nano ~/.zshrc
+export PATH=$PATH:$HOME/.local/bin
+eval "$(sheldon source)"
 
-sudo apt-add-repository ppa:fish-shell/release-3
-sudo apt update
-sudo apt install fish -y
-chsh -s /usr/bin/fish
+# History設定
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+setopt share_history
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_reduce_blanks
 
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.12.0
-nano ~/.config/fish/config.fish # source ~/.asdf/asdf.fish 追記
-source  ~/.config/fish/config.fish
-mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
-sudo apt install fzf -y
-sudo apt install bat -y
-sudo apt install fd-find -y
-alias fd='fdfind' && funcsave fd
-alias bat='batcat' && funcsave bat
-fisher install PatrickF1/fzf.fish
-asdf plugin add ghq
-asdf install ghq latest
-asdf global ghq latest
-fisher install decors/fish-ghq
-nano ~/.config/fish/config.fish # set GHQ_SELECTOR fzf 追記
-fisher install jethrokuan/z
-fisher install 0rax/fish-bd
-sudo apt install wslu
-nano ~/.config/fish/config.fish # export BROWSER=wslview 追記
-fisher install edc/bass
+setopt print_eight_bit
+
+# Control+rで履歴検索
+function peco-select-history() {
+  BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+
+if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
+    autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+    add-zsh-hook chpwd chpwd_recent_dirs
+    zstyle ':completion:*' recent-dirs-insert both
+    zstyle ':chpwd:*' recent-dirs-default true
+    zstyle ':chpwd:*' recent-dirs-max 1000
+fi
+
+# Control+fディレクトリ履歴検索
+function peco-cdr () {
+    local selected_dir="$(cdr -l | sed 's/^[0-9]\+ \+//' | peco --prompt="cdr >" --query "$LBUFFER")"
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+}
+zle -N peco-cdr
+bindkey '^f' peco-cdr
+
+# debでDocker履歴検索
+alias deb='docker exec -it $(docker ps | peco | cut -d " " -f 1) /bin/bash'
+alias dea='docker exec -it $(docker ps | peco | cut -d " " -f 1) /bin/ash'
+
+# Ctrl+]でGHQリポジトリにトベルーラ
+function peco-src () {
+local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+fi
+}
+zle -N peco-src
+bindkey '^]' peco-src
 ```
 
-最後のbassはfishでbashコマンドが打てるやつです。`bass コマンド`で使用可。
+```yaml
+# sheldon.toml
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+[templates]
+defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
+
+[plugins.rm-star-silent]
+inline = "setopt RM_STAR_SILENT"
+
+# https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
+[plugins.brew-completion]
+inline = 'type brew &>/dev/null && FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"'
+
+[plugins.rust-zsh-completions]
+github = "ryutok/rust-zsh-completions"
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+
+[plugins.zsh-autosuggestions]
+github = 'zsh-users/zsh-autosuggestions'
+apply = ["defer"]
+
+[plugins.wakatime-zsh-plugin]
+github = "sobolevn/wakatime-zsh-plugin"
+
+[plugins.starship]
+inline = 'eval "$(starship init zsh)"' # 別途starshipインストール
+
+[plugins.compinit]
+inline = "autoload -Uz compinit && zsh-defer compinit"
+```
+
+#### GHQ\&Peco
+
+```shell
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:longsleep/golang-backports
+sudo apt update
+sudo apt install -y golang-go
+echo 'export GOPATH=$HOME/go' >> ~/.zshrc
+echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.zshrc
+source ~/.zshrc
+go install github.com/x-motemen/ghq@latest
+git config --global ghq.root '~/git'
+sudo apt install peco -y
+```
+
+あとは
+
+```bash
+ghq get リポジトリURL
+```
+
+でウマー。
 
 #### **SSH 設定**
 
