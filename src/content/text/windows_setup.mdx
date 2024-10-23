@@ -568,7 +568,9 @@ echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.zshrc
 source ~/.zshrc
 go install github.com/x-motemen/ghq@latest
 git config --global ghq.root '~/git'
-sudo apt install peco -y
+wget https://github.com/peco/peco/releases/download/v0.5.11/peco_linux_amd64.tar.gz # リンクで最新バージョン確認のこと
+tar -xvf peco_linux_amd64.tar.gz
+sudo mv peco_linux_amd64/peco /usr/local/bin
 ```
 
 あとは
