@@ -27,5 +27,4 @@ node_modules
 draft
 
 .prototools
-.yarn
-yarn.lock
+pnpm-lock.yaml
