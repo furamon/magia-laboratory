@@ -414,9 +414,10 @@ winget install Rainmeter.Rainmeter
 
 Ryzen 7900X前提です。マザーボードはMSI B650M Mortar。
 
-* CPU Ratio Apply ModeをAdaptive、Ratioを52、PerformanceVoltageを1.2
-* メモリ周波数に合わせてSoc VoltageとVDDG+VDDPを調整（うちの目安として6000MhzならSoc1.15VのVDDG+VDDP1.05Vくらい）
-* PBOをAll negative 20
+* CPU Ratio Apply ModeをAdaptive、Ratioを52、PerformanceVoltageを1.225
+* PBO Scalar CtrlをManual 10X、Boost Clock Overrideを+150-200
+* Curve OptimizerをAll negative 30
+* メモリは複雑すぎるのでよしなに。やんなくてもいい
 
 こんな感じ。\
 「Memory Context Restore」は常時オンでも初回起動時にはメモリトレーニングしてくれ、起動時間は短縮します。
