@@ -456,18 +456,6 @@ curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | 
 export PATH=$PATH:$HOME/.local/bin
 eval "$(sheldon source)"
 
-# History設定
-HISTFILE=~/.zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
-setopt share_history
-setopt hist_ignore_dups
-setopt hist_ignore_all_dups
-setopt hist_ignore_space
-setopt hist_reduce_blanks
-
-setopt print_eight_bit
-
 # Control+rで履歴検索
 function peco-select-history() {
   BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
@@ -526,19 +514,6 @@ inline = "setopt RM_STAR_SILENT"
 # https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
 [plugins.brew-completion]
 inline = 'type brew &>/dev/null && FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"'
-
-[plugins.rust-zsh-completions]
-github = "ryutok/rust-zsh-completions"
-
-[plugins.zsh-completions]
-github = "zsh-users/zsh-completions"
-
-[plugins.zsh-syntax-highlighting]
-github = "zsh-users/zsh-syntax-highlighting"
-
-[plugins.zsh-autosuggestions]
-github = 'zsh-users/zsh-autosuggestions'
-apply = ["defer"]
 
 [plugins.wakatime-zsh-plugin]
 github = "sobolevn/wakatime-zsh-plugin"
