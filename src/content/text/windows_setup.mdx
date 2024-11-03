@@ -449,12 +449,17 @@ curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
     | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
 
 curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+
+sudo apt install wslu
 ```
 
 ```shell
 # nano ~/.zshrc
 export PATH=$PATH:$HOME/.local/bin
 eval "$(sheldon source)"
+
+export BROWSER=wslview 
+alias open=wslview
 
 # Control+rで履歴検索
 function peco-select-history() {
