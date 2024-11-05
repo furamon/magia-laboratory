@@ -414,9 +414,10 @@ winget install Rainmeter.Rainmeter
 
 Ryzen 7900X前提です。マザーボードはMSI B650M Mortar。
 
-* CPU Ratio Apply ModeをAdaptive、Ratioを52、PerformanceVoltageを1.2
-* メモリ周波数に合わせてSoc VoltageとVDDG+VDDPを調整（6000MhzならSoc1.05VのVDDG+VDDP0.85V）
-* PBOをAll negative 20
+* CPU Ratio Apply ModeをAdaptive、Ratioを52、PerformanceVoltageを1.225
+* PBO Scalar CtrlをManual 10X、Boost Clock Overrideを+150-200
+* Curve OptimizerをAll negative 30
+* メモリは複雑すぎるのでよしなに。やんなくてもいい
 
 こんな感じ。\
 「Memory Context Restore」は常時オンでも初回起動時にはメモリトレーニングしてくれ、起動時間は短縮します。
@@ -448,6 +449,8 @@ curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
     | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
 
 curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+
+sudo apt install wslu
 ```
 
 ```shell
@@ -455,17 +458,8 @@ curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | 
 export PATH=$PATH:$HOME/.local/bin
 eval "$(sheldon source)"
 
-# History設定
-HISTFILE=~/.zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
-setopt share_history
-setopt hist_ignore_dups
-setopt hist_ignore_all_dups
-setopt hist_ignore_space
-setopt hist_reduce_blanks
-
-setopt print_eight_bit
+export BROWSER=wslview 
+alias open=wslview
 
 # Control+rで履歴検索
 function peco-select-history() {
@@ -526,27 +520,11 @@ inline = "setopt RM_STAR_SILENT"
 [plugins.brew-completion]
 inline = 'type brew &>/dev/null && FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"'
 
-[plugins.rust-zsh-completions]
-github = "ryutok/rust-zsh-completions"
-
-[plugins.zsh-completions]
-github = "zsh-users/zsh-completions"
-
-[plugins.zsh-syntax-highlighting]
-github = "zsh-users/zsh-syntax-highlighting"
-
-[plugins.zsh-autosuggestions]
-github = 'zsh-users/zsh-autosuggestions'
-apply = ["defer"]
-
 [plugins.wakatime-zsh-plugin]
 github = "sobolevn/wakatime-zsh-plugin"
 
 [plugins.starship]
 inline = 'eval "$(starship init zsh)"' # 別途starshipインストール
-
-[plugins.compinit]
-inline = "autoload -Uz compinit && zsh-defer compinit"
 
 [plugins.zsh-z]
 github = "agkozak/zsh-z"
