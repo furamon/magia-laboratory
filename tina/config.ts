@@ -1,5 +1,5 @@
 import { CATEGORIES } from '../src/data/categories.ts'
-import { defineConfig, tinaTableTemplate } from 'tinacms'
+import { defineConfig } from 'tinacms'
 
 // Your hosting provider likely exposes this as an environment variable
 const branch = 'main'
@@ -60,8 +60,7 @@ export default defineConfig({
 						type: 'rich-text',
 						label: 'Body',
 						name: 'body',
-						isBody: true,
-						templates: [tinaTableTemplate]
+						isBody: true
 					}
 				]
 			},
@@ -94,8 +93,7 @@ export default defineConfig({
 						type: 'rich-text',
 						label: 'Body',
 						name: 'body',
-						isBody: true,
-						templates: [tinaTableTemplate]
+						isBody: true
 					}
 				]
 			},
@@ -128,8 +126,7 @@ export default defineConfig({
 						type: 'rich-text',
 						label: 'Body',
 						name: 'body',
-						isBody: true,
-						templates: [tinaTableTemplate]
+						isBody: true
 					}
 				]
 			},
@@ -162,8 +159,7 @@ export default defineConfig({
 						type: 'rich-text',
 						label: 'Body',
 						name: 'body',
-						isBody: true,
-						templates: [tinaTableTemplate]
+						isBody: true
 					}
 				]
 			},
@@ -196,8 +192,7 @@ export default defineConfig({
 						type: 'rich-text',
 						label: 'Body',
 						name: 'body',
-						isBody: true,
-						templates: [tinaTableTemplate]
+						isBody: true
 					}
 				]
 			}
