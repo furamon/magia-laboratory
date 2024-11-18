@@ -37,7 +37,7 @@
 		"@astrojs/rss": "4.0.9",
 		"astro": "4.16.10",
 		"astro-font": "^0.1.81",
-		"pnpm": "^9.12.3",
+		"pnpm": "^9.13.2",
 		"rehype-stringify": "^10.0.1",
 		"remark-gfm": "^4.0.0",
 		"remark-parse": "^11.0.0",
