@@ -5,6 +5,7 @@ dist/
 
 # dependencies
 node_modules/
+pnpm-lock.yaml
 
 tina-lock.json
 
@@ -27,4 +28,3 @@ node_modules
 draft
 
 .prototools
-pnpm-lock.yaml
