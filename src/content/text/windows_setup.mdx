@@ -445,9 +445,6 @@ winget install Microsoft.powershell
 WSLにも役立つはずなので強引に紹介。Debuntu前提。
 
 ```shell
-curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
-    | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
-
 curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 
 sudo apt install wslu
@@ -513,31 +510,10 @@ bindkey '^]' peco-src
 ```
 
 ```yaml
-# sheldon init --shell zsh && nano .config/sheldon/plugins.toml
-[plugins.zsh-defer]
-github = "romkatv/zsh-defer"
-
-[templates]
-defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
-
-[plugins.rm-star-silent]
-inline = "setopt RM_STAR_SILENT"
-
-# https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
-[plugins.brew-completion]
-inline = 'type brew &>/dev/null && FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"'
-
-[plugins.wakatime-zsh-plugin]
-github = "sobolevn/wakatime-zsh-plugin"
-
-[plugins.starship]
-inline = 'eval "$(starship init zsh)"' # 別途starshipインストール
-
-[plugins.zsh-z]
-github = "agkozak/zsh-z"
-
-[plugins.autopair]
-github = "hlissner/zsh-autopair"
+# nano .zimrc
+zmodule sobolevn/wakatime-zsh-plugin
+zmodule agkozak/zsh-z
+zmodule hlissner/zsh-autopair
 ```
 
 #### GHQ\&Peco
