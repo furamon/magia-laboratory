@@ -76,16 +76,10 @@ const latestPost = await unified()
 	</div>
 
 	<div class='text-xl leading-loose' set:html={latestPost} />
-
-	<style>
-		.btn-game {
-			@apply bg-gray-700 hover:bg-gray-500 text-white rounded-full text-center w-full py-3 m-1 mx-auto;
-		}
-		.btn-lily {
-			@apply bg-pink-700 hover:bg-pink-500 text-white rounded-full text-center w-full py-3 m-1 mx-auto;
-		}
-	</style>
 </BaseLayout>
+<style>
+	@reference "src/styles/global.css";
+</style>
 <script>
 	// import { animate } from 'motion'
 	// const showAnimations = localStorage.getItem('animations') === 'true'

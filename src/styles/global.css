@@ -1,6 +1,12 @@
-@tailwindcss base;
-@tailwindcss components;
-@tailwindcss utilities;
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-white: #f8f9fa;
+    --font-body: "'IBMPlexSansJP', ...defaultTheme.fontFamily.sans";
+}
+
+@plugin "@tailwindcss/typography";
 
 @layer base {
 	/* body {
@@ -18,7 +24,7 @@
 	h4,
 	h5,
 	h6 {
-		@apply text-zinc-800 dark:text-zinc-100 text-center !important;
+		@apply text-zinc-800 dark:text-zinc-100 text-center;
 	}
 
 	.prose h2 {
@@ -53,6 +59,13 @@
 
 .shadow {
 	box-shadow: -5px 3px 8px 1px rgba(0, 0, 0, 0.12);
+}
+
+.btn-game {
+    @apply bg-gray-700 hover:bg-gray-500 text-white rounded-full text-center w-full text-2xl py-3 m-1 mx-auto;
+}
+.btn-lily {
+    @apply bg-pink-700 hover:bg-pink-500 text-white rounded-full text-center w-full text-2xl py-3 m-1 mx-auto;
 }
 
 /* 隠しリンク */
