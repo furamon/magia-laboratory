@@ -25,7 +25,7 @@
 		"build": "npx tinacms build -c \"astro build\"",
 		"sync": "astro sync",
 		"preview": "astro preview",
-		"postbuild": "pagefind --site dist",
+		"postbuild": "pagefind --site /var/www/html",
 		"format:check": "prettier --plugin-search-dir=. --check .",
 		"format": "prettier --plugin-search-dir=. --write .",
 		"lint": "eslint .",
@@ -35,6 +35,7 @@
 	"dependencies": {
 		"@astro-community/astro-embed-youtube": "^0.5.6",
 		"@astrojs/rss": "4.0.11",
+		"@philnash/astro-pagination": "^0.5.0",
 		"@tailwindcss/postcss": "^4.0.15",
 		"@tailwindcss/vite": "^4.0.15",
 		"astro": "5.5.4",
@@ -91,5 +92,5 @@
 			"sharp"
 		]
 	},
-	"packageManager": "pnpm@10.6.1"
+	"packageManager": "pnpm@10.6.5"
 }

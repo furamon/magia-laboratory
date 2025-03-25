@@ -1,9 +1,9 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --color-white: #f8f9fa;
-    --font-body: "'IBMPlexSansJP', ...defaultTheme.fontFamily.sans";
+	--color-white: #f8f9fa;
+	--font-body: "'IBMPlexSansJP', ...defaultTheme.fontFamily.sans";
 }
 
 @plugin "@tailwindcss/typography";
@@ -48,6 +48,11 @@
 		--shiki-color: var(--shiki-dark);
 		background-color: var(--color-gray-900);
 	}
+	ul {
+		display: flex;
+		justify-content: center;
+		gap: 12px;
+	}
 }
 
 .glass {
@@ -62,10 +67,10 @@
 }
 
 .btn-game {
-    @apply bg-gray-700 hover:bg-gray-500 text-white rounded-full text-center w-full text-2xl py-3 m-1 mx-auto;
+	@apply bg-gray-700 hover:bg-gray-500 text-white rounded-full text-center w-full text-2xl py-3 m-1 mx-auto;
 }
 .btn-lily {
-    @apply bg-pink-700 hover:bg-pink-500 text-white rounded-full text-center w-full text-2xl py-3 m-1 mx-auto;
+	@apply bg-pink-700 hover:bg-pink-500 text-white rounded-full text-center w-full text-2xl py-3 m-1 mx-auto;
 }
 
 /* 隠しリンク */

@@ -6,7 +6,7 @@ import { remarkReadingTime } from './src/utils/readTime.ts'
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://magialaboratory.com/',
+	site: 'https://magialabs.com/',
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
 		drafts: true,
@@ -40,5 +40,6 @@ export default defineConfig({
 	},
 	vite: {
 		plugins: [tailwindcss()]
-	}
+	},
+        outDir: '/var/www/html'
 })
