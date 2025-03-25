@@ -42,6 +42,11 @@
           "title": "Categories",
           "name": "categories",
           "type": "categories"
+        },
+        {
+          "title": "pubDate",
+          "name": "pubDate",
+          "type": "datetime"
         }
       ]
     }
@@ -98,6 +103,20 @@
     {
       "title": "toc",
       "path": "[[workspace]]/src/content/novel/toc"
+    },
+    {
+      "title": "2024",
+      "path": "[[workspace]]/src/content/blog/2024"
+    },
+    {
+      "title": "2025",
+      "path": "[[workspace]]/src/content/blog/2025"
+    },
+    {
+      "title": "fe1-darkdragon",
+      "path": "[[workspace]]/src/content/game/guide/fireemblem/fe1-darkdragon"
     }
-  ]
+  ],
+  "frontMatter.framework.startCommand": "pnpm run dev",
+  "frontMatter.website.host": "https://magialabs.blog"
 }
