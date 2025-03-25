@@ -1,0 +1,103 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "previewPath": null,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Publishing date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Content preview",
+          "name": "preview",
+          "type": "image"
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
+        }
+      ]
+    }
+  ],
+  "frontMatter.framework.id": "astro",
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.git.enabled": true,
+  "frontMatter.content.publicFolder": "public/images",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "text",
+      "path": "[[workspace]]/src/content/text"
+    },
+    {
+      "title": "novel",
+      "path": "[[workspace]]/src/content/novel"
+    },
+    {
+      "title": "lily",
+      "path": "[[workspace]]/src/content/lily"
+    },
+    {
+      "title": "garden",
+      "path": "[[workspace]]/src/content/lily/garden"
+    },
+    {
+      "title": "talk",
+      "path": "[[workspace]]/src/content/game/talk"
+    },
+    {
+      "title": "playdiary",
+      "path": "[[workspace]]/src/content/game/playdiary"
+    },
+    {
+      "title": "guide",
+      "path": "[[workspace]]/src/content/game/guide"
+    },
+    {
+      "title": "playdiary-etc",
+      "path": "[[workspace]]/src/content/game/playdiary/etc"
+    },
+    {
+      "title": "fireemblem",
+      "path": "[[workspace]]/src/content/game/guide/fireemblem"
+    },
+    {
+      "title": "nectaris",
+      "path": "[[workspace]]/src/content/game/guide/nectaris"
+    },
+    {
+      "title": "blog",
+      "path": "[[workspace]]/src/content/blog"
+    },
+    {
+      "title": "toc",
+      "path": "[[workspace]]/src/content/novel/toc"
+    }
+  ]
+}

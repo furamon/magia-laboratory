@@ -30,16 +30,16 @@ export default defineConfig({
 		sitemap(),
 		tailwindcss()
 	],
-	image: {
-		remotePatterns: [
-			{
-				protocol: 'https',
-				hostname: 'assets.tina.io'
-			}
-		]
-	},
+	// image: {
+	// 	remotePatterns: [
+	// 		{
+	// 			protocol: 'https',
+	// 			hostname: 'assets.tina.io'
+	// 		}
+	// 	]
+	// },
 	vite: {
 		plugins: [tailwindcss()]
 	},
-        outDir: '/var/www/html'
+    outDir: '/var/www/html'
 })
