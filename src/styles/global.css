@@ -48,7 +48,7 @@
 		--shiki-color: var(--shiki-dark);
 		background-color: var(--color-gray-900);
 	}
-	ul {
+	div.c-paginaiton nav ul {
 		display: flex;
 		justify-content: center;
 		gap: 12px;
