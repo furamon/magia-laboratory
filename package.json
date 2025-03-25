@@ -30,7 +30,16 @@
 		"format": "prettier --plugin-search-dir=. --write .",
 		"lint": "eslint .",
 		"pre-commit": "lint-staged",
-		"prepare": "husky install"
+		"prepare": "husky install",
+		"watch": "npm-watch"
+	},
+	"watch": {
+		"build": {
+			"patterns": [
+				"src/content"
+			],
+			"extensions": "md,astro"
+		}
 	},
 	"dependencies": {
 		"@astro-community/astro-embed-youtube": "^0.5.6",
@@ -40,6 +49,7 @@
 		"@tailwindcss/vite": "^4.0.15",
 		"astro": "5.5.4",
 		"astro-font": "^1.0.0",
+		"npm-watch": "^0.13.0",
 		"pnpm": "^10.6.5",
 		"postcss": "^8.5.3",
 		"rehype-stringify": "^10.0.1",
