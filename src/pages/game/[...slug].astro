@@ -1,10 +1,12 @@
 ---
-import { getCollection } from 'astro:content'
+import { getCollection, type CollectionEntry } from 'astro:content'
 import PageLayout from '@/layouts/PageLayout'
 import { YouTube } from '@astro-community/astro-embed-youtube'
 
+type GameEntry = CollectionEntry<'game'>
+
 export async function getStaticPaths() {
-	const entries = await getCollection('game')
+	const entries: GameEntry[] = await getCollection('game')
 	return entries.map((entry) => ({
 		params: { slug: entry.slug },
 		props: { entry }

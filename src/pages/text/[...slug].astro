@@ -1,9 +1,11 @@
 ---
-import { getCollection } from 'astro:content'
+import { getCollection, type CollectionEntry } from 'astro:content'
 import PageLayout from '@/layouts/PageLayout'
 
+type TextEntry = CollectionEntry<'text'>
+
 export async function getStaticPaths() {
-	const entries = await getCollection('text')
+	const entries: TextEntry[] = await getCollection('text')
 	return entries.map((entry) => ({
 		params: { slug: entry.slug },
 		props: { entry }

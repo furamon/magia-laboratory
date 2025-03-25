@@ -12,10 +12,10 @@ import Pagination from '@philnash/astro-pagination'
 
 export const MAX_POSTS = 8
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }: { paginate: any }) {
 	const posts = await getPosts()
 
-	const allPosts = posts.sort((a, b) => {
+	const allPosts = posts.sort((a: { data: { pubDate: string | number | Date } }, b: { data: { pubDate: string | number | Date } }) => {
 		const aDate = new Date(a.data.pubDate)
 		const bDate = new Date(b.data.pubDate)
 		return bDate.getTime() - aDate.getTime()
