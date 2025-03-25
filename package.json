@@ -38,7 +38,7 @@
 			"patterns": [
 				"src/content"
 			],
-			"extensions": "md,astro"
+			"extensions": "mdx,astro"
 		}
 	},
 	"dependencies": {
