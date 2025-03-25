@@ -9,7 +9,7 @@ const blog = defineCollection({
 			title: z.string().max(80),
 			description: z.string(),
 			// Transform string to Date object
-			pubDate: z
+			date: z
 				.string()
 				.or(z.date())
 				.transform((val) => new Date(val)),
@@ -23,7 +23,7 @@ const game = defineCollection({
 	schema: () =>
 		z.object({
 			title: z.string().max(80),
-			pubDate: z
+			date: z
 				.string()
 				.or(z.date())
 				.transform((val) => new Date(val)),
@@ -37,7 +37,7 @@ const lily = defineCollection({
 	schema: () =>
 		z.object({
 			title: z.string().max(80),
-			pubDate: z
+			date: z
 				.string()
 				.or(z.date())
 				.transform((val) => new Date(val)),
@@ -51,7 +51,7 @@ const novel = defineCollection({
 	schema: () =>
 		z.object({
 			title: z.string().max(80),
-			pubDate: z
+			date: z
 				.string()
 				.or(z.date())
 				.transform((val) => new Date(val)),
@@ -65,7 +65,7 @@ const text = defineCollection({
 	schema: () =>
 		z.object({
 			title: z.string().max(80),
-			pubDate: z
+			date: z
 				.string()
 				.or(z.date())
 				.transform((val) => new Date(val)),

@@ -42,11 +42,6 @@
           "title": "Categories",
           "name": "categories",
           "type": "categories"
-        },
-        {
-          "title": "pubDate",
-          "name": "pubDate",
-          "type": "datetime"
         }
       ]
     }

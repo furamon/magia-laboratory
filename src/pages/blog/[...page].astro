@@ -15,9 +15,9 @@ export const MAX_POSTS = 8
 export async function getStaticPaths({ paginate }: { paginate: any }) {
 	const posts = await getPosts()
 
-	const allPosts = posts.sort((a: { data: { pubDate: string | number | Date } }, b: { data: { pubDate: string | number | Date } }) => {
-		const aDate = new Date(a.data.pubDate)
-		const bDate = new Date(b.data.pubDate)
+	const allPosts = posts.sort((a: { data: { date: string | number | Date } }, b: { data: { date: string | number | Date } }) => {
+		const aDate = new Date(a.data.date)
+		const bDate = new Date(b.data.date)
 		return bDate.getTime() - aDate.getTime()
 	})
 	return paginate(allPosts, { pageSize: MAX_POSTS })
