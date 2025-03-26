@@ -1,7 +1,7 @@
 [
   {
     "id": "gh-webhook",
-    "execute-command": "/home/furamon/magia-laboratory/deploy.sh",
+    "execute-command": "git pull && git merge",
     "command-working-directory": "/home/furamon/magia-laboratory",
     "trigger-rule":
     {
