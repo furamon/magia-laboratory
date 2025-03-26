@@ -7,7 +7,7 @@ dist/
 node_modules/
 pnpm-lock.yaml
 
-tina-lock.json
+# tina-lock.json
 
 # logs
 npm-debug.log*
