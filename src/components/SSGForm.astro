@@ -4,6 +4,9 @@
 	method='post'
 >
 	<h2 class='text-2xl'>お問い合わせはこちら↓</h2>
+	<div style='display: none;'>
+		<input type='text' name='wana' />
+	</div><!-- name="wana"を見えない状態で設置 -->
 	<label for='user-name'>お名前</label>
 	<input
 		type='text'
@@ -23,17 +26,11 @@
 	<label for='contact-contents'>お問い合わせ内容</label>
 	<textarea
 		id='contact-contents'
-		class='field-sizing-content inset-0 block w-full h-full overflow-hidden box-border p-[5px_15px] bg-transparent border border-[#b6c3c6] rounded-md text-inherit font-inherit tracking-inherit resize-none focus:outline-0 focus:shadow-[0_0_0_4px_rgba(35,167,195,0.3)] focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 sm:mx-auto sm:px-8 lg:px-24 antialiased
-				name='
-		お問い合わせ内容'
+		class='field-sizing-content inset-0 block w-full h-full overflow-hidden box-border p-[5px_15px] bg-transparent border border-[#b6c3c6] rounded-md text-inherit font-inherit tracking-inherit resize-none focus:outline-0 focus:shadow-[0_0_0_4px_rgba(35,167,195,0.3)] focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 sm:mx-auto sm:px-8 lg:px-24 antialiased'
+		name='お問い合わせ内容'
 		required='required'></textarea>
-	<div
+	<button
 		class='bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 p-[15px_30px]'
+		type='submit'>送信する</button
 	>
-		<button type='submit'>送信する</button>
-	</div>
 </form>
-
-<div class='g-recaptcha' data-sitekey='6LdBfwIrAAAAAMf8tt1riSIrzCyyFTlycEXdS5NN'></div>
-
-<script src='https://www.google.com/recaptcha/api.js' async defer></script>
