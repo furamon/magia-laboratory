@@ -7,6 +7,7 @@ import remarkParse from 'remark-parse'
 import remarkGfm from 'remark-gfm'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
+import SSGForm from '@/components/SSGForm'
 
 const posts = await getCollection('blog')
 
@@ -87,6 +88,8 @@ const latestPost = await unified()
 	</div>
 
 	<div class='text-xl leading-loose' set:html={latestPost} />
+
+	<SSGForm />
 </BaseLayout>
 <style>
 	@reference "src/styles/global.css";

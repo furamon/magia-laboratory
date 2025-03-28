@@ -6,8 +6,8 @@ import Code from '@/components/mdx/Code'
 import Share from '@/components/Share'
 import TableOfContents from '@/components/TableOfContents'
 import { getPosts } from '@/utils'
-import Disqus from '@/components/Disqus'
-import { disqusConfig } from '@/data/disqus.config'
+// import Disqus from '@/components/Disqus'
+// import { disqusConfig } from '@/data/disqus.config'
 
 export async function getStaticPaths() {
 	const posts = await getPosts()
@@ -33,7 +33,7 @@ const post = Astro.props
 
 const { Content, headings, remarkPluginFrontmatter } = await post.render()
 
-const disqusEnabled = disqusConfig.enabled
+// const disqusEnabled = disqusConfig.enabled
 ---
 
 <BlogPost
@@ -65,5 +65,5 @@ const disqusEnabled = disqusConfig.enabled
 		</article>
 	</div>
 
-	{disqusEnabled && <Disqus />}
+	<!-- {disqusEnabled && <Disqus />} -->
 </BlogPost>

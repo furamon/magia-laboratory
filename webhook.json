@@ -1,7 +1,7 @@
 [
   {
-    "id": "gh-webhook",
-    "execute-command": "git pull && git merge",
+    "id": "webhook",
+    "execute-command": "/home/furamon/magia-laboratory/deploy.sh",
     "command-working-directory": "/home/furamon/magia-laboratory",
     "trigger-rule":
     {
@@ -11,7 +11,7 @@
           "match":
           {
             "type": "payload-hmac-sha1",
-            "secret": "oqC2jcZpXRht52",
+            "secret": "L9HXcQTxvQiB",
             "parameter":
             {
               "source": "header",
