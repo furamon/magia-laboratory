@@ -11,7 +11,7 @@ import SSGForm from '@/components/SSGForm'
 
 const posts = await getCollection('blog')
 
-const sortedPosts = posts.sort((a, b) => {
+const sortedPosts = posts.sort((a: any, b: any) => {
 	const dateA = a.data.updatedDate ? new Date(a.data.updatedDate) : new Date(a.data.date)
 	const dateB = b.data.updatedDate ? new Date(b.data.updatedDate) : new Date(b.data.date)
 	return dateB.getTime() - dateA.getTime()
