@@ -11,7 +11,7 @@ import GoToPageTop from '@/components/GoToPageTop'
 const { title, description, image, articleDate } = Astro.props
 ---
 
-<html lang='ja' class='scroll-smooth'>
+<html lang='ja' class='scroll-smooth overflow-y-scroll'>
 	<head>
 		<BaseHead title={title} description={description} ogImage={image} articleDate={articleDate} />
 		<ProviderTheme />
