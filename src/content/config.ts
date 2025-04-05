@@ -46,7 +46,7 @@ const lily = defineCollection({
 		})
 })
 
-const novel = defineCollection({
+const model = defineCollection({
 	// Type-check frontmatter using a schema
 	schema: () =>
 		z.object({
@@ -86,8 +86,8 @@ export const lilyCollections = {
 	lily
 }
 
-export const novelCollections = {
-	novel
+export const modelCollections = {
+	model
 }
 export const textCollections = {
 	text

@@ -135,9 +135,9 @@ export default defineConfig({
 				]
 			},
 			{
-				name: 'novel',
-				label: 'Novel Page',
-				path: 'src/content/novel',
+				name: 'model',
+				label: 'model Page',
+				path: 'src/content/model',
 				format: 'mdx',
 				fields: [
 					{
