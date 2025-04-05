@@ -1,0 +1,23 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content'
+import PageLayout from '@/layouts/PageLayout'
+
+type ModelEntry = CollectionEntry<'model'>
+
+export async function getStaticPaths() {
+	const entries: ModelEntry[] = await getCollection('model')
+	return entries.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry }
+	}))
+}
+
+const { entry } = Astro.props
+const { Content } = await entry.render()
+---
+
+<PageLayout title={entry.data.title}>
+	<div class='prose prose:lg md:prose-xl [&>*]:mb-4 dark:prose-invert min-w-full'>
+		<Content />
+	</div>
+</PageLayout>
