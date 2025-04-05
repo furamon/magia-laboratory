@@ -63,7 +63,7 @@ function Model({ modelPath }) {
 							// マテリアルを置き換え
 							child.material = toonMaterial
 
-							console.log('マテリアルを変換しました:', child.name)
+							// console.log('マテリアルを変換しました:', child.name)
 						} catch (error) {
 							console.error('マテリアル変換エラー:', error)
 						}
@@ -104,15 +104,15 @@ function Model({ modelPath }) {
 function Lights() {
 	return (
 		<>
-			<ambientLight intensity={0.5} />
+			<ambientLight intensity={0.3} />
 			<directionalLight
 				position={[5, 5, 5]}
-				intensity={1.5}
+				intensity={1.0}
 				castShadow
 				shadow-mapSize-width={1024}
 				shadow-mapSize-height={1024}
 			/>
-			<directionalLight position={[-5, 3, -5]} intensity={0.8} />
+			<directionalLight position={[-5, 3, -5]} intensity={0.5} />
 		</>
 	)
 }
@@ -127,9 +127,9 @@ const defaultCanvasProps = {
 	camera: {
 		near: 0.01,
 		far: 100,
-		fov: 75,
+		fov: 45, // FOVを45度に変更（標準的な画角）
 		zoom: isMobile ? 0.75 : 1,
-		position: new Vector3(0, 0, 5)
+		position: new Vector3(0, 1, 3) // Z座標を5から3に変更して近づける
 	},
 	dpr: typeof window !== 'undefined' ? window.devicePixelRatio : 1
 }
