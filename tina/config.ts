@@ -136,7 +136,7 @@ export default defineConfig({
 			},
 			{
 				name: 'model',
-				label: 'model Page',
+				label: 'Model Page',
 				path: 'src/content/model',
 				format: 'mdx',
 				fields: [
