@@ -12,12 +12,10 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
 extend(THREE as any)
 
-// DRACOローダーの設定を削除し、コンポーネント内で行う
-
 function Model({ modelPath }) {
 	const [model, setModel] = useState(null)
 
-	// GLTFローダーとDRACOローダーを手動で設定
+	// GLTFローダーとDRACOローダーを設定
 	useEffect(() => {
 		if (!modelPath) return
 
@@ -34,7 +32,10 @@ function Model({ modelPath }) {
 		gltfLoader.load(
 			modelPath,
 			(gltf) => {
-				// console.log('モデルがロードされました:', gltf)
+				// モデルの位置を調整
+				gltf.scene.position.y = -0.3 // Y軸方向に-0.5移動（下に0.5単位移動）
+				// モデルのスケールを調整
+				gltf.scene.scale.set(0.8, 0.8, 0.8) // 全ての軸を0.8倍に縮小
 
 				// トゥーンシェーディングを適用
 				gltf.scene.traverse((child) => {
@@ -57,7 +58,8 @@ function Model({ modelPath }) {
 							// 新しいトゥーンマテリアルを作成
 							const toonMaterial = new THREE.MeshToonMaterial({
 								color: color,
-								map: map
+								map: map,
+								side: THREE.DoubleSide
 							})
 
 							// マテリアルを置き換え
@@ -71,13 +73,7 @@ function Model({ modelPath }) {
 				})
 
 				setModel(gltf.scene)
-			},
-			// (progress) => {
-			// 	console.log('ロード進捗:', (progress.loaded / progress.total) * 100, '%')
-			// },
-			// (error) => {
-			// 	console.error('モデルロードエラー:', error)
-			// }
+			}
 		)
 
 		return () => {
@@ -104,18 +100,19 @@ function Model({ modelPath }) {
 function Lights() {
 	return (
 		<>
-			<ambientLight intensity={0.3} />
+			<ambientLight color= '#ffffff' intensity={1} />
 			<directionalLight
-				position={[5, 5, 5]}
-				intensity={1.0}
+				position={[3, 4, 5]}
+				intensity={2}
 				castShadow
 				shadow-mapSize-width={1024}
 				shadow-mapSize-height={1024}
 			/>
-			<directionalLight position={[-5, 3, -5]} intensity={0.5} />
+			<directionalLight position={[-3, 2, -5]} intensity={0.5} />
 		</>
 	)
 }
+
 
 // 基本のpropsを定義（window参照を条件付きに）
 const defaultCanvasProps = {
@@ -127,21 +124,15 @@ const defaultCanvasProps = {
 	camera: {
 		near: 0.01,
 		far: 100,
-		fov: 45, // FOVを45度に変更（標準的な画角）
+		fov: 30,
 		zoom: isMobile ? 0.75 : 1,
-		position: new Vector3(0, 1, 3) // Z座標を5から3に変更して近づける
+		position: new Vector3(0, 1.5, 3)
 	},
 	dpr: typeof window !== 'undefined' ? window.devicePixelRatio : 1
 }
-
 export default function Scene({ modelPath }) {
 	const [boxHover] = useState(false)
 	const [contentElement, setContentElement] = useState(null)
-
-	// デバッグ用：propsが正しく渡されているか確認
-	// useEffect(() => {
-	// 	console.log('モデルパス:', modelPath)
-	// }, [modelPath])
 
 	useEffect(() => {
 		// クライアントサイドでのみ実行
@@ -171,7 +162,7 @@ export default function Scene({ modelPath }) {
 			}}
 			eventSource={contentElement}
 			onCreated={(state) => {
-				state.gl.toneMapping = THREE.ACESFilmicToneMapping
+				state.gl.toneMapping = THREE.NeutralToneMapping
 				state.gl.shadowMap.enabled = true
 				state.gl.shadowMap.type = THREE.PCFSoftShadowMap
 			}}
@@ -182,7 +173,7 @@ export default function Scene({ modelPath }) {
 			<Bvh>
 				<AdaptiveDpr />
 				<Preload all />
-				<OrbitControls />
+				<OrbitControls target={[0, 0.5, 0]} />
 				<Lights />
 				{modelPath ? (
 					<Model modelPath={modelPath} />
