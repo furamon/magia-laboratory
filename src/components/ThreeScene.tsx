@@ -12,7 +12,7 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
 extend(THREE as any)
 
-function Model({ modelPath }) {
+function Model({ modelPath }: { modelPath: string }) {
 	const [model, setModel] = useState(null)
 
 	// GLTFローダーとDRACOローダーを設定
@@ -130,7 +130,7 @@ const defaultCanvasProps = {
 	},
 	dpr: typeof window !== 'undefined' ? window.devicePixelRatio : 1
 }
-export default function Scene({ modelPath }) {
+export default function Scene({ modelPath }: { modelPath: string }) {
 	const [boxHover] = useState(false)
 	const [contentElement, setContentElement] = useState(null)
 
