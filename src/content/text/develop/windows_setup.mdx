@@ -415,6 +415,50 @@ winget install Microsoft.powershell
 
 大前提として、以下の設定はこれ上で行います。
 
+#### PowerShell設定
+
+```powershell
+#notepad $PROFILE
+Invoke-Expression (&starship init powershell) # 要Starship
+Import-Module PSFzf # 要PSFzf&fzf
+Enable-PsFzfAliases
+Import-Module ZLocation # 要ZLocation
+
+function repo {  
+    $repo = $(ghq list | Invoke-Fzf)
+    Set-Location ( Join-Path $(ghq root) $repo)
+    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+}
+function fzf-history { 
+    $command = Get-Content (Get-PSReadlineOption).HistorySavePath | tac | awk '!a[$0]++' | Invoke-Fzf -NoSort -Exact
+    [Microsoft.PowerShell.PSConsoleReadLine]::InvokePrompt()
+
+    if (!$command) {
+      return
+    }
+
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert($command)
+}
+
+Set-PSReadlineKeyHandler -Key 'Ctrl+r' -ScriptBlock { fzf-history }
+Set-PSReadlineKeyHandler -Key 'Ctrl+]' -ScriptBlock { repo }
+
+Set-PSReadlineKeyHandler -Key 'Ctrl+u' -Function 'BackwardDeleteLine'
+Set-PSReadlineKeyHandler -Key 'Ctrl+b' -Function 'BackwardChar'
+Set-PSReadlineKeyHandler -Key 'Ctrl+f' -Function 'ForwardChar'
+Set-PSReadlineKeyHandler -Key 'Ctrl+d' -Function 'DeleteCharOrExit'
+Set-PSReadlineKeyHandler -Key 'Ctrl+h' -Function 'BackwardDeleteChar'
+Set-PSReadlineKeyHandler -Key 'Ctrl+p' -Function 'HistorySearchBackward'
+Set-PSReadlineKeyHandler -Key 'Ctrl+n' -Function 'HistorySearchForward'
+Set-PSReadlineKeyHandler -Key 'Ctrl+a' -Function 'BeginningOfLine'
+Set-PSReadlineKeyHandler -Key 'Ctrl+e' -Function 'EndOfLine'
+Set-PSReadlineKeyHandler -Key 'Ctrl+m' -Function 'AcceptLine'
+Set-PSReadlineKeyHandler -Key 'Ctrl+k' -Function 'ForwardDeleteLine'
+
+Set-PSReadlineOption -BellStyle None
+
+```
+
 #### **StarShip適用**
 
 [ここ](https://starship.rs/ja-jp/)に従ってStarShipインストール。手抜きだなおい
