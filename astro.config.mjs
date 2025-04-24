@@ -34,6 +34,12 @@ export default defineConfig({
 		react()
 	],
 	image: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'assets.tina.io'
+			}
+		]
 	},
 	vite: {
 		plugins: [tailwindcss()]
