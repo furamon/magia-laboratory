@@ -1,0 +1,26 @@
+---
+import "../styles/videojs.css";
+import { onMount } from 'astro/client';
+
+const { src, type = 'video/mp4', width = 640, height = 360 } = Astro.props;
+---
+
+<video
+  id="my-video"
+  class="video-js vjs-default-skin"
+  controls
+  preload="auto"
+  width={width}
+  height={height}
+  data-setup="{}"
+>
+  <source src={src} type={type} />
+</video>
+
+<script type="module" is:client>
+  import videojs from 'video.js';
+
+  onMount(() => {
+    const player = videojs('my-video');
+  });
+</script>
