@@ -1,5 +1,5 @@
 {
-  "extends": "astro/tsconfigs/base",
+  "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     "strictNullChecks": true,
     "baseUrl": ".",
@@ -28,16 +28,12 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "src/types/**/*.d.ts",
-    "src/furamon.d.ts"
-  ],
   "exclude": [
-    "node_modules",
-    "**/node_modules/*",
-    ".vscode",
-    "dist"
-  ]
+    "node_modules"
+  ],
+  "include": [
+    "src/**/*.d.ts",
+    "src/**/*.ts",
+    "src/**/*.astro"
+  ],
 }
