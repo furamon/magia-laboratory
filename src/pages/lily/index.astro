@@ -1,0 +1,67 @@
+---
+import BaseLayout from '@/layouts/BaseLayout'
+---
+
+<BaseLayout title='Lily'>
+	<div class='flex flex-col container mx-auto [&>p]:mb-4'>
+		<h1 class='text-4xl font-bold text-center mb-8'>白百合の花園</h1>
+		<h2 class='text-2xl font-bold text-center mb-8'>
+			おさわり、お持ち帰り、俺嫁もろもろ厳禁ですわっ！
+		</h2>
+		<p>
+			白百合ーー白く麗しくもたくましい純潔の花。<br />
+			転じて……女の子同士の「トクベツ」な感情。切なく儚く柔らかく強く……。
+		</p>
+		<p>
+			ということで百合作品（漫画・小説・アニメ・映画）などのレビューや考察の部屋です。ゲーム関連も百合メインのトークであればここに。まだ百合道は日が浅いですが、どうかお暇つぶしにでも。
+		</p>
+
+		<div class='grid gap-4 grid-cols-1 sm:grid-cols-2 my-8 [&>div]:flex [&>div]:flex-col'>
+			<div>
+				<a href='#' class='btn-lily'>メディア関連</a>
+				<p>映画小説マンガアニメ問わず百合（っぽいの含む）作品のだべり。</p>
+			</div>
+			<div>
+				<a href='#' class='btn-lily'>小話</a>
+				<p>百合についてのだべり。ツッコミ大歓迎でしてよ。</p>
+			</div>
+		</div>
+
+		<h2 class='text-2xl font-bold text-center mb-4'>おまけ - 管理人百合歴</h2>
+		<ol class='list-decimal pl-6'>
+			<li>身内が見ていた「ゆるゆり」を一緒に見る</li>
+			<li>
+				その頃はピンとこなかったが、あるMADを見て「この娘たちがかっこよく戦ったら……」と妄想するように。邪道
+			</li>
+			<li>
+				その後ずいぶん経って精神的にいろいろあり、癒しを求めて百合を漁った結果「Bang
+				Dream!」の某双子姉妹に出会う。「キャラの関係性の魅力」だけでここまで心を動かせるのかと可能性を発見
+			</li>
+			<li>
+				その後「アサルトリリィ」という先述の妄想の具現化コンテンツを発見。沼へ
+			</li>
+		</ol>
+	</div>
+</BaseLayout>
+
+<style>
+	@reference "src/styles/global.css";
+</style>
+
+<script>
+	// import { animate } from 'motion'
+	// const showAnimations = localStorage.getItem('animations') === 'true'
+
+	// if (showAnimations) {
+	// 	animate(
+	// 		'.title',
+	// 		{ y: [80, 0], opacity: [0, 1] },
+	// 		{
+	// 			duration: 2.5,
+	// 			opacity: { duration: 3 },
+
+	// 			offset: [0, 0.55, 0.75]
+	// 		}
+	// 	)
+	// }
+</script>

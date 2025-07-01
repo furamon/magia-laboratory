@@ -1,0 +1,24 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content'
+import PageLayout from '@/layouts/PageLayout'
+import { YouTube } from '@astro-community/astro-embed-youtube'
+
+type GameEntry = CollectionEntry<'game'>
+
+export async function getStaticPaths() {
+	const entries: GameEntry[] = await getCollection('game')
+	return entries.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry }
+	}))
+}
+
+const { entry } = Astro.props
+const { Content } = await entry.render()
+---
+
+<PageLayout title={entry.data.title}>
+	<div class='prose prose:lg md:prose-xl [&>*]:mb-4 dark:prose-invert min-w-full'>
+		<Content components={{ YouTube }} />
+	</div>
+</PageLayout>

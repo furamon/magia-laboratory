@@ -1,0 +1,38 @@
+---
+import BaseLayout from '@/layouts/BaseLayout'
+---
+
+<BaseLayout title='Text'>
+	<div class='flex flex-col container mx-auto'>
+		<h1 class='text-4xl font-bold text-center'>雑記置き</h1>
+	</div>
+	<p>攻略等の置き場所がない文書の集い。</p>
+
+	<div class='grid gap-4 grid-cols-1 sm:grid-cols-2 [&>div]:flex [&>div]:flex-col'>
+		<div>
+			<a href='/text/develop' class='btn-game'>パソコン・ガジェット関連</a>
+		</div>
+	</div>
+</BaseLayout>
+
+<style>
+	@reference "src/styles/global.css";
+</style>
+
+<script>
+	// import { animate } from 'motion'
+	// const showAnimations = localStorage.getItem('animations') === 'true'
+
+	// if (showAnimations) {
+	// 	animate(
+	// 		'.title',
+	// 		{ y: [80, 0], opacity: [0, 1] },
+	// 		{
+	// 			duration: 2.5,
+	// 			opacity: { duration: 3 },
+
+	// 			offset: [0, 0.55, 0.75]
+	// 		}
+	// 	)
+	// }
+</script>

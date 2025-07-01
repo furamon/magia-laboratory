@@ -1,0 +1,35 @@
+---
+import BaseHead from '@/components/BaseHead'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import ProviderTheme from '@/components/ProviderTheme'
+import ProviderAnimations from '@/components/ProviderAnimations'
+import TwSizeIndicator from '@/components/TwSizeIndicator'
+import EditBlog from '@/components/editBlog'
+import GoToPageTop from '@/components/GoToPageTop'
+
+const { title, description, image, articleDate } = Astro.props
+---
+
+<html lang='ja' class='scroll-smooth overflow-y-scroll'>
+	<head>
+		<BaseHead title={title} description={description} ogImage={image} articleDate={articleDate} />
+		<ProviderTheme />
+		<ProviderAnimations />
+	</head>
+
+	<body
+		class=`${Astro.url.pathname.startsWith('/lily') ? 'bg-pink-50 dark:bg-rose-950' : 'bg-white dark:bg-[#0f0f0f]'} text-stone-950  dark:text-white w-full h-full`
+	>
+		<main
+			class='px-5 sm:mx-auto sm:max-w-2xl sm:px-8 lg:px-24 antialiased md:max-w-6xl grid gap-6 mt-4 overflow-hidden md:overflow-visible'
+		>
+			<Header />
+			<slot />
+			<Footer />
+		</main>
+		<GoToPageTop />
+		<TwSizeIndicator />
+		<EditBlog />
+	</body>
+</html>

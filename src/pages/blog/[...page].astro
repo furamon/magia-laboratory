@@ -1,0 +1,71 @@
+---
+import type { Page } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+import ListPosts from '@/components/ListPosts'
+// import TagIcon from '@/components/icons/TagIcon'
+// import ListCategories from '@/components/ListCategories'
+import TitlePage from '@/components/TitlePage'
+import BaseLayout from '@/layouts/BaseLayout'
+// import Search from '@/components/Search'
+import { getPosts } from '@/utils'
+import Pagination from '@philnash/astro-pagination'
+
+export const MAX_POSTS = 8
+
+export async function getStaticPaths({ paginate }: { paginate: any }) {
+	const posts = await getPosts()
+
+	const allPosts = posts.sort((a: { data: { date: string | number | Date } }, b: { data: { date: string | number | Date } }) => {
+		const aDate = new Date(a.data.date)
+		const bDate = new Date(b.data.date)
+		return bDate.getTime() - aDate.getTime()
+	})
+	return paginate(allPosts, { pageSize: MAX_POSTS })
+}
+
+type Props = {
+	page: Page<CollectionEntry<'blog'>>
+}
+
+const { page } = Astro.props
+
+const hasNextPage = page.size < page.total ? true : false
+---
+
+<BaseLayout title='Blog'>
+	<TitlePage title='Blog' />
+	<!-- <div class='flex gap-4 border-b-2 -z-80 dark:border-gray-600'>
+		<ListCategories />
+		<a href='/blog/tags'><TagIcon /></a>
+		<Search />
+	</div> -->
+	<div>
+		<!-- <h2 class='text-lg font-medium tracking-wide text-end'>Latest Post</h2> -->
+		<ListPosts FirstBig={true} posts={page.data} />
+	</div>
+	{
+		hasNextPage && (
+			<div class='c-paginaiton justify-center'>
+				<Pagination page={page} urlPattern={'/blog/{}'} previousLabel='<' nextLabel='>' />
+			</div>
+		)
+	}
+</BaseLayout>
+
+<script>
+	// import { animate } from 'motion'
+	// const showAnimations = localStorage.getItem('animations') === 'true'
+
+	// if (showAnimations) {
+	// 	animate(
+	// 		'.title',
+	// 		{ y: [80, 0], opacity: [0, 1] },
+	// 		{
+	// 			duration: 2.5,
+	// 			opacity: { duration: 3 },
+
+	// 			offset: [0, 0.55, 0.75]
+	// 		}
+	// 	)
+	// }
+</script>

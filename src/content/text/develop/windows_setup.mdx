@@ -1,0 +1,597 @@
+---
+date: 2024-09-06T15:00:00.000Z
+title: Windowsおすすめフリーアプリや設定などいろいろ
+---
+
+Win11になって2年ほど、もう皆様慣れてきた頃合いだと思います。色々な感想等ございますでしょうが、私は正直大好きです。一番良かったWin7の次に好き。\
+タスクバー中央揃えデフォは偉大です。たたみ制御も復活したので天下無敵（個人の感想です）。
+
+そしてWindowsの良さは大量のソフト資産による拡張性。\
+ということで私はこう魔改造しています。参考になれば。
+
+## はじめに
+
+この記事はちょっとずつ更新しています。\
+ソフト紹介は申し訳程度で、ほとんど自分用のリンク集です。あしからず申し訳ない。
+
+## 初期設定
+
+### ローカルユーザー名変更
+
+1. 変えたい名前のローカルアカウントを作成、管理者に
+2. ログアウトして新アカウントで入り、旧ユーザーフォルダの中身を新ユーザーフォルダに持っていく
+3. コントロールパネル->ユーザーアカウント->ユーザーアカウント->別のアカウントを管理から旧アカウントをファイルごと削除
+4. MSアカウントにログインして再起動
+
+以上。ほんにどうにかならないですかねこれ。
+
+### **[Google日本語入力](https://www.google.co.jp/ime/)**
+
+IMEはお好みですが私はこれ派。
+
+### 広告設定
+
+[この記事様](https://pc.watch.impress.co.jp/docs/topic/feature/1625458.html)参照。あとで詳しく書きます。
+
+### メモリ圧縮
+
+[この記事様](https://note.com/catap_art3d/n/n3254de7958af)のメモリの部分だけやります。あとで詳しく書きます。
+
+## ソフトいろいろ
+
+### システム系
+
+#### **[Vivaldi](https://vivaldi.com/ja/)**
+
+```powershell
+winget install vivaldi.vivaldi
+```
+
+ブラウザ。とにかく多機能で軽くて最強。というか説明いらないかも（？？？）
+
+#### [eM Client](https://emclient.jp)
+
+メールソフト。一番優秀。
+
+#### **[AutoLogon](https://learn.microsoft.com/ja-jp/sysinternals/downloads/autologon)**
+
+個人用デスクトップPC＝他の人が使う可能性なしなのでログイン認証は切っちゃってます。\
+もちろんセキュリティはがら空きになるのでご利用は計画的に。
+
+#### **[CloneZilla](https://clonezilla.org)**
+
+万が一のバックアップ用。NASにもバックアップ取れます。
+
+#### **[alt-ime-ahk-mod-kai](https://github.com/nekocodeX/alt-ime-ahk-mod)**
+
+Altキーでかな英切り替え。[Alt-ime-ahk-mod](https://github.com/nekocodeX/alt-ime-ahk-mod)を更に筆者がAHKv2対応させたもの。\
+英語キーボード大好きマンなので必須。
+
+#### [**N**anaZip](https://github.com/M2Team/NanaZip)
+
+MSストアから落とせます。解凍ソフト。こんなところを見てくださってる方には説明不要の7-zipのWin11対応版。
+
+#### **[FaithType](https://github.com/m13253/FaithType/blob/master/Readme-ja.md)**
+
+システムフォントのアンチエイリアスを直してくれます。疲れない文字にしてくれます。\
+更に後述の「Meiryo UIも大っきらい」でフォントサイズを大きくすればモアベター。
+
+#### **[Meiryo UIも大っきらい！！](https://www.tatsu-syo.info/MySoft/WinCust/index.html)**
+
+システムフォント変更ソフト。上述の「FaithType」できれいにしたフォントをこれで大きくしたり、自前フォントを使ったりします。\
+Noto Sansがオススメですがお好みで。
+
+#### **[Moralerspace](https://github.com/yuru7/moralerspace)**
+
+Windows TerminalやVSCode用のプログラミングフォント。\
+Nerd Fontを選ぶとターミナルがめちゃくちゃオシャレに。
+
+#### **[Clibor](https://chigusa-web.com/clibor/)**
+
+クリップボード拡張ソフト。Windows標準にもあるっちゃありますがこっちのほうが格段に便利。\
+定型文機能まであるので使いこなせる人はとことんやってみて自慢してほしいです。
+
+#### **[Upnote](https://getupnote.com/)**
+
+試験運用中のノートアプリ。Notionを使いやすくした感じでなかなかいいです。
+
+#### **[Thilmera7](https://thilmera.com/)**
+
+コンパクトリソースモニター。\
+リソースが見えてないと不安になる病気持ちなので使っていますが、何度もメモリリークをこれで発見しました。リソースモニターは基本。
+
+#### **[Powertoys](https://learn.microsoft.com/ja-jp/windows/powertoys/install)**
+
+```powershell
+winget install microsoft.powertoys
+```
+
+ファイル名一括変更など、なんで初期実装されてないか不思議なほどのマイクロソフト自社開発の 10 徳ナイフ的ソフト。\
+個人的にはマルチタスク強化とキーアサイン、ランチャーがお気に入り。
+
+#### **[AntimicroX](https://github.com/AntiMicroX/antimicrox "AntiMicroX")**
+
+```powershell
+winget install AntiMicroX.antimicrox
+```
+
+ゲームコントローラーに任意キーを割り当てます。\
+昔のゲームを遊ぶほか、クリエイト系ソフトのショートカットデバイス代わりにするなんてことも。
+
+#### **[EveryThing](https://forest.watch.impress.co.jp/library/software/everything/)**
+
+```powershell
+winget install voidtools.Everything
+```
+
+爆速ファイル検索ソフト。上述の「Powertoys Run」の拡張機能として使っています。
+
+#### **[WinAero Tweaker](https://winaerotweaker.com)**
+
+```powershell
+winget install winaero.tweaker
+```
+
+Windowsの設定を深くまでいじれます。\
+右クリックのコンテキストメニューを古いやつに戻したりできます。
+
+#### **[TailScale](https://tailscale.com/)**
+
+```powershell
+winget install tailscale
+```
+
+超お手軽VPN。リモートデスクトップがはかどるほか、NASにも入っているので公衆Wi-Fiスポットも安全！
+
+### メディア系
+
+#### [**E**asyCanvas](https://www.easynlight.com/en/easycanvas2025)
+
+タブレット液タブ化。格安。
+
+#### **[SunShine](https://github.com/LizardByte/Sunshine)**
+
+```powershell
+winget install LizardByte.Sunshine
+```
+
+低遅延リモート。筆圧まで効くように。
+
+#### **[VLC](https://www.videolan.org/vlc/index.ja.html)**
+
+```powershell
+winget install videolan.vlc
+```
+
+動画プレイヤー。私はVLC派というだけなのでMPCでもなんでもお好みで。
+
+#### **[HandBrake](https://handbrake.fr/downloads.php)**
+
+```powershell
+winget install HandBrake.HandBrake
+```
+
+動画変換ソフト。あると便利です。
+
+#### **[Irfanview](https://www.irfanview.com)**
+
+```powershell
+winget install IrfanSkiljan.IrfanView
+winget install IrfanSkiljan.IrfanView.PlugIns
+```
+
+画像ビューアー。Windowsのフォトもなかなかやるのですがこちらの方がさらに多機能で軽いです。\
+webpやらなんやら読めます。
+
+#### **[Pureref](https://www.pureref.com/)**
+
+半クリエイト枠。資料ビューアー。\
+たくさんの画像を自由なサイズでまとめて閲覧可能。Blenderはとにかく資料を要するので超便利。
+
+#### **[Mp3Tag](https://www.gigafree.net/media/mu/mp3tag.html)**
+
+```powershell
+winget install FlorianHeidenreich.Mp3tag
+```
+
+音声タグエディタ。曲名出ると幸せ。カバーアート見られると幸せ。以上。
+
+#### **[upconv](http://59414d41.cocolog-nifty.com/blog/2022/11/post-590d49.html)**
+
+疑似ハイレゾ変換。設定次第ですが、かなり化けます。\
+レトロゲーサントラを無理やりリマスターなどしています。
+
+### クリエイト・開発系
+
+基本説明のいるソフトではないので以下は一行で。
+
+#### **[Blender](https://www.blender.org/)**
+
+```powershell
+winget install VictorIX.BlenderLauncher
+& 'Blender Launcher.exe'
+```
+
+3DCG総合。これがないと始まらない。コマンドはBlender Launcher。バージョンを切り替えられるやつ。
+
+#### **VRoid Studio**
+
+Steamインストール。アニメキャラメーカー。人型キャラを作るにはこれがあるとないとで作業効率が天地の差。
+
+#### **VRM Posing Desktop**
+
+Steamインストール。↑のモデルを再生。有料ですが超便利。
+
+#### **[Clip Studio](https://www.clipstudio.net/ja/)**
+
+説明不要。結局これ。
+
+#### **[Gimp](https://forest.watch.impress.co.jp/library/software/gimp/)**
+
+```powershell
+winget install GIMP.GIMP.3
+```
+
+操作に癖はありますが超便利。画像で困ったらこれ。
+
+#### **[InkScape](https://inkscape.org/ja/)**
+
+```powershell
+winget install Inkscape.Inkscape
+```
+
+ベクター画像版「困ったらこれ」。
+
+#### **Stable Diffusion WebUI Forge**
+
+3Dレンダリングをイラスト化するのに使用。そのうち記事にします。
+
+#### **[fSpy](https://fspy.io)**
+
+画像からパースを吸い出してくれます。まだ使いこなせてませんが可能性の獣。
+
+#### **[Visual Studio Code](https://azure.microsoft.com/ja-jp/products/visual-studio-code)**
+
+```powershell
+winget install Microsoft.VisualStudioCode
+```
+
+超軽いのにIDE並の機能なプログラミングエディタ。やっぱりこれだね。
+
+#### **[Git for Windows](https://gitforwindows.org/)**
+
+```powershell
+winget install git.git
+```
+
+PC中級者以上の人権ツール。これもなくちゃ始まらない。
+
+#### **[GitHub Desktop](https://desktop.github.com/)**
+
+```powershell
+winget install GitHub.GitHubDesktop
+winget install GitHub.cli
+```
+
+↑のように書きましたがGUIもあると便利、そこでこれ。手軽にバージョン管理。\
+下はGitHub cli。コマンドでGitHubを便利に。
+
+#### **[Godot Editor](https://godotengine.org/)**
+
+新鋭ゲームエンジン。軽いし便利でもっと情報増えてほしい。
+
+#### **Unity**
+
+```powershell
+winget install Unity.UnityHub
+```
+
+VRM撮影にも必須。Unity 6がいい感じ。しばらく安泰そうで良かった良かった。
+
+#### **RPGツクールMZ**
+
+#### **RPG Developer Bakin**
+
+どちらもSteamインストール。RPG制作ソフト。
+
+#### **EffekseerMP**
+
+ゲームのエフェクト制作ソフト。
+
+#### **[OBS Studio](https://obsproject.com/ja/download)**
+
+```powershell
+winget install OBSProject.OBSStudio
+```
+
+プレイ録画。でもたまにミスって悲劇が。Bandicamに戻そうかな……。
+
+#### **[Shotcut](https://shotcut.org/)**
+
+```powershell
+winget install Meltytech.Shotcut
+```
+
+上で取った動画はこれで編集。無料で使い勝手いいのがこれでした。
+
+#### **[ゆっくりMovie Maker 4](https://manjubox.net/ymm4/)**
+
+ゆっくり実況向けはこっち。使い比べたいが時間がない。
+
+#### **[MUCOM88](https://onitama.tv/mucom88/)**
+
+某ゲームの音源で曲作りできるソフト。追って解説します。
+
+#### **[Audacity](https://forest.watch.impress.co.jp/library/software/audacity/)**
+
+```powershell
+winget install Audacity.Audacity
+```
+
+音声編集。MUCOM88のWAVの音量調節。
+
+### ゲーム・その他系
+
+#### **DisCord**
+
+説明不要コミュニケーションツール。
+
+```powershell
+winget install discord.discord
+```
+
+#### **Steam**
+
+もはや仕事道具。違います。
+
+```powershell
+winget install valve.steam
+```
+
+#### **[DLSite Nest](https://www.dlsite.com/home/guide/dlnest)**
+
+同人プラットフォーム。実はここにしかないインディーズゲームが結構。
+
+#### **[Project EGG](https://www.amusement-center.com/project/egg/)**
+
+名作レトロゲーム配信プラットフォーム。
+
+#### **OpenOffice**
+
+```powershell
+winget install Apache.OpenOffice
+```
+
+Office互換ソフト。PDFもこれで。
+
+#### **Power BI Desktop**
+
+MSのオフィスツール。つよくなったExcel。
+
+#### **Filco Assist**
+
+#### **KensingtonWorks**
+
+#### **CyberPower PowerPanel**
+
+いずれもわたしが使っているデバイスのドライバ。
+
+### 見た目カスタマイズ
+
+* [GlazeWM](https://github.com/glzr-io/glazewm) - ウィンドウマネージャ。慣れれば最強
+* [WindHark](https://windhawk.net) - タスクバーをおしゃれに
+* [Rainmeter](https://www.rainmeter.net) - [このスキン](https://github.com/nek7u/OhTenki-Japan/wiki)でデスクトップに雨雲レーダーを置ける
+
+```powershell
+winget install GlazeWM
+winget install Rainmeter.Rainmeter
+```
+
+## **省電力化**
+
+### Bios(UEFI)いじり
+
+Ryzen前提です。上級者向けですのでお気をつけを。
+
+* PBO Scalar CtrlをManual 1X、Boost Clock Overrideを+150-200
+* Curve OptimizerをAll negative 20
+* メモリは複雑すぎるのでよしなに。やんなくてもいい
+
+こんな感じ。
+
+## **ターミナル環境**
+
+### キーリピート限界突破
+
+[https://qiita.com/ka\_/items/7d19e8624af26fd5ede2](https://qiita.com/ka_/items/7d19e8624af26fd5ede2)
+
+```powershell
+$registryPath = "HKCU:\Control Panel\Accessibility\Keyboard Response"
+
+Set-ItemProperty -Path $registryPath -Name "AutoRepeatDelay" -Value "170" -Type String
+Set-ItemProperty -Path $registryPath -Name "AutoRepeatRate" -Value "9" -Type String
+Set-ItemProperty -Path $registryPath -Name "BounceTime" -Value "0" -Type String
+Set-ItemProperty -Path $registryPath -Name "DelayBeforeAcceptance" -Value "0" -Type String
+Set-ItemProperty -Path $registryPath -Name "Flags" -Value "59" -Type String
+```
+
+### **Windows Terminal ＆ PowerShell 7 インストール**
+
+```powershell
+winget install Microsoft.powershell
+winget install fzf
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+iwr -useb get.scoop.sh | iex
+scoop install ghq
+Install-Module -Name PSFzf -scope currentUser
+Install-Module -Name ZLocation -scope currentUser
+```
+
+大前提として、以下の設定はこれ上で行います。
+
+### **PowerShell設定（fzf導入）**
+
+```powershell
+#notepad $PROFILE
+Invoke-Expression (&starship init powershell) # 要Starship
+Import-Module PSFzf # 要PSFzf&fzf
+Enable-PsFzfAliases
+Import-Module ZLocation # 要ZLocation
+
+function repo {  
+    $repo = $(ghq list | Invoke-Fzf)
+    Set-Location ( Join-Path $(ghq root) $repo)
+    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+}
+function fzf-history { 
+    $command = Get-Content (Get-PSReadlineOption).HistorySavePath | tac | awk '!a[$0]++' | Invoke-Fzf -NoSort -Exact
+    [Microsoft.PowerShell.PSConsoleReadLine]::InvokePrompt()
+
+    if (!$command) {
+      return
+    }
+
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert($command)
+}
+
+Set-PSReadlineKeyHandler -Key 'Ctrl+r' -ScriptBlock { fzf-history }
+Set-PSReadlineKeyHandler -Key 'Ctrl+]' -ScriptBlock { repo }
+
+Set-PSReadlineKeyHandler -Key 'Ctrl+u' -Function 'BackwardDeleteLine'
+Set-PSReadlineKeyHandler -Key 'Ctrl+b' -Function 'BackwardChar'
+Set-PSReadlineKeyHandler -Key 'Ctrl+f' -Function 'ForwardChar'
+Set-PSReadlineKeyHandler -Key 'Ctrl+d' -Function 'DeleteCharOrExit'
+Set-PSReadlineKeyHandler -Key 'Ctrl+h' -Function 'BackwardDeleteChar'
+Set-PSReadlineKeyHandler -Key 'Ctrl+p' -Function 'HistorySearchBackward'
+Set-PSReadlineKeyHandler -Key 'Ctrl+n' -Function 'HistorySearchForward'
+Set-PSReadlineKeyHandler -Key 'Ctrl+a' -Function 'BeginningOfLine'
+Set-PSReadlineKeyHandler -Key 'Ctrl+e' -Function 'EndOfLine'
+Set-PSReadlineKeyHandler -Key 'Ctrl+m' -Function 'AcceptLine'
+Set-PSReadlineKeyHandler -Key 'Ctrl+k' -Function 'ForwardDeleteLine'
+
+Set-PSReadlineOption -BellStyle None
+
+```
+
+#### **StarShip適用**
+
+[ここ](https://starship.rs/ja-jp/)に従ってStarShipインストール。~~手抜きだなおい~~
+
+### Linux設定
+
+WSLにも役立つはずなので強引に紹介。Debuntu前提。
+
+```shell
+curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+
+sudo apt install wslu
+```
+
+```shell
+# nano ~/.zshrc
+export BROWSER=wslview
+alias open=wslview
+
+# history
+export LANG=ja_JP.UTF-8
+HISTFILE=$HOME/.zsh-history
+HISTSIZE=1000000
+SAVEHIST=1000000
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt magic_equal_subst
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt share_history
+
+# Control+rで履歴検索
+function peco-select-history() {
+  BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+
+if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
+    autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+    add-zsh-hook chpwd chpwd_recent_dirs
+    zstyle ':completion:*' recent-dirs-insert both
+    zstyle ':chpwd:*' recent-dirs-default true
+    zstyle ':chpwd:*' recent-dirs-max 1000
+fi
+
+# Control+fディレクトリ履歴検索
+function peco-cdr () {
+    local selected_dir="$(cdr -l | sed 's/^[0-9]\+ \+//' | peco --prompt="cdr >" --query "$LBUFFER")"
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+}
+zle -N peco-cdr
+bindkey '^f' peco-cdr
+
+# debでDocker履歴検索
+alias deb='docker exec -it $(docker ps | peco | cut -d " " -f 1) /bin/bash'
+alias dea='docker exec -it $(docker ps | peco | cut -d " " -f 1) /bin/ash'
+
+# Ctrl+]でGHQリポジトリにトベルーラ
+function peco-src () {
+local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+fi
+}
+zle -N peco-src
+bindkey '^]' peco-src
+```
+
+```yaml
+# nano .zimrc
+zmodule sobolevn/wakatime-zsh-plugin
+zmodule agkozak/zsh-z
+zmodule hlissner/zsh-autopair
+```
+
+### GHQ\&Peco
+
+```shell
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:longsleep/golang-backports
+sudo apt update
+sudo apt install -y golang-go
+echo 'export GOPATH=$HOME/go' >> ~/.zshrc
+echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.zshrc
+source ~/.zshrc
+go install github.com/x-motemen/ghq@latest
+git config --global ghq.root '~/git'
+wget https://github.com/peco/peco/releases/download/v0.5.11/peco_linux_amd64.tar.gz # リンクで最新バージョン確認のこと
+tar -xvf peco_linux_amd64.tar.gz
+sudo mv peco_linux_amd64/peco /usr/local/bin
+```
+
+あとは「ghq get リポジトリ名」でウマー。
+
+### **SSH 設定**
+
+TailScale SSHで一発。以下のコマンドを入れて、あとはなんとかWSLを起動させ続ければ（この方法はまちまちなので検索してください。ごめんね）外から「ssh WSL名」でいけるはず。
+
+```shell
+sudo apt install tailscale
+sudo tailscale up --ssh
+```
+
+### **言語環境構築**
+
+* [Python](https://qiita.com/youkidkk/items/c4fd58a32bf04d9ca6d6#poetry-%E3%81%AE%E5%A0%B4%E5%90%88)
+
+[UV](https://github.com/astral-sh/uv)がつよつよ。詳しくは検索を（手抜き）
+
+# まとめ
+
+勘のいい人はお気付きの通り、これはMac風魔改造です。\
+これも「MacからWinはできないが逆はできる」というWindowsのカスタマイズ性の賜物ということで一つお願いします。（？？？？？？）
+
+ではでは、Happy Hacking!

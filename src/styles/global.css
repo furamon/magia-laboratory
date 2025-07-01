@@ -1,0 +1,80 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+	--color-white: #f8f9fa;
+	--font-body: "'IBMPlexSansJP', ...defaultTheme.fontFamily.sans";
+}
+
+@plugin "@tailwindcss/typography";
+
+@layer base {
+	/* body {
+		transition: background-color 0.5s ease;
+	} */
+
+	.prose code {
+		@apply text-base;
+	}
+
+	/* prose styles here */
+	.prose h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply text-zinc-800 dark:text-zinc-100 text-center;
+	}
+
+	.prose h2 {
+		@apply text-3xl;
+	}
+
+	.prose h3 {
+		@apply text-xl;
+	}
+
+	.prose th,
+	td {
+		@apply p-2;
+	}
+
+	.prose img {
+		@apply mx-auto;
+	}
+	html.dark .shiki,
+	html.dark .shiki span {
+		--shiki-color: var(--shiki-dark);
+		background-color: var(--color-gray-900);
+	}
+	div.c-paginaiton nav ul {
+		display: flex;
+		justify-content: center;
+		gap: 12px;
+	}
+}
+
+.glass {
+	background: rgba(57, 56, 56, 0.52);
+	backdrop-filter: blur(13px) saturate(150%);
+	-webkit-backdrop-filter: blur(13px) saturate(150%);
+	z-index: -1;
+}
+
+.shadow {
+	box-shadow: -5px 3px 8px 1px rgba(0, 0, 0, 0.12);
+}
+
+.btn-game {
+	@apply bg-gray-700 hover:bg-gray-500 text-white rounded-full text-center w-full text-2xl py-3 m-1 mx-auto;
+}
+.btn-lily {
+	@apply bg-pink-700 hover:bg-pink-500 text-white rounded-full text-center w-full text-2xl py-3 m-1 mx-auto;
+}
+
+/* 隠しリンク */
+.hidden-link {
+	display: inline-block;
+}

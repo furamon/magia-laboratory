@@ -1,0 +1,115 @@
+---
+import TitlePage from '@/components/TitlePage'
+import BaseLayout from '@/layouts/BaseLayout'
+import { getCollection } from 'astro:content'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkGfm from 'remark-gfm'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
+import SSGForm from '@/components/SSGForm'
+
+const posts = await getCollection('blog')
+
+const sortedPosts = posts.sort((a: any, b: any) => {
+	const dateA = a.data.updatedDate ? new Date(a.data.updatedDate) : new Date(a.data.date)
+	const dateB = b.data.updatedDate ? new Date(b.data.updatedDate) : new Date(b.data.date)
+	return dateB.getTime() - dateA.getTime()
+})
+
+const latestPost = await unified()
+	.use(remarkParse)
+	.use(remarkGfm)
+	.use(remarkRehype)
+	.use(rehypeStringify)
+	.process(sortedPosts[0].body)
+---
+
+<BaseLayout title='Home'>
+	<TitlePage title='Magia Laboratory' />
+
+	<div class='container mx-auto text-center text-xl font-bold'>
+		ゲーム攻略、百合作品などのサイト。
+	</div>
+	<div
+		class='container flex flex-col md:flex-row flex-auto mx-auto [&_a]:block [&>div]:w-full [&>div]:flex-auto [&>div]:flex-col [&>div]:text-center [&>div>a]:text-4xl [&>div>p]:text-4xl [&>div>*]:font-medium [&>div>*]:tracking-wide [&>div>*]:m-4 [&>div>a]:underline [&>div>div]:flex [&>div>div]:flex-col [&>div>div]:gap-2'
+	>
+		<div>
+			<a href='/game'>Game</a>
+			<div>
+				<a href='/game/guide' class='btn-game'> PlayGuide</a>
+				<a href='/game/playdiary' class='btn-game'> PlayDiary</a>
+				<a href='/game/talk' class='btn-game'> TalkRoom</a>
+				<a
+					href='https://www.notion.so/furamon913/cd55e04977734af082130ce34477dc31?v=5d7d04f5d1e84bc4ab45625fddd98475&pvs=4'
+					class='btn-game'
+				>
+					GameList</a
+				>
+			</div>
+		</div>
+		<div>
+			<p>Model</p>
+			<div>
+				<a href='/model' class='btn-game'>Dear Claudias</a>
+			</div>
+			<a href='/lily'>Lily</a>
+			<div>
+			</div>
+		</div>
+		<div>
+			<p>etc.</p>
+			<div>
+				<a href='/text/infomation' class='btn-game'> Infomation</a>
+				<a href='/text' class='btn-game'> Text</a>
+				<a href='/blog' class='btn-game'> Diary</a>
+				<a href='https://claudias.magialabs.blog/' class='btn-game'> Mastodon Server</a>
+				<a href='https://discord.com/invite/JfE32Nhhzb' class='btn-game'> Discord</a>
+			</div>
+			<p>Some Links</p>
+			<div>
+				<a href='https://www.pixiv.net/users/74381242' class='btn-game'> Pixiv</a>
+				<a href='https://m.youtube.com/channel/UCmoakOUjAai3AW1d2Ip_wxg' class='btn-game'>
+					YouTube</a
+				>
+				<a href='https://github.com/Furamon' class='btn-game'> Github</a>
+				<a href='https://twitter.com/FuramonMagia' class='btn-game'> X（Twitter）</a>
+			</div>
+		</div>
+	</div>
+
+	<div class='container mx-auto text-center'>
+		<h2 class='text-3xl font-bold mb-4'>最終更新</h2>
+		<h3 class='text-2xl font-bold'>
+			{
+				posts.length > 0 && (
+					<a href={`/blog/post/${sortedPosts[0].slug}`}>{sortedPosts[0].data.title}</a>
+				)
+			}
+		</h3>
+	</div>
+
+	<div class='text-xl leading-loose' set:html={latestPost} />
+
+	<SSGForm />
+</BaseLayout>
+<style>
+	@reference "src/styles/global.css";
+</style>
+<script>
+	// import { animate } from 'motion'
+	// const showAnimations = localStorage.getItem('animations') === 'true'
+
+	// if (showAnimations) {
+	// 	animate(
+	// 		'.title',
+	// 		{ y: [80, 0], opacity: [0, 1] },
+	// 		{
+	// 			duration: 2.5,
+	// 			opacity: { duration: 3 },
+
+	// 			offset: [0, 0.55, 0.75]
+	// 		}
+	// 	)
+	// }
+</script>
