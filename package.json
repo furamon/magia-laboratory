@@ -25,21 +25,12 @@
 		"build": "npx tinacms build && astro build",
 		"sync": "astro sync",
 		"preview": "astro preview",
-		"postbuild": "pagefind --site /var/www/html",
+		"postbuild": "pagefind --site /var/www/magia-laboratory",
 		"format:check": "prettier --plugin-search-dir=. --check .",
 		"format": "prettier --plugin-search-dir=. --write .",
 		"lint": "eslint .",
 		"pre-commit": "lint-staged",
-		"prepare": "husky install",
-		"watch": "npm-watch"
-	},
-	"watch": {
-		"build": {
-			"patterns": [
-				"src/content"
-			],
-			"extensions": "mdx,astro"
-		}
+		"prepare": "husky install"
 	},
 	"dependencies": {
 		"@astro-community/astro-embed-youtube": "^0.5.6",
@@ -50,7 +41,6 @@
 		"astro": "5.10.1",
 		"astro-font": "^1.1.0",
 		"fs-extra": "^11.3.0",
-		"npm-watch": "^0.13.0",
 		"pnpm": "^10.12.4",
 		"postcss": "^8.5.6",
 		"rehype-stringify": "^10.0.1",

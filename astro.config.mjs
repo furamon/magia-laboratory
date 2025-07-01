@@ -42,5 +42,5 @@ export default defineConfig({
 	vite: {
 		plugins: [tailwindcss()]
 	},
-	outDir: '/var/www/html'
+	outDir: '/var/www/magia-laboratory'
 })
