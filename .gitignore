@@ -19,6 +19,7 @@ pnpm-debug.log*
 .env.production
 webhook.json
 src/components/SSGForm.astro
+deploy.sh
 
 # macOS-specific files
 .DS_Store
