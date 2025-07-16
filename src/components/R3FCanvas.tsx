@@ -1,138 +1,128 @@
 import { Suspense, useEffect, useRef } from 'react'
-import { DoubleSide } from 'three';
+import { DoubleSide } from 'three'
+import * as THREE from 'three/webgpu'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, useGLTF, useAnimations } from '@react-three/drei'
-import { NoToneMapping, MeshToonMaterial, type Group, type Mesh} from 'three'
+import { NoToneMapping, MeshToonMaterial, type Group, type Mesh } from 'three'
 
 interface ModelProps {
-  fileUrl: string
-  animationName?: string | null
+	fileUrl: string
+	animationName?: string | null
 }
 
 function Model({ fileUrl, animationName }: ModelProps) {
-  const group = useRef<Group>(null!)
-  // publicディレクトリからのパスでGLBファイルを読み込む
-  const { scene, animations } = useGLTF(fileUrl)
-  const { actions } = useAnimations(animations, group)
+	const group = useRef<Group>(null!)
+	// publicディレクトリからのパスでGLBファイルを読み込む
+	const { scene, animations } = useGLTF(fileUrl)
+	const { actions } = useAnimations(animations, group)
 
-  // アニメーションの再生制御
-  useEffect(() => {
-    // すべてのアニメーションを停止
-    Object.values(actions).forEach((action) => action!.stop())
+	// アニメーションの再生制御
+	useEffect(() => {
+		// すべてのアニメーションを停止
+		Object.values(actions).forEach((action) => action!.stop())
 
-    // 指定された名前のアニメーションがあれば再生
-    if (animationName && actions[animationName]) {
-      actions[animationName]?.reset().play()
-    }
-  }, [animationName, actions])
+		// 指定された名前のアニメーションがあれば再生
+		if (animationName && actions[animationName]) {
+			actions[animationName]?.reset().play()
+		}
+	}, [animationName, actions])
 
-  // モデルの全てのメッシュで影を有効にし、MeshToonMaterialを適用
-  useEffect(() => {
-    scene.traverse((child) => {
-      if ('isMesh' in child && child.isMesh) {
-        const mesh = child as Mesh
+	// モデルの全てのメッシュで影を有効にし、MeshToonMaterialを適用
+	useEffect(() => {
+		scene.traverse((child) => {
+			if ('isMesh' in child && child.isMesh) {
+				const mesh = child as Mesh
 
-        // 影の設定
-        mesh.castShadow = true
-        mesh.receiveShadow = true
+				// 影の設定
+				mesh.castShadow = true
+				mesh.receiveShadow = true
 
-        // 既存のマテリアルを取得
-        const originalMaterial = mesh.material as any
+				// 既存のマテリアルを取得
+				const originalMaterial = mesh.material as any
 
-        // MeshToonMaterialを作成し、既存のテクスチャを引き継ぐ
-        if (originalMaterial) {
-          const toonMaterial = new MeshToonMaterial()
+				// MeshToonMaterialを作成し、既存のテクスチャを引き継ぐ
+				if (originalMaterial) {
+					const toonMaterial = new MeshToonMaterial()
 
-          toonMaterial.side = DoubleSide
+					toonMaterial.side = DoubleSide
 
-          // onBeforeCompileでシェーダーを修正
-          toonMaterial.onBeforeCompile = (shader) => {
-            shader.fragmentShader = shader.fragmentShader.replace(
-              '#include <normal_fragment_maps>',
-              `
-              #include <normal_fragment_maps>
+					// 既存マテリアルのプロパティを可能な限り引き継ぐ
+					if (originalMaterial.map) {
+						toonMaterial.map = originalMaterial.map
+					}
+					if (originalMaterial.normalMap) {
+						toonMaterial.normalMap = originalMaterial.normalMap
+					}
+					if (originalMaterial.aoMap) {
+						toonMaterial.aoMap = originalMaterial.aoMap
+					}
+					if (originalMaterial.emissiveMap) {
+						toonMaterial.emissiveMap = originalMaterial.emissiveMap
+					}
+					if (originalMaterial.color) {
+						toonMaterial.color.copy(originalMaterial.color)
+					}
+					if (originalMaterial.emissive) {
+						toonMaterial.emissive.copy(originalMaterial.emissive)
+					}
+					if (originalMaterial.transparent) {
+						toonMaterial.transparent = originalMaterial.transparent
+					}
+					if (originalMaterial.opacity) {
+						toonMaterial.opacity = originalMaterial.opacity
+					}
 
-              // DoubleSideが有効な場合、裏面の法線は既に反転しているため、
-              // gl_FrontFacing が false の場合はさらに反転させて表面と同じ向きにする
-              if ( ! gl_FrontFacing ) {
-                  normal = -normal;
-              }
-              `
-            );
-          };
+					// 新しいマテリアルを適用
+					mesh.material = toonMaterial
 
-          // 既存マテリアルのプロパティを可能な限り引き継ぐ
-          if (originalMaterial.map) {
-            toonMaterial.map = originalMaterial.map
-          }
-          if (originalMaterial.normalMap) {
-            toonMaterial.normalMap = originalMaterial.normalMap
-          }
-          if (originalMaterial.aoMap) {
-            toonMaterial.aoMap = originalMaterial.aoMap
-          }
-          if (originalMaterial.emissiveMap) {
-            toonMaterial.emissiveMap = originalMaterial.emissiveMap
-          }
-          if (originalMaterial.color) {
-            toonMaterial.color.copy(originalMaterial.color)
-          }
-          if (originalMaterial.emissive) {
-            toonMaterial.emissive.copy(originalMaterial.emissive)
-          }
-          if (originalMaterial.transparent) {
-            toonMaterial.transparent = originalMaterial.transparent
-          }
-          if (originalMaterial.opacity) {
-            toonMaterial.opacity = originalMaterial.opacity
-          }
+					// 元のマテリアルを破棄
+					if (originalMaterial.dispose) {
+						originalMaterial.dispose()
+					}
+				}
+			}
+		})
+	}, [scene])
 
-          // 新しいマテリアルを適用
-          mesh.material = toonMaterial
-
-          // 元のマテリアルを破棄
-          if (originalMaterial.dispose) {
-            originalMaterial.dispose()
-          }
-        }
-      }
-    })
-  }, [scene])
-
-  return <primitive ref={group} object={scene} position={[0, -1, 0]} />
+	return <primitive ref={group} object={scene} position={[0, -1, 0]} />
 }
 
 interface R3FCanvasProps {
-  fileUrl: string
-  animationName?: string | null
+	fileUrl: string
+	animationName?: string | null
 }
 
-export default function R3FCanvas({
-  fileUrl,
-  animationName = null,
-}: R3FCanvasProps) {
-  return (
-    <Canvas
-      shadows
-      gl={{ antialias: true, toneMapping: NoToneMapping }}
-      camera={{ position: [0, 0, 3], fov: 30 }}
-      style={{ height: '500px', width: '100%' }}
-    >
-      {/* 環境光 */}
-      <ambientLight intensity={1} />
-      {/* 平行光 */}
-      <directionalLight
-        castShadow
-        position={[5, 5, 5]}
-        intensity={2.5}
-        shadow-mapSize-width={4096}
-        shadow-mapSize-height={4096}
-      />
-      <Suspense fallback={null}>
-        <Model fileUrl={fileUrl} animationName={animationName} />
-      </Suspense>
-      {/* カメラコントロール */}
-      <OrbitControls />
-    </Canvas>
-  )
+export default function R3FCanvas({ fileUrl, animationName = null }: R3FCanvasProps) {
+	return (
+		<Canvas
+			shadows
+			gl={async (props) => {
+				const renderer = new THREE.WebGPURenderer(props as any)
+				await renderer.init()
+				return renderer
+			}}
+			onCreated={({ gl }) => {
+				gl.toneMapping = NoToneMapping
+			}}
+			camera={{ position: [0, 0, 3], fov: 30 }}
+			style={{ height: '500px', width: '100%' }}
+		>
+			{/* 環境光 */}
+			<ambientLight intensity={2} />
+			{/* 平行光 */}
+			<directionalLight
+				castShadow
+				position={[3,3, 3]}
+				intensity={2}
+				shadow-mapSize-width={2048}
+				shadow-mapSize-height={2048}
+				shadow-bias={-0.0005}
+			/>
+			<Suspense fallback={null}>
+				<Model fileUrl={fileUrl} animationName={animationName} />
+			</Suspense>
+			{/* カメラコントロール */}
+			<OrbitControls />
+		</Canvas>
+	)
 }
