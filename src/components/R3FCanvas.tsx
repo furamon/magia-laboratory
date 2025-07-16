@@ -1,7 +1,8 @@
 import { Suspense, useEffect, useRef } from 'react'
+import { DoubleSide } from 'three';
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, useGLTF, useAnimations } from '@react-three/drei'
-import { NoToneMapping, MeshToonMaterial, type Group, type Mesh, type Material } from 'three'
+import { NoToneMapping, MeshToonMaterial, type Group, type Mesh} from 'three'
 
 interface ModelProps {
   fileUrl: string
@@ -17,7 +18,7 @@ function Model({ fileUrl, animationName }: ModelProps) {
   // アニメーションの再生制御
   useEffect(() => {
     // すべてのアニメーションを停止
-    Object.values(actions).forEach((action) => action.stop())
+    Object.values(actions).forEach((action) => action!.stop())
 
     // 指定された名前のアニメーションがあれば再生
     if (animationName && actions[animationName]) {
@@ -36,41 +37,37 @@ function Model({ fileUrl, animationName }: ModelProps) {
         mesh.receiveShadow = true
 
         // 既存のマテリアルを取得
-        const originalMaterial = mesh.material as Material
+        const originalMaterial = mesh.material as any
 
         // MeshToonMaterialを作成し、既存のテクスチャを引き継ぐ
         if (originalMaterial) {
           const toonMaterial = new MeshToonMaterial()
 
+          toonMaterial.side = DoubleSide
+
           // 既存マテリアルのプロパティを可能な限り引き継ぐ
-          if ('map' in originalMaterial && originalMaterial.map) {
+          if (originalMaterial.map) {
             toonMaterial.map = originalMaterial.map
           }
-          if ('normalMap' in originalMaterial && originalMaterial.normalMap) {
+          if (originalMaterial.normalMap) {
             toonMaterial.normalMap = originalMaterial.normalMap
           }
-          if ('roughnessMap' in originalMaterial && originalMaterial.roughnessMap) {
-            toonMaterial.roughnessMap = originalMaterial.roughnessMap
-          }
-          if ('metalnessMap' in originalMaterial && originalMaterial.metalnessMap) {
-            toonMaterial.metalnessMap = originalMaterial.metalnessMap
-          }
-          if ('aoMap' in originalMaterial && originalMaterial.aoMap) {
+          if (originalMaterial.aoMap) {
             toonMaterial.aoMap = originalMaterial.aoMap
           }
-          if ('emissiveMap' in originalMaterial && originalMaterial.emissiveMap) {
+          if (originalMaterial.emissiveMap) {
             toonMaterial.emissiveMap = originalMaterial.emissiveMap
           }
-          if ('color' in originalMaterial && originalMaterial.color) {
+          if (originalMaterial.color) {
             toonMaterial.color.copy(originalMaterial.color)
           }
-          if ('emissive' in originalMaterial && originalMaterial.emissive) {
+          if (originalMaterial.emissive) {
             toonMaterial.emissive.copy(originalMaterial.emissive)
           }
-          if ('transparent' in originalMaterial) {
+          if (originalMaterial.transparent) {
             toonMaterial.transparent = originalMaterial.transparent
           }
-          if ('opacity' in originalMaterial) {
+          if (originalMaterial.opacity) {
             toonMaterial.opacity = originalMaterial.opacity
           }
 
