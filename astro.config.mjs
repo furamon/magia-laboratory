@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
 import { remarkReadingTime } from './src/utils/readTime.ts'
-
+import react from '@astrojs/react'
 
 // https://astro.build/config
 export default defineConfig({
@@ -30,6 +30,7 @@ export default defineConfig({
 		}),
 		sitemap(),
 		tailwindcss(),
+		react()
 	],
 	image: {
 		remotePatterns: [

@@ -1,0 +1,20 @@
+---
+import R3FCanvas from './R3FCanvas.tsx';
+
+interface Props {
+  // public/models/ ディレクトリにあるGLBファイル名
+  fileName: string;
+  animName: string;
+  class?: string;
+}
+
+const { fileName, animName, class: className } = Astro.props;
+
+// publicディレクトリからの絶対パスを構築
+const fileUrl = `/models/${fileName}`;
+const animationName = animName
+---
+
+<div class:list={["w-full h-[500px]", className]}>
+  <R3FCanvas client:load fileUrl={fileUrl}  animationName={animationName} />
+</div>
