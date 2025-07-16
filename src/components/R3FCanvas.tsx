@@ -45,6 +45,22 @@ function Model({ fileUrl, animationName }: ModelProps) {
 
           toonMaterial.side = DoubleSide
 
+          // onBeforeCompileでシェーダーを修正
+          toonMaterial.onBeforeCompile = (shader) => {
+            shader.fragmentShader = shader.fragmentShader.replace(
+              '#include <normal_fragment_maps>',
+              `
+              #include <normal_fragment_maps>
+
+              // DoubleSideが有効な場合、裏面の法線は既に反転しているため、
+              // gl_FrontFacing が false の場合はさらに反転させて表面と同じ向きにする
+              if ( ! gl_FrontFacing ) {
+                  normal = -normal;
+              }
+              `
+            );
+          };
+
           // 既存マテリアルのプロパティを可能な限り引き継ぐ
           if (originalMaterial.map) {
             toonMaterial.map = originalMaterial.map
@@ -103,14 +119,14 @@ export default function R3FCanvas({
       style={{ height: '500px', width: '100%' }}
     >
       {/* 環境光 */}
-      <ambientLight intensity={1.5} />
+      <ambientLight intensity={1} />
       {/* 平行光 */}
       <directionalLight
         castShadow
         position={[5, 5, 5]}
-        intensity={2}
-        shadow-mapSize-width={2048}
-        shadow-mapSize-height={2048}
+        intensity={2.5}
+        shadow-mapSize-width={4096}
+        shadow-mapSize-height={4096}
       />
       <Suspense fallback={null}>
         <Model fileUrl={fileUrl} animationName={animationName} />
