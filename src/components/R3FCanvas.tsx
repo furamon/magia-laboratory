@@ -1,7 +1,7 @@
 import { Suspense, useEffect, useRef } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, useGLTF, useAnimations } from '@react-three/drei'
-import { NoToneMapping, type Group } from 'three'
+import { NoToneMapping, MeshToonMaterial, type Group, type Mesh, type Material } from 'three'
 
 interface ModelProps {
   fileUrl: string
@@ -25,12 +25,63 @@ function Model({ fileUrl, animationName }: ModelProps) {
     }
   }, [animationName, actions])
 
-  // モデルの全てのメッシュで影を有効にする
+  // モデルの全てのメッシュで影を有効にし、MeshToonMaterialを適用
   useEffect(() => {
     scene.traverse((child) => {
       if ('isMesh' in child && child.isMesh) {
-        child.castShadow = true
-        child.receiveShadow = true
+        const mesh = child as Mesh
+
+        // 影の設定
+        mesh.castShadow = true
+        mesh.receiveShadow = true
+
+        // 既存のマテリアルを取得
+        const originalMaterial = mesh.material as Material
+
+        // MeshToonMaterialを作成し、既存のテクスチャを引き継ぐ
+        if (originalMaterial) {
+          const toonMaterial = new MeshToonMaterial()
+
+          // 既存マテリアルのプロパティを可能な限り引き継ぐ
+          if ('map' in originalMaterial && originalMaterial.map) {
+            toonMaterial.map = originalMaterial.map
+          }
+          if ('normalMap' in originalMaterial && originalMaterial.normalMap) {
+            toonMaterial.normalMap = originalMaterial.normalMap
+          }
+          if ('roughnessMap' in originalMaterial && originalMaterial.roughnessMap) {
+            toonMaterial.roughnessMap = originalMaterial.roughnessMap
+          }
+          if ('metalnessMap' in originalMaterial && originalMaterial.metalnessMap) {
+            toonMaterial.metalnessMap = originalMaterial.metalnessMap
+          }
+          if ('aoMap' in originalMaterial && originalMaterial.aoMap) {
+            toonMaterial.aoMap = originalMaterial.aoMap
+          }
+          if ('emissiveMap' in originalMaterial && originalMaterial.emissiveMap) {
+            toonMaterial.emissiveMap = originalMaterial.emissiveMap
+          }
+          if ('color' in originalMaterial && originalMaterial.color) {
+            toonMaterial.color.copy(originalMaterial.color)
+          }
+          if ('emissive' in originalMaterial && originalMaterial.emissive) {
+            toonMaterial.emissive.copy(originalMaterial.emissive)
+          }
+          if ('transparent' in originalMaterial) {
+            toonMaterial.transparent = originalMaterial.transparent
+          }
+          if ('opacity' in originalMaterial) {
+            toonMaterial.opacity = originalMaterial.opacity
+          }
+
+          // 新しいマテリアルを適用
+          mesh.material = toonMaterial
+
+          // 元のマテリアルを破棄
+          if (originalMaterial.dispose) {
+            originalMaterial.dispose()
+          }
+        }
       }
     })
   }, [scene])
@@ -55,7 +106,7 @@ export default function R3FCanvas({
       style={{ height: '500px', width: '100%' }}
     >
       {/* 環境光 */}
-      <ambientLight intensity={1} />
+      <ambientLight intensity={1.5} />
       {/* 平行光 */}
       <directionalLight
         castShadow
