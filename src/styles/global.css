@@ -4,7 +4,6 @@
 
 @theme {
 	--color-white: #f8f9fa;
-	--font-body: "'IBMPlexSansJP', ...defaultTheme.fontFamily.sans";
 }
 
 @plugin "@tailwindcss/typography";
@@ -53,6 +52,10 @@
 		display: flex;
 		justify-content: center;
 		gap: 12px;
+	}
+        
+        textarea {
+		field-sizing: content;
 	}
 }
 
