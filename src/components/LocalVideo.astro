@@ -1,23 +1,21 @@
 ---
-import PageLayout from '@/layouts/PageLayout'
-
 const { src, type = 'video/mp4', width = 640, height = 360 } = Astro.props
 ---
 
-<PageLayout title='LocalVideo'>
-	<div class='prose prose:lg md:prose-xl [&>*]:mb-4 dark:prose-invert min-w-full'>
-		<video
-			id='my-video'
-			class='video-js vjs-default-skin'
-			controls
-			preload='auto'
-			width={width}
-			height={height}
-			data-setup='{}'
-		>
-			<source src={src} type={type} />
-		</video>
-	</div>
-</PageLayout>
+<link href="https://vjs.zencdn.net/8.23.3/video-js.css" rel="stylesheet" />
 
-<script src='https://vjs.zencdn.net/8.22.0/video.min.js'></script>
+<div class='prose prose:lg md:prose-xl [&>*]:mb-4 dark:prose-invert min-w-full'>
+    <video
+        id='my-video'
+        class='video-js vjs-default-skin'
+        controls
+        preload='auto'
+        width={width}
+        height={height}
+        data-setup='{}'
+    >
+        <source src={src} type={type} />
+    </video>
+</div>
+
+<script src='https://vjs.zencdn.net/8.23.3/video.min.js'></script>
