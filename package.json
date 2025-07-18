@@ -42,7 +42,7 @@
 		"@tailwindcss/postcss": "^4.1.11",
 		"@tailwindcss/vite": "^4.1.11",
 		"@types/three": "^0.178.1",
-		"astro": "5.11.2",
+		"astro": "5.12.0",
 		"astro-font": "^1.1.0",
 		"fs-extra": "^11.3.0",
 		"pnpm": "^10.13.1",
@@ -61,7 +61,7 @@
 		"yup": "^1.6.1"
 	},
 	"devDependencies": {
-		"@astrojs/mdx": "4.3.0",
+		"@astrojs/mdx": "4.3.1",
 		"@astrojs/sitemap": "3.4.1",
 		"@astrojs/tailwind": "6.0.2",
 		"@pagefind/default-ui": "^1.3.0",

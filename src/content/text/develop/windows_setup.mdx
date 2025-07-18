@@ -356,13 +356,9 @@ winget install valve.steam
 
 名作レトロゲーム配信プラットフォーム。
 
-#### **OpenOffice**
+#### **[Cassava Editor](https://forest.watch.impress.co.jp/library/software/cassavaedit/)**
 
-```powershell
-winget install Apache.OpenOffice
-```
-
-Office互換ソフト。PDFもこれで。
+CSV管理ソフト。ローカルで管理したいファイルに。
 
 #### **Power BI Desktop**
 
@@ -438,12 +434,12 @@ Import-Module PSFzf # 要PSFzf&fzf
 Enable-PsFzfAliases
 Import-Module ZLocation # 要ZLocation
 
-function repo {  
+function repo {
     $repo = $(ghq list | Invoke-Fzf)
     Set-Location ( Join-Path $(ghq root) $repo)
     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
-function fzf-history { 
+function fzf-history {
     $command = Get-Content (Get-PSReadlineOption).HistorySavePath | tac | awk '!a[$0]++' | Invoke-Fzf -NoSort -Exact
     [Microsoft.PowerShell.PSConsoleReadLine]::InvokePrompt()
 
