@@ -1,0 +1,21 @@
+---
+import R3FCanvas from './R3FCanvas.tsx';
+
+interface Props {
+  // public/models/ ディレクトリにあるGLBファイル名
+  fileName: string;
+  // public/models/vrma/ ディレクトリにあるVRMAファイル名
+  vrmaName: string;
+  class?: string;
+}
+
+const { fileName, vrmaName, class: className } = Astro.props;
+
+// publicディレクトリからの絶対パスを構築
+const fileUrl = `/models/${fileName}`;
+const vrmaUrl = `/models/vrma/${vrmaName}`;
+---
+
+<div class:list={["w-full h-[500px]", className]}>
+  <R3FCanvas client:load fileUrl={fileUrl}  vrmaUrl={vrmaUrl} />
+</div>

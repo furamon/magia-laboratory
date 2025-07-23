@@ -1,128 +1,162 @@
 import { Suspense, useEffect, useRef } from 'react'
-import { DoubleSide } from 'three'
-import * as THREE from 'three/webgpu'
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls, useGLTF, useAnimations } from '@react-three/drei'
-import { NoToneMapping, MeshToonMaterial, type Group, type Mesh } from 'three'
+import { Canvas, useFrame, useLoader } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
+import { GLTFLoader, type GLTFParser, type GLTF } from 'three/examples/jsm/loaders/GLTFLoader.js'
+import { VRMLoaderPlugin, VRM, VRMUtils } from '@pixiv/three-vrm'
+import { VRMAnimationLoaderPlugin, createVRMAnimationClip } from '@pixiv/three-vrm-animation'
+import * as THREE from 'three'
 
 interface ModelProps {
-	fileUrl: string
-	animationName?: string | null
+  fileUrl: string
+  vrmaUrl?: string | undefined
 }
 
-function Model({ fileUrl, animationName }: ModelProps) {
-	const group = useRef<Group>(null!)
-	// publicディレクトリからのパスでGLBファイルを読み込む
-	const { scene, animations } = useGLTF(fileUrl)
-	const { actions } = useAnimations(animations, group)
+function Model({ fileUrl, vrmaUrl }: ModelProps) {
+  const vrmRef = useRef<VRM | null>(null)
+  const mixerRef = useRef<THREE.AnimationMixer | null>(null)
 
-	// アニメーションの再生制御
-	useEffect(() => {
-		// すべてのアニメーションを停止
-		Object.values(actions).forEach((action) => action!.stop())
+  const gltf = useLoader(GLTFLoader, fileUrl, (loader) => {
+    loader.register((parser: GLTFParser) => {
+      return new VRMLoaderPlugin(parser, { autoUpdateHumanBones: true })
+    })
+  })
 
-		// 指定された名前のアニメーションがあれば再生
-		if (animationName && actions[animationName]) {
-			actions[animationName]?.reset().play()
-		}
-	}, [animationName, actions])
+  useEffect(() => {
+    if (!gltf.userData.vrm) {
+      return
+    }
 
-	// モデルの全てのメッシュで影を有効にし、MeshToonMaterialを適用
-	useEffect(() => {
-		scene.traverse((child) => {
-			if ('isMesh' in child && child.isMesh) {
-				const mesh = child as Mesh
+    const vrm: VRM = gltf.userData.vrm
+    vrmRef.current = vrm
+    VRMUtils.rotateVRM0(vrm)
 
-				// 影の設定
-				mesh.castShadow = true
-				mesh.receiveShadow = true
+    // Humanoidボーンマッピングを確認
+    if (vrm.humanoid) {
+      console.log('Humanoid bones:', vrm.humanoid.humanBones)
 
-				// 既存のマテリアルを取得
-				const originalMaterial = mesh.material as any
+      // 各ボーンの実際の名前を出力
+      Object.entries(vrm.humanoid.humanBones).forEach(([boneName, bone]) => {
+        if (bone && bone.node) {
+          console.log(`${boneName}: ${bone.node.name}`)
+        }
+      })
+    }
 
-				// MeshToonMaterialを作成し、既存のテクスチャを引き継ぐ
-				if (originalMaterial) {
-					const toonMaterial = new MeshToonMaterial()
+    // シーン内の全ノードを確認
+    console.log('=== All nodes in VRM scene ===')
+    vrm.scene.traverse((node) => {
+      if (node.type === 'Bone' || node.name.toLowerCase().includes('bone') || node.name.toLowerCase().includes('joint')) {
+        console.log(`Node: ${node.name}, Type: ${node.type}`)
+      }
+    })
 
-					toonMaterial.side = DoubleSide
+    const mixer = new THREE.AnimationMixer(vrm.scene)
+    mixerRef.current = mixer
 
-					// 既存マテリアルのプロパティを可能な限り引き継ぐ
-					if (originalMaterial.map) {
-						toonMaterial.map = originalMaterial.map
-					}
-					if (originalMaterial.normalMap) {
-						toonMaterial.normalMap = originalMaterial.normalMap
-					}
-					if (originalMaterial.aoMap) {
-						toonMaterial.aoMap = originalMaterial.aoMap
-					}
-					if (originalMaterial.emissiveMap) {
-						toonMaterial.emissiveMap = originalMaterial.emissiveMap
-					}
-					if (originalMaterial.color) {
-						toonMaterial.color.copy(originalMaterial.color)
-					}
-					if (originalMaterial.emissive) {
-						toonMaterial.emissive.copy(originalMaterial.emissive)
-					}
-					if (originalMaterial.transparent) {
-						toonMaterial.transparent = originalMaterial.transparent
-					}
-					if (originalMaterial.opacity) {
-						toonMaterial.opacity = originalMaterial.opacity
-					}
+    let isMounted = true
 
-					// 新しいマテリアルを適用
-					mesh.material = toonMaterial
+    const loadAnimation = () => {
+      if (vrmaUrl && vrm) {
+        const animationLoader = new GLTFLoader()
+        animationLoader.register((parser: GLTFParser) => {
+          return new VRMAnimationLoaderPlugin(parser)
+        })
 
-					// 元のマテリアルを破棄
-					if (originalMaterial.dispose) {
-						originalMaterial.dispose()
-					}
-				}
-			}
-		})
-	}, [scene])
+        animationLoader.load(
+          vrmaUrl,
+          (gltf: GLTF) => {
+            if (isMounted) {
+              // 異なる可能性のあるプロパティ名を試す
+              const animations = gltf.animations || gltf.userData?.animations || gltf.userData?.vrmAnimations
 
-	return <primitive ref={group} object={scene} position={[0, -1, 0]} />
+              if (animations && animations.length > 0) {
+                // VRMAnimationとして処理
+                if (gltf.userData?.vrmAnimations) {
+                  const vrmAnimations = gltf.userData.vrmAnimations as any[]
+                  if (vrmAnimations.length > 0) {
+                    const vrmAnimation = vrmAnimations[0]
+                    console.log('VRM Animation object:', vrmAnimation)
+
+                    // createVRMAnimationClipを使用してクリップを作成
+                    const clip = createVRMAnimationClip(vrmAnimation, vrm)
+
+                    if (clip) {
+                      const action = mixer.clipAction(clip)
+                      action.setLoop(THREE.LoopRepeat, Infinity)
+                      action.play()
+                    } else {
+                      console.warn('Failed to create animation clip')
+                    }
+                  }
+                }
+                // 通常のGLTFアニメーションとして処理（フォールバック）
+                else if (gltf.animations && gltf.animations.length > 0) {
+                  const clip = gltf.animations[0]
+                  if (clip) {
+                    console.log('Using fallback GLTF animation:', clip)
+                    const action = mixer.clipAction(clip)
+                    action.setLoop(THREE.LoopRepeat, Infinity)
+                    action.play()
+                  }
+                }
+              } else {
+                console.warn('No animations found in loaded VRMA file')
+              }
+            }
+          },
+          (progress) => {
+            console.log('Loading progress:', progress)
+          },
+          (error: unknown) => {
+            console.error('Error loading VRMA:', error)
+          }
+        )
+      }
+    }
+
+    loadAnimation()
+
+    return () => {
+      isMounted = false
+      mixer.stopAllAction()
+      mixer.uncacheRoot(vrm.scene)
+    }
+  }, [gltf, vrmaUrl])
+
+  useFrame((_, delta) => {
+    mixerRef.current?.update(delta)
+    vrmRef.current?.update(delta)
+  })
+
+  return <primitive object={gltf.scene} position={[0, -1, 0]} />
 }
 
 interface R3FCanvasProps {
-	fileUrl: string
-	animationName?: string | null
+  fileUrl: string
+  vrmaUrl?: string | undefined
 }
 
-export default function R3FCanvas({ fileUrl, animationName = null }: R3FCanvasProps) {
-	return (
-		<Canvas
-			shadows
-			gl={async (props) => {
-				const renderer = new THREE.WebGPURenderer(props as any)
-				await renderer.init()
-				return renderer
-			}}
-			onCreated={({ gl }) => {
-				gl.toneMapping = NoToneMapping
-			}}
-			camera={{ position: [0, 0, 3], fov: 30 }}
-			style={{ height: '500px', width: '100%' }}
-		>
-			{/* 環境光 */}
-			<ambientLight intensity={2} />
-			{/* 平行光 */}
-			<directionalLight
-				castShadow
-				position={[3,3, 3]}
-				intensity={2}
-				shadow-mapSize-width={2048}
-				shadow-mapSize-height={2048}
-				shadow-bias={-0.0005}
-			/>
-			<Suspense fallback={null}>
-				<Model fileUrl={fileUrl} animationName={animationName} />
-			</Suspense>
-			{/* カメラコントロール */}
-			<OrbitControls />
-		</Canvas>
-	)
+export default function R3FCanvas({ fileUrl, vrmaUrl }: R3FCanvasProps) {
+  return (
+    <Canvas
+      shadows
+      camera={{ position: [0, 0.8, 3], fov: 30 }}
+      style={{ height: '500px', width: '100%' }}
+      gl={{ antialias: true }}
+    >
+      <ambientLight intensity={1.5} />
+      <directionalLight
+        castShadow
+        position={[3, 3, 3]}
+        intensity={2}
+        shadow-mapSize-width={2048}
+        shadow-mapSize-height={2048}
+        shadow-bias={-0.0005}
+      />
+      <Suspense fallback={null}>
+        <Model fileUrl={fileUrl} vrmaUrl={vrmaUrl} />
+      </Suspense>
+      <OrbitControls target={[0, 0, 0]} />
+    </Canvas>
+  )
 }

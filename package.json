@@ -37,11 +37,13 @@
 		"@astrojs/react": "^4.3.0",
 		"@astrojs/rss": "4.0.12",
 		"@philnash/astro-pagination": "^0.5.0",
+		"@pixiv/three-vrm": "^3.4.2",
+		"@pixiv/three-vrm-animation": "^3.4.2",
 		"@react-three/drei": "^10.5.1",
 		"@react-three/fiber": "^9.2.0",
 		"@tailwindcss/postcss": "^4.1.11",
 		"@tailwindcss/vite": "^4.1.11",
-		"@types/three": "^0.178.1",
+		"@types/three": "0.178.0",
 		"astro": "5.12.0",
 		"astro-font": "^1.1.0",
 		"fs-extra": "^11.3.0",
@@ -70,7 +72,8 @@
 		"@types/node": "^24.0.14",
 		"@types/react": "^19.1.8",
 		"@types/react-dom": "^19.1.6",
-		"@typescript-eslint/parser": "^8.37.0",
+		"@typescript-eslint/eslint-plugin": "^8.38.0",
+		"@typescript-eslint/parser": "^8.38.0",
 		"clsx": "2.1.1",
 		"eslint": "^9.31.0",
 		"eslint-plugin-astro": "^1.3.1",
@@ -88,7 +91,8 @@
 		"tailwind-merge": "3.3.1",
 		"tailwindcss": "4.1.11",
 		"tar-fs": ">=2.1.3",
-		"typescript": "^5.8.3"
+		"typescript": "^5.8.3",
+		"typescript-eslint": "^8.38.0"
 	},
 	"lint-staged": {
 		"*.{astro,js,jsx,ts,tsx,md,mdx,json}": [
