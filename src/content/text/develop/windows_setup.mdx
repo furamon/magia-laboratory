@@ -554,10 +554,9 @@ zmodule hlissner/zsh-autopair
 ### GHQ\&Peco
 
 ```shell
-sudo apt-get install software-properties-common
-sudo add-apt-repository ppa:longsleep/golang-backports
-sudo apt update
-sudo apt install -y golang-go
+wget -c https://go.dev/dl/go1.25.0.linux-amd64.tar.gz
+sudo tar -C /usr/local/ -xzf go1.25.0.linux-amd64.tar.gz
+echo 'export GOROOT=/usr/local/go' >> ~/.zshrc
 echo 'export GOPATH=$HOME/go' >> ~/.zshrc
 echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.zshrc
 source ~/.zshrc
