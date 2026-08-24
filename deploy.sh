@@ -15,9 +15,9 @@ echo "[deploy] 依存関係をインストール中..."
 # ProtectSystem=full で /root が read-only のため、npm のキャッシュ/ログを /opt 配下に置く。
 export npm_config_cache=/opt/magia-laboratory/.npm-cache
 export npm_config_logs_dir=/opt/magia-laboratory/.npm-logs
-npm ci --ignore-scripts
-# esbuild の postinstall は allowScripts でブロックされるため、明示的に rebuild する
-npm rebuild esbuild
+# bun 由来の node_modules が残っていると npm ci が壊れるため、事前に削除する
+rm -rf node_modules
+npm ci
 
 echo "[deploy] ビルド中..."
 # ProtectSystem=full で /root が read-only のため、Astro telemetry の設定書き込みを無効化する
