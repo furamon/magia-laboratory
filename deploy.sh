@@ -11,10 +11,10 @@ git -c safe.directory=/opt/magia-laboratory remote set-url origin https://${GITH
 git -c safe.directory=/opt/magia-laboratory pull origin main
 
 echo "[deploy] 依存関係をインストール中..."
-bun install --frozen-lockfile
+/usr/bin/bun install --frozen-lockfile
 
 echo "[deploy] ビルド中..."
-bun run build
+/usr/bin/bun run build
 
 echo "[deploy] systemd サービスを再起動中..."
 sudo systemctl restart magia-laboratory
