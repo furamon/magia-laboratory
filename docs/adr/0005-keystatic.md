@@ -27,3 +27,4 @@ Astro サイトに Keystatic（https://keystatic.com/）を導入し、5 コレ�
 - **依存追加**: `@keystatic/core` / `@keystatic/astro` / `@astrojs/react` / `@astrojs/markdoc` / `@astrojs/node`。
 - **環境変数**: `KEYSTATIC_GITHUB_CLIENT_ID` / `KEYSTATIC_GITHUB_CLIENT_SECRET` / `KEYSTATIC_SECRET` / `PUBLIC_KEYSTATIC_GITHUB_APP_SLUG` が必要。
 - **GitHub App セットアップ**: 対話的な手順（GitHub 上での App 作成・権限付与）が別途必要。
+- **フォルダ階層管理**: 各コレクションの `path` は `src/content/{collection}/**` の `**` ワイルドカードを使う。Keystatic は slug に `/` を含めることで多階層フォルダを表現できる（例: `guide/fireemblem/fe1-darkdragon`）。`title` フィールドは `fields.slug` とし、slug サブフィールドを明示的に編集可能にして `guide/fireemblem/...` のようなパスを画面から入力できるようにした。フォルダツリー UI は Keystatic 標準機能に存在しないため、階層は slug の `/` 区切りに依存する。
