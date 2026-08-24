@@ -15,6 +15,6 @@ echo "[deploy] ビルド中..."
 bun run build
 
 echo "[deploy] systemd サービスを再起動中..."
-systemctl restart magia-laboratory
+sudo systemctl restart magia-laboratory
 
 echo "[deploy] デプロイ完了"
