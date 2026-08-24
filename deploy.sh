@@ -5,6 +5,8 @@ set -e
 
 echo "[deploy] リポジトリを更新中..."
 cd /opt/magia-laboratory
+# デプロイを root で実行するため、所有者が別ユーザーのリポジトリを安全に扱えるよう許可する
+git config --global --add safe.directory /opt/magia-laboratory
 git remote set-url origin https://${GITHUB_TOKEN}@github.com/furamon/magia-laboratory.git
 git pull origin main
 
