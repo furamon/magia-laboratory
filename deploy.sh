@@ -4,7 +4,7 @@
 set -e
 
 echo "[deploy] リポジトリを更新中..."
-cd /app
+cd /opt/magia-laboratory
 git remote set-url origin https://${GITHUB_TOKEN}@github.com/furamon/magia-laboratory.git
 git pull origin main
 

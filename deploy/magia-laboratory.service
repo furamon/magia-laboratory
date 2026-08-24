@@ -9,10 +9,10 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-WorkingDirectory=/app
+WorkingDirectory=/opt/magia-laboratory
 Environment=HOST=0.0.0.0
 Environment=PORT=4321
-EnvironmentFile=/app/.env
+EnvironmentFile=/opt/magia-laboratory/.env
 ExecStart=/usr/bin/node ./dist/server/entry.mjs
 Restart=always
 RestartSec=3
