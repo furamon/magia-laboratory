@@ -5,10 +5,10 @@ set -e
 
 echo "[deploy] リポジトリを更新中..."
 cd /opt/magia-laboratory
-# デプロイを root で実行するため、所有者が別ユーザーのリポジトリを安全に扱えるよう許可する
-git config --global --add safe.directory /opt/magia-laboratory
-git remote set-url origin https://${GITHUB_TOKEN}@github.com/furamon/magia-laboratory.git
-git pull origin main
+# デプロイを root で実行するため、所有者が別ユーザーのリポジトリを安全に扱えるよう -c で許可する
+# （設定ファイルを書き込まないので ProtectSystem 等の read-only 環境でも動作する）
+git -c safe.directory=/opt/magia-laboratory remote set-url origin https://${GITHUB_TOKEN}@github.com/furamon/magia-laboratory.git
+git -c safe.directory=/opt/magia-laboratory pull origin main
 
 echo "[deploy] 依存関係をインストール中..."
 bun install --frozen-lockfile
