@@ -4,13 +4,22 @@
 name: magia-laboratory
 
 services:
-  # Astro サイト本体
+  # Astro サイト本体（SSR standalone / Keystatic 対応）
   app:
     build:
       context: .
       dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      - HOST=0.0.0.0
+      - PORT=4321
+      - KEYSTATIC_GITHUB_CLIENT_ID=${KEYSTATIC_GITHUB_CLIENT_ID}
+      - KEYSTATIC_GITHUB_CLIENT_SECRET=${KEYSTATIC_GITHUB_CLIENT_SECRET}
+      - KEYSTATIC_SECRET=${KEYSTATIC_SECRET}
+      - PUBLIC_KEYSTATIC_GITHUB_APP_SLUG=${PUBLIC_KEYSTATIC_GITHUB_APP_SLUG}
     ports:
-      - "${APP_PORT:-80}:80"
+      - "${APP_PORT:-4321}:4321"
     restart: unless-stopped
 
   # GitHub Webhook受信サーバー

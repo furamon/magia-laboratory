@@ -1,6 +1,6 @@
-# Astro 静的サイト用マルチステージ Dockerfile
-# ビルドステージ: Bun で Astro の静的ビルドを実行
-# 実行ステージ: nginx で dist/ を配信
+# Astro SSR サイト用マルチステージ Dockerfile
+# ビルドステージ: Bun で Astro のビルド（SSR standalone）を実行
+# 実行ステージ: Node で dist/server/entry.mjs を起動（Keystatic 管理画面・GitHub モード対応）
 
 FROM oven/bun:1 AS builder
 WORKDIR /app
@@ -14,6 +14,12 @@ COPY . .
 RUN bun run build
 
 # 実行ステージ
-FROM nginx:alpine AS runner
-COPY --from=builder /app/dist /usr/share/nginx/html
-EXPOSE 80
+FROM node:22-alpine AS runner
+WORKDIR /app
+ENV HOST=0.0.0.0
+ENV PORT=4321
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+EXPOSE 4321
+CMD ["node", "./dist/server/entry.mjs"]

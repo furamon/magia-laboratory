@@ -1,0 +1,25 @@
+# Magia Laboratory（Astro SSR + Keystatic）systemd サービスユニット
+# 配置先: /etc/systemd/system/magia-laboratory.service
+# 有効化: sudo systemctl enable --now magia-laboratory
+
+[Unit]
+Description=Magia Laboratory (Astro SSR + Keystatic)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/app
+Environment=HOST=0.0.0.0
+Environment=PORT=4321
+EnvironmentFile=/app/.env
+ExecStart=/usr/bin/node ./dist/server/entry.mjs
+Restart=always
+RestartSec=3
+# セキュリティ強化（任意）
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
