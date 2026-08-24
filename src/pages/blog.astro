@@ -1,0 +1,17 @@
+---
+import { getCollection } from "astro:content";
+import ContentIndex from "../components/ContentIndex.svelte";
+import Layout from "../layouts/Layout.astro";
+
+const entries = (await getCollection("blog", ({ data }) => !data.draft)).map(
+	(entry) => ({ slug: entry.id, data: entry.data }),
+);
+---
+
+<Layout title="Diary" description="日記とか雑記">
+	<h1 class="text-5xl font-bold mx-auto mb-8 max-w-5xl">Diary</h1>
+
+	<div class="mx-auto max-w-5xl">
+		<ContentIndex entries={entries} baseHref="/blog" groupByYear />
+	</div>
+</Layout>

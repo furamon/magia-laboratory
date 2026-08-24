@@ -1,0 +1,69 @@
+---
+import { getCollection } from "astro:content";
+import Footer from "../components/Footer.svelte";
+import Header from "../components/Header.svelte";
+import { buildSearchIndex } from "../lib/search";
+import { SITE } from "../lib/site";
+
+interface Props {
+	/** ページ固有タイトル（未指定時は SITE.TITLE） */
+	title?: string;
+	/** ページ固有の説明文（未指定時は SITE.DESCRIPTION） */
+	description?: string;
+	/** lily ページかどうか（true 時は body に lily-page クラスを付与） */
+	lilyPage?: boolean;
+}
+
+const { title, description, lilyPage = false } = Astro.props;
+const pageTitle = title ? `${title} - ${SITE.TITLE}` : SITE.TITLE;
+const pageDescription = description ?? SITE.DESCRIPTION;
+
+// ビルド時に全コレクションの公開エントリから検索一覧を生成する（検索モーダル用）
+const collections = await Promise.all(
+	(["blog", "game", "creation", "lily", "text"] as const).map(async (name) => ({
+		name,
+		entries: (await getCollection(name, ({ data }) => !data.draft)).map(
+			(entry) => ({ id: entry.id, data: entry.data }),
+		),
+	})),
+);
+const searchEntries = buildSearchIndex(collections);
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+		<link rel="icon" href="/favicon.ico">
+		<title>{pageTitle}</title>
+		<meta name="description" content={pageDescription}>
+		<meta name="author" content={SITE.AUTHOR}>
+		<script is:inline>
+		// テーマ初期化（FOUC 防止）: localStorage["theme"] を読み、
+		// system なら prefers-color-scheme を判定して <html class="dark"> を付与する
+		(() => {
+			const stored = localStorage.getItem("theme");
+			const theme =
+				stored === "light" || stored === "dark" || stored === "system"
+					? stored
+					: "system";
+			const dark =
+				theme === "dark" ||
+				(theme === "system" &&
+					window.matchMedia("(prefers-color-scheme: dark)").matches);
+			if (dark) {
+				document.documentElement.classList.add("dark");
+			}
+		})();
+		</script>
+	</head>
+	<body class:list={lilyPage ? ['lily-page'] : []}>
+		<Header client:load entries={searchEntries} />
+		<main>
+			<slot />
+		</main>
+		<Footer client:load />
+	</body>
+</html>

@@ -30,12 +30,12 @@ description: "個人創作サイト（Astro + Svelte）の実装タスク一覧"
 
 **Purpose**: プロジェクト初期化と基本構造の構築
 
-- [ ] T001 依存関係を追加する: `bun add -d @unocss/astro vitest @vitest/coverage-v8 @astrojs/check && bun add @astrojs/rss`（research.md セクション 1・3・6）
-- [ ] T002 `astro.config.mjs` に UnoCSS 統合を追加する（`import UnoCSS from '@unocss/astro'` + `integrations: [svelte(), UnoCSS()]`。`uno.config.ts` は既存のものをそのまま使用）
-- [ ] T003 `vitest.config.ts` を Astro 公式の `getViteConfig()` ヘルパーで作成する（research.md セクション 3）
-- [ ] T004 `package.json` の scripts に `test`（`vitest run`）・`coverage`（`vitest run --coverage`）・`check`（`astro check`）・`totalcheck`（`astro check && biome check . && vitest run`）を追加する
-- [ ] T005 [P] ADR 0001（UnoCSS の Astro 統合方式）を `docs/adr/0001-unocss-astro-integration.md` に記録する
-- [ ] T006 [P] ADR 0003（Vitest 基盤とカバレッジ方針）を `docs/adr/0003-testing-setup.md` に記録する
+- [X] T001 依存関係を追加する: `bun add -d @unocss/astro vitest @vitest/coverage-v8 @astrojs/check && bun add @astrojs/rss`（research.md セクション 1・3・6）
+- [X] T002 `astro.config.mjs` に UnoCSS 統合を追加する（`import UnoCSS from '@unocss/astro'` + `integrations: [svelte(), UnoCSS()]`。`uno.config.ts` は既存のものをそのまま使用）
+- [X] T003 `vitest.config.ts` を Astro 公式の `getViteConfig()` ヘルパーで作成する（research.md セクション 3）
+- [X] T004 `package.json` の scripts に `test`（`vitest run`）・`coverage`（`vitest run --coverage`）・`check`（`astro check`）・`totalcheck`（`astro check && biome check . && vitest run`）を追加する
+- [X] T005 [P] ADR 0001（UnoCSS の Astro 統合方式）を `docs/adr/0001-unocss-astro-integration.md` に記録する
+- [X] T006 [P] ADR 0003（Vitest 基盤とカバレッジ方針）を `docs/adr/0003-testing-setup.md` に記録する
 
 ---
 
@@ -45,10 +45,10 @@ description: "個人創作サイト（Astro + Svelte）の実装タスク一覧"
 
 **⚠️ CRITICAL**: このフェーズが完了するまでユーザーストーリーの作業は開始できない
 
-- [ ] T007 `tests/site.test.ts` を書く（TDD: 先に書き、失敗を確認する。`SITE` / `NAVI` / `TOP_CATEGORY_LINKS` のラベル・href 形式・表示順・外部リンクの `https://` 検証。data-model.md エンティティ 1〜3 の検証ルール）
-- [ ] T008 `src/lib/site.ts` を実装する（`SITE`（TITLE / DESCRIPTION / AUTHOR）・`NAVI`（Game / Lily / Creation / Diary / RSS の 5 項目）・`TOP_CATEGORY_LINKS`（Game / Creation / Lily / etc. / Some Links の 5 カテゴリ、data-model.md の定義値を `as const` で固定。T007 のテストを成功させる）
-- [ ] T009 `src/content.config.ts` を作成する（`glob()` ローダーで blog / game / creation / lily / text の 5 コレクションを定義。スキーマ: `title` 必須・`date` / `description` / `draft` 任意。research.md セクション 4）
-- [ ] T010 [P] ADR 0004（コンテンツコレクション採用）を `docs/adr/0004-content-collections.md` に記録する
+- [X] T007 `tests/site.test.ts` を書く（TDD: 先に書き、失敗を確認する。`SITE` / `NAVI` / `TOP_CATEGORY_LINKS` のラベル・href 形式・表示順・外部リンクの `https://` 検証。data-model.md エンティティ 1〜3 の検証ルール）
+- [X] T008 `src/lib/site.ts` を実装する（`SITE`（TITLE / DESCRIPTION / AUTHOR）・`NAVI`（Game / Lily / Creation / Diary / RSS の 5 項目）・`TOP_CATEGORY_LINKS`（Game / Creation / Lily / etc. / Some Links の 5 カテゴリ、data-model.md の定義値を `as const` で固定。T007 のテストを成功させる）
+- [X] T009 `src/content.config.ts` を作成する（`glob()` ローダーで blog / game / creation / lily / text の 5 コレクションを定義。スキーマ: `title` 必須・`date` / `description` / `draft` 任意。research.md セクション 4）
+- [X] T010 [P] ADR 0004（コンテンツコレクション採用）を `docs/adr/0004-content-collections.md` に記録する
 
 **Checkpoint**: 基盤完成。ユーザーストーリーの実装を並行開始できる。
 
@@ -62,13 +62,13 @@ description: "個人創作サイト（Astro + Svelte）の実装タスク一覧"
 
 ### Implementation for User Story 1
 
-- [ ] T011 [P] [US1] `src/layouts/Layout.astro` を作成する（`title?` / `description?` / `lilyPage?` props。`<head>` に `SITE` 由来の `<title>`・`<meta name="description">`・`<meta name="author">`・favicon、`<Header />`（client:load）・`<main>` スロット（`padding: 8rem 1rem 8rem`）・`<Footer />`（client:load）。`lilyPage` 時は `<body>` に `lily-page` クラス付与。contracts/components.md 参照）
-- [ ] T012 [P] [US1] `src/components/Header.svelte` を作成する（`SITE.TITLE` + favicon、`NAVI` の 5 項目を `/` 区切りで表示、検索ボタン（`aria-label="Search"`、モーダル連携は US4 で実装）。スタイル: `fixed top-0 right-0 left-0 z-50 py-6 bg-neutral-100/75 dark:bg-neutral-900/75`）
-- [ ] T013 [P] [US1] `src/components/Footer.svelte` を作成する（コピーライト `© {currentYear} {SITE.TITLE}`、プライバシーポリシーリンク `/privacy-policy`、トップへ戻るボタン（`aria-label="Back to top"`、`window.scrollTo({ top: 0, behavior: "smooth" })`）。テーマ切替ボタンは US3 で追加）
-- [ ] T014 [US1] `src/pages/index.astro` を `Layout.astro` を使用する骨格に書き換える（メイン領域は空。タイトル・カテゴリボタンは US2 で実装）
-- [ ] T015 [P] [US1] `src/pages/404.astro` を作成する（文言「404: ページが見つかりませんでした。ごめんね。」+「トップに戻る」ボタン（`btn-game`）。research.md セクション 9）
-- [ ] T016 [P] [US1] `src/pages/privacy-policy.astro` を作成する（旧実装の内容（管理人・コメント・メディア・Cookie・埋め込みコンテンツ等）を再現。research.md セクション 10）
-- [ ] T017 [P] [US1] `src/pages/rss.xml.ts` を作成する（`@astrojs/rss` を使用。サイト URL `https://magialabs.blog`、blog コレクションの公開エントリ最新 20 件、`<language>ja</language>`。contracts/routes.md 参照）
+- [X] T011 [P] [US1] `src/layouts/Layout.astro` を作成する（`title?` / `description?` / `lilyPage?` props。`<head>` に `SITE` 由来の `<title>`・`<meta name="description">`・`<meta name="author">`・favicon、`<Header />`（client:load）・`<main>` スロット（`padding: 8rem 1rem 8rem`）・`<Footer />`（client:load）。`lilyPage` 時は `<body>` に `lily-page` クラス付与。contracts/components.md 参照）
+- [X] T012 [P] [US1] `src/components/Header.svelte` を作成する（`SITE.TITLE` + favicon、`NAVI` の 5 項目を `/` 区切りで表示、検索ボタン（`aria-label="Search"`、モーダル連携は US4 で実装）。スタイル: `fixed top-0 right-0 left-0 z-50 py-6 bg-neutral-100/75 dark:bg-neutral-900/75`）
+- [X] T013 [P] [US1] `src/components/Footer.svelte` を作成する（コピーライト `© {currentYear} {SITE.TITLE}`、プライバシーポリシーリンク `/privacy-policy`、トップへ戻るボタン（`aria-label="Back to top"`、`window.scrollTo({ top: 0, behavior: "smooth" })`）。テーマ切替ボタンは US3 で追加）
+- [X] T014 [US1] `src/pages/index.astro` を `Layout.astro` を使用する骨格に書き換える（メイン領域は空。タイトル・カテゴリボタンは US2 で実装）
+- [X] T015 [P] [US1] `src/pages/404.astro` を作成する（文言「404: ページが見つかりませんでした。ごめんね。」+「トップに戻る」ボタン（`btn-game`）。research.md セクション 9）
+- [X] T016 [P] [US1] `src/pages/privacy-policy.astro` を作成する（旧実装の内容（管理人・コメント・メディア・Cookie・埋め込みコンテンツ等）を再現。research.md セクション 10）
+- [X] T017 [P] [US1] `src/pages/rss.xml.ts` を作成する（`@astrojs/rss` を使用。サイト URL `https://magialabs.blog`、blog コレクションの公開エントリ最新 20 件、`<language>ja</language>`。contracts/routes.md 参照）
 
 **Checkpoint**: User Story 1 が単独で機能し、独立テスト可能になる。
 
@@ -82,18 +82,18 @@ description: "個人創作サイト（Astro + Svelte）の実装タスク一覧"
 
 ### Implementation for User Story 2
 
-- [ ] T018 [P] [US2] `src/pages/index.astro` にタイトル（h1、text-5xl font-bold）・説明文（text-xl font-bold）・`TOP_CATEGORY_LINKS` のカテゴリボタン群を実装する（md 以上で 3 列。Game 系 `btn-game` / Lily 系 `btn-lily`。外部リンクは `target="_blank"` + `rel="noopener noreferrer"`。contracts/routes.md のトップページ契約参照）
-- [ ] T019 [P] [US2] `src/pages/game.astro` を作成する（旧サイトの見出し「ゲームのページ」・手書きコンテンツ（`btn-game` リンク）を再現し、`ContentIndex.svelte` でコレクション一覧を表示。research.md セクション 7）
-- [ ] T020 [P] [US2] `src/pages/lily.astro` を作成する（骨格。`lilyPage` レイアウト使用）
-- [ ] T021 [P] [US2] `src/pages/creation.astro` を作成する（骨格）
-- [ ] T022 [P] [US2] `src/pages/blog.astro` を作成する（骨格。`ContentIndex.svelte` を `groupByYear` で使用）
-- [ ] T023 [P] [US2] `src/pages/text.astro` を作成する（骨格）
-- [ ] T024 [P] [US2] `src/components/ContentIndex.svelte` を作成する（props: `entries` / `baseHref` / `groupByYear?`。エントリのカード一覧（タイトル・日付・説明）、`groupByYear` 時は年別グループ。contracts/components.md 参照）
-- [ ] T025 [P] [US2] `src/pages/game/[...slug].astro` を作成する（`getCollection()` / `getEntry()` で生成。エントリの `title`（h1、text-5xl）と Markdown 本文を `render()` で表示。未存在時は「404」+「ページが見つかりませんでした。」+一覧へ戻るリンク）
-- [ ] T026 [P] [US2] `src/pages/lily/[...slug].astro` を作成する（T025 と同様）
-- [ ] T027 [P] [US2] `src/pages/creation/[...slug].astro` を作成する（T025 と同様）
-- [ ] T028 [P] [US2] `src/pages/blog/[...slug].astro` を作成する（T025 と同様）
-- [ ] T029 [P] [US2] `src/pages/text/[...slug].astro` を作成する（T025 と同様）
+- [X] T018 [P] [US2] `src/pages/index.astro` にタイトル（h1、text-5xl font-bold）・説明文（text-xl font-bold）・`TOP_CATEGORY_LINKS` のカテゴリボタン群を実装する（md 以上で 3 列。Game 系 `btn-game` / Lily 系 `btn-lily`。外部リンクは `target="_blank"` + `rel="noopener noreferrer"`。contracts/routes.md のトップページ契約参照）
+- [X] T019 [P] [US2] `src/pages/game.astro` を作成する（旧サイトの見出し「ゲームのページ」・手書きコンテンツ（`btn-game` リンク）を再現し、`ContentIndex.svelte` でコレクション一覧を表示。research.md セクション 7）
+- [X] T020 [P] [US2] `src/pages/lily.astro` を作成する（骨格。`lilyPage` レイアウト使用）
+- [X] T021 [P] [US2] `src/pages/creation.astro` を作成する（骨格）
+- [X] T022 [P] [US2] `src/pages/blog.astro` を作成する（骨格。`ContentIndex.svelte` を `groupByYear` で使用）
+- [X] T023 [P] [US2] `src/pages/text.astro` を作成する（骨格）
+- [X] T024 [P] [US2] `src/components/ContentIndex.svelte` を作成する（props: `entries` / `baseHref` / `groupByYear?`。エントリのカード一覧（タイトル・日付・説明）、`groupByYear` 時は年別グループ。contracts/components.md 参照）
+- [X] T025 [P] [US2] `src/pages/game/[...slug].astro` を作成する（`getCollection()` / `getEntry()` で生成。エントリの `title`（h1、text-5xl）と Markdown 本文を `render()` で表示。未存在時は「404」+「ページが見つかりませんでした。」+一覧へ戻るリンク）
+- [X] T026 [P] [US2] `src/pages/lily/[...slug].astro` を作成する（T025 と同様）
+- [X] T027 [P] [US2] `src/pages/creation/[...slug].astro` を作成する（T025 と同様）
+- [X] T028 [P] [US2] `src/pages/blog/[...slug].astro` を作成する（T025 と同様）
+- [X] T029 [P] [US2] `src/pages/text/[...slug].astro` を作成する（T025 と同様）
 
 **Checkpoint**: User Story 1 と 2 がそれぞれ独立して動作する。
 
@@ -109,14 +109,14 @@ description: "個人創作サイト（Astro + Svelte）の実装タスク一覧"
 
 > **NOTE: このテストを先に書き、実装前に失敗を確認する**
 
-- [ ] T030 [P] [US3] `tests/theme.test.ts` を書く（`resolveTheme` の不正値フォールバック・`applyTheme` のクラス付与/除去・`getStoredTheme` / `setStoredTheme` の永続化・`system` 時の OS 設定追従。data-model.md エンティティ 4 の検証ルール）
+- [X] T030 [P] [US3] `tests/theme.test.ts` を書く（`resolveTheme` の不正値フォールバック・`applyTheme` のクラス付与/除去・`getStoredTheme` / `setStoredTheme` の永続化・`system` 時の OS 設定追従。data-model.md エンティティ 4 の検証ルール）
 
 ### Implementation for User Story 3
 
-- [ ] T031 [US3] `src/lib/theme.ts` を実装する（`Theme` 型・`resolveTheme` / `applyTheme` / `getStoredTheme` / `setStoredTheme`。contracts/components.md のシグネチャ通り。T030 のテストを成功させる）
-- [ ] T032 [US3] `src/layouts/Layout.astro` の `<head>` にテーマ初期化インライン `<script is:inline>` を追加する（`localStorage["theme"]` を読み、`system` なら `prefers-color-scheme` を判定して `<html class="dark">` を付与。research.md セクション 2）
-- [ ] T033 [US3] `src/components/Footer.svelte` にテーマ切替ボタン 3 個（ライト / ダーク / システム）を追加する（`aria-label`（Light theme / Dark theme / System theme）、クリックで `src/lib/theme.ts` の関数を呼び適用・永続化、選択中ボタンをハイライト表示。contracts/components.md 参照）
-- [ ] T034 [P] [US3] ADR 0002（テーマ初期化・FOUC 防止）を `docs/adr/0002-theme-initialization.md` に記録する
+- [X] T031 [US3] `src/lib/theme.ts` を実装する（`Theme` 型・`resolveTheme` / `applyTheme` / `getStoredTheme` / `setStoredTheme`。contracts/components.md のシグネチャ通り。T030 のテストを成功させる）
+- [X] T032 [US3] `src/layouts/Layout.astro` の `<head>` にテーマ初期化インライン `<script is:inline>` を追加する（`localStorage["theme"]` を読み、`system` なら `prefers-color-scheme` を判定して `<html class="dark">` を付与。research.md セクション 2）
+- [X] T033 [US3] `src/components/Footer.svelte` にテーマ切替ボタン 3 個（ライト / ダーク / システム）を追加する（`aria-label`（Light theme / Dark theme / System theme）、クリックで `src/lib/theme.ts` の関数を呼び適用・永続化、選択中ボタンをハイライト表示。contracts/components.md 参照）
+- [X] T034 [P] [US3] ADR 0002（テーマ初期化・FOUC 防止）を `docs/adr/0002-theme-initialization.md` に記録する
 
 **Checkpoint**: User Story 1〜3 がそれぞれ独立して動作する。
 
@@ -132,14 +132,14 @@ description: "個人創作サイト（Astro + Svelte）の実装タスク一覧"
 
 > **NOTE: このテストを先に書き、実装前に失敗を確認する**
 
-- [ ] T035 [P] [US4] `tests/search.test.ts` を書く（`buildSearchIndex` の draft 除外・URL 整形（`/blog/{id}` 形式）・空コレクション時の空配列。contracts/components.md のシグネチャ通り）
+- [X] T035 [P] [US4] `tests/search.test.ts` を書く（`buildSearchIndex` の draft 除外・URL 整形（`/blog/{id}` 形式）・空コレクション時の空配列。contracts/components.md のシグネチャ通り）
 
 ### Implementation for User Story 4
 
-- [ ] T036 [US4] `src/lib/search.ts` を実装する（`SearchIndexEntry` 型・`buildSearchIndex`。T035 のテストを成功させる）
-- [ ] T037 [US4] `src/components/Search.svelte` を作成する（props: `open`（bindable）+ 一覧データ。バックドロップ + モーダル、検索入力欄（プレースホルダー「検索...」・`aria-label="検索クエリを入力"`）、全コンテンツ一覧表示、0 件時「コンテンツがありません」、閉じるボタン（`aria-label="閉じる"`）/ バックドロップ / Esc で `open = false`。contracts/components.md 参照）
-- [ ] T038 [US4] `src/components/Header.svelte` に `Search.svelte` を組み込み、検索ボタンクリックで `open` を true にする
-- [ ] T039 [US4] `src/layouts/Layout.astro` でビルド時に `buildSearchIndex()` で検索一覧を生成し、`Header.svelte` へ props で渡す（research.md セクション 5）
+- [X] T036 [US4] `src/lib/search.ts` を実装する（`SearchIndexEntry` 型・`buildSearchIndex`。T035 のテストを成功させる）
+- [X] T037 [US4] `src/components/Search.svelte` を作成する（props: `open`（bindable）+ 一覧データ。バックドロップ + モーダル、検索入力欄（プレースホルダー「検索...」・`aria-label="検索クエリを入力"`）、全コンテンツ一覧表示、0 件時「コンテンツがありません」、閉じるボタン（`aria-label="閉じる"`）/ バックドロップ / Esc で `open = false`。contracts/components.md 参照）
+- [X] T038 [US4] `src/components/Header.svelte` に `Search.svelte` を組み込み、検索ボタンクリックで `open` を true にする
+- [X] T039 [US4] `src/layouts/Layout.astro` でビルド時に `buildSearchIndex()` で検索一覧を生成し、`Header.svelte` へ props で渡す（research.md セクション 5）
 
 **Checkpoint**: 全ユーザーストーリーが独立して機能する。
 
@@ -149,10 +149,10 @@ description: "個人創作サイト（Astro + Svelte）の実装タスク一覧"
 
 **Purpose**: 複数ストーリーにまたがる改善・検証・基盤更新
 
-- [ ] T040 [P] `quickstart.md` の検証シナリオ 1〜7 を実行し、すべての期待結果を満たすことを確認する
-- [ ] T041 [P] `Dockerfile` / `docker-compose.yml` を Astro 用に更新する（既存は SvelteKit 用のため。research.md セクション 14）
-- [ ] T042 `AGENTS.md` を更新する（本機能の開発手順・検証コマンド（`bun run totalcheck` 等）を反映）
-- [ ] T043 `bun run totalcheck` と `bun run coverage` を実行し、全チェック合格とカバレッジ 95% 達成を確認する（憲章の品質ゲート）
+- [X] T040 [P] `quickstart.md` の検証シナリオ 1〜7 を実行し、すべての期待結果を満たすことを確認する
+- [X] T041 [P] `Dockerfile` / `docker-compose.yml` を Astro 用に更新する（既存は SvelteKit 用のため。research.md セクション 14）
+- [X] T042 `AGENTS.md` を更新する（本機能の開発手順・検証コマンド（`bun run totalcheck` 等）を反映）
+- [X] T043 `bun run totalcheck` と `bun run coverage` を実行し、全チェック合格とカバレッジ 95% 達成を確認する（憲章の品質ゲート）
 
 ---
 

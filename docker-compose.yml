@@ -1,18 +1,16 @@
 # Docker Compose 設定
-# SvelteKitサイト + Webhookサーバーの2コンテナ構成
+# Astro 静的サイト + Webhookサーバーの2コンテナ構成
 # name を固定することで、どのディレクトリから実行されてもプロジェクト名が一致する
 name: magia-laboratory
 
 services:
-  # SvelteKitサイト本体
+  # Astro サイト本体
   app:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "${APP_PORT:-3000}:3000"
-    env_file:
-      - .env
+      - "${APP_PORT:-80}:80"
     restart: unless-stopped
 
   # GitHub Webhook受信サーバー

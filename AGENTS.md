@@ -8,6 +8,21 @@ astro dev --background
 
 Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
 
+## Quality Gates
+
+- 実装完了時は必ず `bun run totalcheck`（`astro check` + `biome check .` + `vitest run`）を実行し、すべて合格してから完了とする。
+- カバレッジ目標は 95%（`bun run coverage` で確認。対象: `src/lib/**/*.ts`）。
+- テストは TDD で実装より先に書き、失敗を確認してから実装する（憲章）。
+
+## Project Structure
+
+- 単一プロジェクト構成（Astro 標準の `src/` レイアウト）。
+- サイト定数（`SITE` / `NAVI` / `TOP_CATEGORY_LINKS`）は `src/lib/site.ts` に一元管理（DRY）。
+- テーマ切替ロジックは `src/lib/theme.ts`、検索一覧ロジックは `src/lib/search.ts` の純粋関数に分離。
+- 対話性が必要なコンポーネント（Header / Footer / Search）は Svelte island として `client:load` でマウント。
+- コンテンツは `src/content/{collection}/` の Markdown（blog / game / creation / lily / text の 5 コレクション）。
+- 設計判断は `docs/adr/` に記録する。
+
 ## Documentation
 
 Full documentation: https://docs.astro.build

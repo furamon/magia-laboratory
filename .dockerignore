@@ -1,0 +1,21 @@
+# 依存関係
+node_modules/
+
+# ビルド成果物
+dist/
+.astro/
+
+# バージョン管理
+.git/
+
+# ログ
+*.log*
+
+# 環境変数
+.env*
+
+# カバレッジ
+coverage/
+
+# macOS
+.DS_Store
