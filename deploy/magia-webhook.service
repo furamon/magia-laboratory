@@ -12,6 +12,7 @@ Wants=network-online.target
 Type=simple
 WorkingDirectory=/opt/magia-laboratory
 Environment=PORT=4322
+Environment=HOME=/root
 EnvironmentFile=/opt/magia-laboratory/.env
 ExecStart=/usr/bin/node buildHooks.ts
 Restart=always
