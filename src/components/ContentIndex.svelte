@@ -50,6 +50,23 @@ const years = $derived(
 	Object.keys(grouped).sort((a, b) => parseInt(b, 10) - parseInt(a, 10)),
 );
 
+/** エントリの日付を降順（新しい順）で比較する */
+function compareByDateDesc(a: ContentIndexEntry, b: ContentIndexEntry): number {
+	return (
+		new Date(b.data.date ?? 0).getTime() - new Date(a.data.date ?? 0).getTime()
+	);
+}
+
+/** 各年グループ内を新しい記事順に並べたエントリ */
+const sortedGrouped = $derived(
+	Object.fromEntries(
+		years.map((year) => [
+			year,
+			[...(grouped[year] ?? [])].sort(compareByDateDesc),
+		]),
+	) as Record<string, ContentIndexEntry[]>,
+);
+
 /** 日付を ja-JP 形式（YYYY/MM/DD）に整形する */
 function formatDate(date: string): string {
 	return new Date(date).toLocaleDateString("ja-JP", {
@@ -68,7 +85,7 @@ function formatDate(date: string): string {
 					{year}
 				</h2>
 				<ul class="flex flex-col gap-4 not-prose">
-					{#each grouped[year] ?? [] as entry (entry.slug)}
+					{#each sortedGrouped[year] ?? [] as entry (entry.slug)}
 						<li>
 							<a
 								href={`${baseHref}/${entry.slug}`}
