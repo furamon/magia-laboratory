@@ -14,7 +14,9 @@ const contentCollection = (base: string) =>
 		loader: glob({ pattern: "**/*.mdoc", base }),
 		schema: z.object({
 			title: z.string().min(1),
-			date: z.string().optional(),
+			// Keystatic は date をクォートなしで出力し YAML が Date オブジェクトとして解釈するため、
+			// coerce で ISO 文字列に正規化する
+			date: z.coerce.string().optional(),
 			description: z.string().optional(),
 			draft: z.boolean().optional(),
 		}),
