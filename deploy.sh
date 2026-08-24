@@ -12,6 +12,9 @@ git -c safe.directory=/opt/magia-laboratory pull origin main
 
 echo "[deploy] 依存関係をインストール中..."
 # bun をやめ npm に統一。npm は /usr/lib 配下の実体で、ProtectHome=true でも解決できる。
+# ProtectSystem=full で /root が read-only のため、npm のキャッシュ/ログを /opt 配下に置く。
+export npm_config_cache=/opt/magia-laboratory/.npm-cache
+export npm_config_logs_dir=/opt/magia-laboratory/.npm-logs
 npm ci --ignore-scripts
 # esbuild の postinstall は allowScripts でブロックされるため、明示的に rebuild する
 npm rebuild esbuild
