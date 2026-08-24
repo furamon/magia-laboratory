@@ -6,7 +6,7 @@ import type { NextFunction, Request, Response } from "express";
 import express from "express";
 
 const app = express();
-const PORT: number = Number(process.env["PORT"]) || 3001;
+const PORT: number = Number(process.env["PORT"]) || 4322;
 // GitHub Webhookで設定するシークレットキーと同じものを使用
 const SECRET: string = process.env["WEBHOOK_SECRET"] || "your_super_secret_key";
 // ビルドスクリプトのパス
