@@ -11,9 +11,11 @@ const PORT: number = Number(process.env["PORT"]) || 4322;
 const SECRET: string = process.env["WEBHOOK_SECRET"] || "your_super_secret_key";
 // ビルドスクリプトのパス
 const BUILD_SCRIPT_PATH: string =
-	process.env["BUILD_SCRIPT_PATH"] || "/webhook/deploy.sh";
+	process.env["BUILD_SCRIPT_PATH"] || "/opt/magia-laboratory/deploy.sh";
 
-app.use(express.json());
+// GitHub は生リクエストボディに対して HMAC を計算するため、
+// 再シリアライズした JSON ではなく生ボディを検証する必要がある。
+app.use(express.raw({ type: "application/json" }));
 
 // GitHub Webhookペイロード検証ミドルウェア
 const verifySignature = (
@@ -28,8 +30,7 @@ const verifySignature = (
 	}
 
 	const hmac = crypto.createHmac("sha256", SECRET);
-	// NOTE: If you require the exact raw body for signature verification, capture it via a raw-body middleware.
-	const digest = `sha256=${hmac.update(JSON.stringify(req.body)).digest("hex")}`;
+	const digest = `sha256=${hmac.update(req.body as Buffer).digest("hex")}`;
 
 	if (signature === digest) {
 		next();

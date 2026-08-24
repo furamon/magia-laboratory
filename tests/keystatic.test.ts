@@ -43,10 +43,10 @@ describe('keystatic.config（Keystatic 設定）', () => {
 		}
 	});
 
-	it('各コレクションの path が src/content/{collection}/* を指す', () => {
+	it('各コレクションの path が src/content/{collection}/** を指す（サブディレクトリ再帰対応）', () => {
 		for (const name of EXPECTED_COLLECTIONS) {
 			const collection = getCollection(name);
-			expect(collection.path).toBe(`src/content/${name}/*`);
+			expect(collection.path).toBe(`src/content/${name}/**`);
 		}
 	});
 
