@@ -13,7 +13,7 @@ Type=simple
 WorkingDirectory=/opt/magia-laboratory
 Environment=PORT=4322
 EnvironmentFile=/opt/magia-laboratory/.env
-ExecStart=/home/furamon/.local/share/mise/installs/bun/latest/bin/bun run buildHooks.ts
+ExecStart=/usr/bin/node run buildHooks.ts
 Restart=always
 RestartSec=3
 # セキュリティ強化（任意）
