@@ -20,6 +20,8 @@ npm ci --ignore-scripts
 npm rebuild esbuild
 
 echo "[deploy] ビルド中..."
+# ProtectSystem=full で /root が read-only のため、Astro telemetry の設定書き込みを無効化する
+export ASTRO_TELEMETRY_DISABLED=1
 npm run build
 
 echo "[deploy] systemd サービスを再起動中..."
