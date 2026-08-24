@@ -22,6 +22,8 @@ Astro サイトに Keystatic（https://keystatic.com/）を導入し、5 コレ�
 
 - **SSR 化**: 静的配信（nginx）から Node アダプタ（`@astrojs/node`）による SSR に変更。`Dockerfile` を nginx → Node に変更し、systemd でデーモン化する。
 - **コンテンツ形式**: `.md` → `.mdoc`（Markdoc）に移行。`src/content.config.ts` の glob パターンを変更。
+- **glob ローダーの base**: 各コレクションのディレクトリ（`./src/content/{collection}`）を `base` に指定し、エントリ ID をコレクション相対にする。`base` を `./src/content` にすると ID にコレクション名が重複し、URL が `/blog/blog/...` になるため不可。
+- **date の型**: スキーマは `date` を文字列として扱うため、frontmatter の `date` は YAML で Date オブジェクトに解釈されないよう引用符で囲む（例: `date: '2024-02-05T15:00:00.000Z'`）。
 - **依存追加**: `@keystatic/core` / `@keystatic/astro` / `@astrojs/react` / `@astrojs/markdoc` / `@astrojs/node`。
 - **環境変数**: `KEYSTATIC_GITHUB_CLIENT_ID` / `KEYSTATIC_GITHUB_CLIENT_SECRET` / `KEYSTATIC_SECRET` / `PUBLIC_KEYSTATIC_GITHUB_APP_SLUG` が必要。
 - **GitHub App セットアップ**: 対話的な手順（GitHub 上での App 作成・権限付与）が別途必要。
