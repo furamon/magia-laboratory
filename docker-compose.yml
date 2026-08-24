@@ -1,0 +1,35 @@
+# Docker Compose 設定
+# SvelteKitサイト + Webhookサーバーの2コンテナ構成
+# name を固定することで、どのディレクトリから実行されてもプロジェクト名が一致する
+name: magia-laboratory
+
+services:
+  # SvelteKitサイト本体
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${APP_PORT:-3000}:3000"
+    env_file:
+      - .env
+    restart: unless-stopped
+
+  # GitHub Webhook受信サーバー
+  webhook:
+    build:
+      context: .
+      dockerfile: Dockerfile.webhook
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./:/app
+    env_file:
+      - .env
+    environment:
+      - WEBHOOK_SECRET=${WEBHOOK_SECRET}
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+      - BUILD_SCRIPT_PATH=/webhook/deploy.sh
+      - PORT=3001
+    ports:
+      - "${WEBHOOK_PORT:-3001}:3001"
+    restart: unless-stopped

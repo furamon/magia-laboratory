@@ -1,43 +1,62 @@
-# Astro Starter Kit: Minimal
+# Magia Laboratory
 
-```sh
-npm create astro@latest -- --template minimal
+Astro/Svelteベースの静的サイトジェネレーター（SSG）プロジェクトです。
+Markdownによるコンテンツ管理と、UnoCSSによるスタイリングをサポートしています。
+
+## 特徴
+
+- **Astro**: MarkdownによるSSG
+- **Svelte**: 高速な静的サイト生成
+- **UnoCSS**: ユーティリティファーストの高速なCSSエンジン
+- **Docker**: コンテナ化による容易なデプロイ
+
+## 開発環境のセットアップ
+
+```bash
+# 依存関係のインストール
+bun install
+
+# 開発サーバーの起動
+bun run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Docker によるデプロイ
 
-## 🚀 Project Structure
+このプロジェクトはDockerを使用して簡単にデプロイできます。
 
-Inside of your Astro project, you'll see the following folders and files:
+### 1. 環境変数の設定
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+`.env.example` をコピーして `.env` を作成し、必要な環境変数を設定します。
+
+```bash
+cp .env.example .env
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### 2. Docker Compose での起動
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```bash
+docker compose up -d
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+これにより、以下の2つのコンテナが起動します：
+- **app**: SvelteKitアプリケーション（Node.jsアダプターを使用）
+- **webhook**: GitHubからのWebhookを受け取り、自動デプロイを行うサーバー
 
-## 🧞 Commands
+### 3. Webhookによる自動デプロイ（オプション）
 
-All commands are run from the root of the project, from a terminal:
+GitHubリポジトリにプッシュされた際に自動でデプロイを行うには、GitHubのWebhookを設定します。
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+1. GitHubリポジトリの `Settings` > `Webhooks` > `Add webhook` を開きます。
+2. 以下の設定を行います：
+   - **Payload URL**: `http://your-server-ip:3001/hooks`
+   - **Content type**: `application/json`
+   - **Secret**: `.env` ファイルの `WEBHOOK_SECRET` と同じ値
+3. 「Add webhook」をクリックして保存します。
 
-## 👀 Want to learn more?
+これで、`main` ブランチに変更がプッシュされると、自動的にビルドとデプロイが実行されます。
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 残タスク
+
+- テストコード（これは任意） — コアルーティング関数の単体テスト
+- AGENTS.md作成（これも任意）
+- プライバシーポリシーなどをmdに（これも任意）

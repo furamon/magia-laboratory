@@ -1,0 +1,23 @@
+# Webhookサーバー用Dockerfile
+FROM node:22-slim
+
+# Dockerクライアントとgitのインストール（前回のDooD設定を維持）
+RUN apt-get update && apt-get install -y git curl && \
+    curl -fsSL https://get.docker.com | sh && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /webhook
+
+# 先にpackage.jsonを作ってインストールを確定させる
+RUN npm init -y && npm install express @types/express
+
+# tsxをグローバルに
+RUN npm install -g tsx
+
+# gitのdubious ownershipエラーを回避
+RUN git config --global --add safe.directory /app
+
+COPY buildHooks.ts deploy.sh ./
+RUN chmod +x deploy.sh
+
+CMD ["tsx", "buildHooks.ts"]
