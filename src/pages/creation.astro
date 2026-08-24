@@ -1,11 +1,5 @@
 ---
-import { getCollection } from "astro:content";
-import ContentIndex from "../components/ContentIndex.svelte";
 import Layout from "../layouts/Layout.astro";
-
-const entries = (
-	await getCollection("creation", ({ data }) => !data.draft)
-).map((entry) => ({ slug: entry.id, data: entry.data }));
 ---
 
 <Layout title="Creation" description="創作">
@@ -32,8 +26,6 @@ const entries = (
 					このサイトのメインコンテンツ（予定）3つめ。RPG。今はサントラだけ置いています。
 				</p>
 			</div>
-		</div>
-
-		<ContentIndex entries={entries} baseHref="/creation" />
+		</div>`
 	</div>
 </Layout>

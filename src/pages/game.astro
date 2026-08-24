@@ -1,11 +1,5 @@
 ---
-import { getCollection } from "astro:content";
-import ContentIndex from "../components/ContentIndex.svelte";
 import Layout from "../layouts/Layout.astro";
-
-const entries = (await getCollection("game", ({ data }) => !data.draft)).map(
-	(entry) => ({ slug: entry.id, data: entry.data }),
-);
 ---
 
 <Layout title="Game" description="ゲーム攻略など">
@@ -29,17 +23,15 @@ const entries = (await getCollection("game", ({ data }) => !data.draft)).map(
 			</div>
 			<div>
 				<a
-					href="https://www.notion.so/furamon913/cd55e04977734af082130ce34477dc31?v=5d7d04f5d1e84bc4ab45625fddd98475&pvs=4"
+					href="https://gamelist.magialabs.blog"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="btn-game"
 				>
-					所持ゲームリスト（Notion）
+					所持ゲームリスト
 				</a>
 				<p>持ってるゲームのやりこんだかリスト。</p>
 			</div>
 		</div>
-
-		<ContentIndex entries={entries} baseHref="/game" />
 	</div>
 </Layout>

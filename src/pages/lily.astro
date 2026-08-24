@@ -1,11 +1,5 @@
 ---
-import { getCollection } from "astro:content";
-import ContentIndex from "../components/ContentIndex.svelte";
 import Layout from "../layouts/Layout.astro";
-
-const entries = (await getCollection("lily", ({ data }) => !data.draft)).map(
-	(entry) => ({ slug: entry.id, data: entry.data }),
-);
 ---
 
 <Layout title="Lily" description="百合作品" lilyPage>
@@ -47,7 +41,5 @@ const entries = (await getCollection("lily", ({ data }) => !data.draft)).map(
 			</li>
 			<li>沼へ</li>
 		</ol>
-
-		<ContentIndex entries={entries} baseHref="/lily" />
 	</div>
 </Layout>
