@@ -50,7 +50,7 @@ describe('keystatic.config（Keystatic 設定）', () => {
 		}
 	});
 
-	it('各コレクションのスキーマが title / date / description / draft / content を持つ', () => {
+	it('各コレクションのスキーマが title / date / description / category / draft / content を持つ', () => {
 		for (const name of EXPECTED_COLLECTIONS) {
 			const collection = getCollection(name);
 			const schema = collection.schema as Record<string, unknown>;
@@ -58,9 +58,27 @@ describe('keystatic.config（Keystatic 設定）', () => {
 				'title',
 				'date',
 				'description',
+				'category',
 				'draft',
 				'content',
 			]);
+		}
+	});
+
+	it('各コレクションの category フィールドが単一 text（自由入力・単一値）である', () => {
+		for (const name of EXPECTED_COLLECTIONS) {
+			const collection = getCollection(name);
+			const schema = collection.schema as Record<string, unknown>;
+			// fields.text は kind: 'form' を返す（単一値の自由入力）
+			expect(schema.category).toMatchObject({ kind: 'form' });
+		}
+	});
+
+	it('各コレクションの columns が category と title を含む（Keystatic 一覧で並べ替え可能）', () => {
+		for (const name of EXPECTED_COLLECTIONS) {
+			const collection = getCollection(name);
+			expect(collection.columns).toContain('category');
+			expect(collection.columns).toContain('title');
 		}
 	});
 

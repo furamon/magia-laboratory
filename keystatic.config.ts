@@ -15,8 +15,9 @@ export default config({
 		blog: collection({
 			label: "Blog",
 			slugField: "title",
-			path: "src/content/blog/**/*",
+			path: "src/content/blog/**",
 			format: { contentField: "content" },
+			columns: ["category", "title"],
 			schema: {
 				title: fields.slug({ name: { label: "Title" } }),
 				date: fields.date({ label: "Date" }),
@@ -24,6 +25,7 @@ export default config({
 					label: "Description",
 					multiline: true,
 				}),
+				category: fields.text({ label: "Category" }),
 				draft: fields.checkbox({ label: "Draft" }),
 				content: fields.markdoc({ label: "Content" }),
 			},
@@ -31,8 +33,9 @@ export default config({
 		game: collection({
 			label: "Game",
 			slugField: "title",
-			path: "src/content/game/**/*",
+			path: "src/content/game/**",
 			format: { contentField: "content" },
+			columns: ["category", "title"],
 			schema: {
 				title: fields.slug({ name: { label: "Title" } }),
 				date: fields.date({ label: "Date" }),
@@ -40,6 +43,7 @@ export default config({
 					label: "Description",
 					multiline: true,
 				}),
+				category: fields.text({ label: "Category" }),
 				draft: fields.checkbox({ label: "Draft" }),
 				content: fields.markdoc({ label: "Content" }),
 			},
@@ -47,8 +51,9 @@ export default config({
 		creation: collection({
 			label: "Creation",
 			slugField: "title",
-			path: "src/content/creation/**/*",
+			path: "src/content/creation/**",
 			format: { contentField: "content" },
+			columns: ["category", "title"],
 			schema: {
 				title: fields.slug({ name: { label: "Title" } }),
 				date: fields.date({ label: "Date" }),
@@ -56,6 +61,7 @@ export default config({
 					label: "Description",
 					multiline: true,
 				}),
+				category: fields.text({ label: "Category" }),
 				draft: fields.checkbox({ label: "Draft" }),
 				content: fields.markdoc({ label: "Content" }),
 			},
@@ -63,8 +69,9 @@ export default config({
 		lily: collection({
 			label: "Lily",
 			slugField: "title",
-			path: "src/content/lily/**/*",
+			path: "src/content/lily/**",
 			format: { contentField: "content" },
+			columns: ["category", "title"],
 			schema: {
 				title: fields.slug({ name: { label: "Title" } }),
 				date: fields.date({ label: "Date" }),
@@ -72,6 +79,7 @@ export default config({
 					label: "Description",
 					multiline: true,
 				}),
+				category: fields.text({ label: "Category" }),
 				draft: fields.checkbox({ label: "Draft" }),
 				content: fields.markdoc({ label: "Content" }),
 			},
@@ -79,8 +87,9 @@ export default config({
 		text: collection({
 			label: "Text",
 			slugField: "title",
-			path: "src/content/text/**/*",
+			path: "src/content/text/**",
 			format: { contentField: "content" },
+			columns: ["category", "title"],
 			schema: {
 				title: fields.slug({ name: { label: "Title" } }),
 				date: fields.date({ label: "Date" }),
@@ -88,6 +97,7 @@ export default config({
 					label: "Description",
 					multiline: true,
 				}),
+				category: fields.text({ label: "Category" }),
 				draft: fields.checkbox({ label: "Draft" }),
 				content: fields.markdoc({ label: "Content" }),
 			},
