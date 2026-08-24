@@ -16,13 +16,9 @@
     "totalcheck": "astro check && biome check . && vitest run"
   },
   "dependencies": {
-    "@astrojs/markdoc": "^2.0.8",
     "@astrojs/node": "^11.1.4",
-    "@astrojs/react": "^6.0.4",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/svelte": "^9.0.1",
-    "@keystatic/astro": "^6.0.0",
-    "@keystatic/core": "^0.6.8",
     "astro": "^7.2.4",
     "express": "^5.2.1",
     "svelte": "^5.56.10",

@@ -5,16 +5,16 @@ import { z } from "astro/zod";
 /**
  * コンテンツコレクション定義。
  * blog / game / creation / lily / text の 5 コレクションを glob() ローダーで管理する。
- * Keystatic が出力する Markdoc（.mdoc）を読み込む。
+ * Markdown（.md）を読み込む。
  * スキーマ: title 必須、date / description / category / draft 任意（data-model.md エンティティ 5）。
  * base を各コレクションのディレクトリに設定し、エントリ ID がコレクション相対になるようにする。
  */
 const contentCollection = (base: string) =>
 	defineCollection({
-		loader: glob({ pattern: "**/*.mdoc", base }),
+		loader: glob({ pattern: "**/*.md", base }),
 		schema: z.object({
 			title: z.string().min(1),
-			// Keystatic は date をクォートなしで出力し YAML が Date オブジェクトとして解釈するため、
+			// date は YAML で Date オブジェクトとして解釈される場合があるため、
 			// coerce で ISO 文字列に正規化する
 			date: z.coerce.string().optional(),
 			description: z.string().optional(),

@@ -6,10 +6,6 @@ draft: false
 ---
 工事中。
 
-{% table %}
-- 章
-- 概要
----
-- [1～6章](/game/guide/fireemblem/fe1-darkdragon/chapter1-6)
-- シーダ様の戦い
-{% /table %}
+| 章 | 概要 |
+| --- | --- |
+| [1～6章](/game/guide/fireemblem/fe1-darkdragon/chapter1-6) | シーダ様の戦い |

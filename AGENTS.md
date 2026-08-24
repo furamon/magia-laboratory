@@ -20,9 +20,8 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 - サイト定数（`SITE` / `NAVI` / `TOP_CATEGORY_LINKS`）は `src/lib/site.ts` に一元管理（DRY）。
 - テーマ切替ロジックは `src/lib/theme.ts`、検索一覧ロジックは `src/lib/search.ts` の純粋関数に分離。
 - 対話性が必要なコンポーネント（Header / Footer / Search）は Svelte island として `client:load` でマウント。
-- コンテンツは `src/content/{collection}/` の Markdoc（`.mdoc`、blog / game / creation / lily / text の 5 コレクション）。
+- コンテンツは `src/content/{collection}/` の Markdown（`.md`、blog / game / creation / lily / text の 5 コレクション）を手編集で管理する。
 - `src/content.config.ts` の glob ローダーは各コレクションのディレクトリを `base` に指定し、エントリ ID をコレクション相対（例: `game/guide/nectaris/system`）にする。`base` を `./src/content` にすると ID にコレクション名が重複し、URL が `/blog/blog/...` になるため注意。
-- コンテンツは Keystatic（`keystatic.config.ts`、GitHub モード）で管理する。管理画面は `/keystatic`。slug に `/` を含めるとフォルダ階層（例: `guide/fireemblem/fe1-darkdragon`）として保存できる。
 - サイトは SSR（`@astrojs/node` standalone）で配信し、systemd（`deploy/magia-laboratory.service`）でデーモン化する。
 - 設計判断は `docs/adr/` に記録する。
 
