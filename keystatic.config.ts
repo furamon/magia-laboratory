@@ -15,7 +15,7 @@ export default config({
 		blog: collection({
 			label: "Blog",
 			slugField: "title",
-			path: "src/content/blog/*",
+			path: "src/content/blog/**/*",
 			format: { contentField: "content" },
 			schema: {
 				title: fields.slug({ name: { label: "Title" } }),
@@ -31,7 +31,7 @@ export default config({
 		game: collection({
 			label: "Game",
 			slugField: "title",
-			path: "src/content/game/*",
+			path: "src/content/game/**/*",
 			format: { contentField: "content" },
 			schema: {
 				title: fields.slug({ name: { label: "Title" } }),
@@ -47,7 +47,7 @@ export default config({
 		creation: collection({
 			label: "Creation",
 			slugField: "title",
-			path: "src/content/creation/*",
+			path: "src/content/creation/**/*",
 			format: { contentField: "content" },
 			schema: {
 				title: fields.slug({ name: { label: "Title" } }),
@@ -63,7 +63,7 @@ export default config({
 		lily: collection({
 			label: "Lily",
 			slugField: "title",
-			path: "src/content/lily/*",
+			path: "src/content/lily/**/*",
 			format: { contentField: "content" },
 			schema: {
 				title: fields.slug({ name: { label: "Title" } }),
@@ -79,7 +79,7 @@ export default config({
 		text: collection({
 			label: "Text",
 			slugField: "title",
-			path: "src/content/text/*",
+			path: "src/content/text/**/*",
 			format: { contentField: "content" },
 			schema: {
 				title: fields.slug({ name: { label: "Title" } }),
