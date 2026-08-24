@@ -10,8 +10,8 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 
 ## Quality Gates
 
-- 実装完了時は必ず `bun run totalcheck`（`astro check` + `biome check .` + `vitest run`）を実行し、すべて合格してから完了とする。
-- カバレッジ目標は 95%（`bun run coverage` で確認。対象: `src/lib/**/*.ts`）。
+- 実装完了時は必ず `npm run totalcheck`（`astro check` + `biome check .` + `vitest run`）を実行し、すべて合格してから完了とする。
+- カバレッジ目標は 95%（`npm run coverage` で確認。対象: `src/lib/**/*.ts`）。
 - テストは TDD で実装より先に書き、失敗を確認してから実装する（憲章）。
 
 ## Project Structure

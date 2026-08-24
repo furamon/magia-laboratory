@@ -11,12 +11,13 @@ git -c safe.directory=/opt/magia-laboratory remote set-url origin https://${GITH
 git -c safe.directory=/opt/magia-laboratory pull origin main
 
 echo "[deploy] 依存関係をインストール中..."
-# /usr/local/bin/bun は /home 配下への symlink のため、ProtectHome=true のサービスからは解決できない。
-# 実体パスを直接指定する。
-/home/furamon/.bun/bin/bun install --frozen-lockfile
+# bun をやめ npm に統一。npm は /usr/lib 配下の実体で、ProtectHome=true でも解決できる。
+npm ci --ignore-scripts
+# esbuild の postinstall は allowScripts でブロックされるため、明示的に rebuild する
+npm rebuild esbuild
 
 echo "[deploy] ビルド中..."
-/home/furamon/.bun/bin/bun run build
+npm run build
 
 echo "[deploy] systemd サービスを再起動中..."
 sudo systemctl restart magia-laboratory

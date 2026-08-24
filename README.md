@@ -14,10 +14,10 @@ Markdownによるコンテンツ管理と、UnoCSSによるスタイリングを
 
 ```bash
 # 依存関係のインストール
-bun install
+npm install
 
 # 開発サーバーの起動
-bun run dev
+npm run dev
 ```
 
 ## Docker によるデプロイ

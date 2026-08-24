@@ -36,5 +36,6 @@
     "@vitest/coverage-v8": "^4.1.11",
     "unocss": "^66.8.1",
     "vitest": "^4.1.11"
-  }
+  },
+  "allowScripts": {}
 }
