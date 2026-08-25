@@ -4,7 +4,7 @@ media:
 
 content:
   - name: blog
-    label: Posts
+    label: Blog
     type: collection
     path: src/content/blog
     fields:
@@ -18,7 +18,7 @@ content:
         type: string
 
   - name: game
-    label: Posts
+    label: Game
     type: collection
     path: src/content/game
     fields:
@@ -30,7 +30,7 @@ content:
         type: string
 
   - name: creation
-    label: Posts
+    label: Creation
     type: collection
     path: src/content/creation
     fields:
@@ -42,7 +42,7 @@ content:
         type: string
 
   - name: lily
-    label: Posts
+    label: Lily
     type: collection
     path: src/content/lily
     fields:
@@ -54,7 +54,7 @@ content:
         type: string
 
   - name: text
-    label: Posts
+    label: Text
     type: collection
     path: src/content/text
     fields:
