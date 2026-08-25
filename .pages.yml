@@ -10,12 +10,12 @@ content:
     fields:
       - name: title
         type: string
-      - name: body
-        type: rich-text
       - name: date
         type: date
       - name: category
         type: string
+      - name: body
+        type: rich-text
 
   - name: game
     label: Game
@@ -24,10 +24,10 @@ content:
     fields:
       - name: title
         type: string
-      - name: body
-        type: rich-text
       - name: category
         type: string
+      - name: body
+        type: rich-text
 
   - name: creation
     label: Creation
@@ -36,10 +36,10 @@ content:
     fields:
       - name: title
         type: string
-      - name: body
-        type: rich-text
       - name: category
         type: string
+      - name: body
+        type: rich-text
 
   - name: lily
     label: Lily
@@ -48,10 +48,10 @@ content:
     fields:
       - name: title
         type: string
-      - name: body
-        type: rich-text
       - name: category
         type: string
+      - name: body
+        type: rich-text
 
   - name: text
     label: Text
@@ -60,7 +60,7 @@ content:
     fields:
       - name: title
         type: string
-      - name: body
-        type: rich-text
       - name: category
         type: string
+      - name: body
+        type: rich-text
