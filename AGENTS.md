@@ -20,7 +20,8 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 - サイト定数（`SITE` / `NAVI` / `TOP_CATEGORY_LINKS`）は `src/lib/site.ts` に一元管理（DRY）。
 - テーマ切替ロジックは `src/lib/theme.ts`、検索一覧ロジックは `src/lib/search.ts` の純粋関数に分離。
 - 対話性が必要なコンポーネント（Header / Footer / Search）は Svelte island として `client:load` でマウント。
-- コンテンツは `src/content/{collection}/` の Markdown（`.md`、blog / game / creation / lily / text の 5 コレクション）を手編集で管理する。
+- コンテンツは `src/content/{collection}/` の Markdown（`.md`、blog / game / creation / lily / text の 5 コレクション）を管理する。編集は Pages CMS（`.pages.yml`、ページ数サイト）経由が基本だが、git + Markdown の手編集も可。
+- カテゴリランディングページ（game / lily / creation / text）の本文・カードは各コレクション直下の `index.md`（frontmatter の `links` 配列 + Markdown 本文）で管理し、`*.astro` は `getEntry(コレクション, "index")` で描画する。`[...slug].astro` の `getStaticPaths()` では `index` エントリを除外し重複 URL を防ぐ。
 - `src/content.config.ts` の glob ローダーは各コレクションのディレクトリを `base` に指定し、エントリ ID をコレクション相対（例: `game/guide/nectaris/system`）にする。`base` を `./src/content` にすると ID にコレクション名が重複し、URL が `/blog/blog/...` になるため注意。
 - サイトは SSR（`@astrojs/node` standalone）で配信し、systemd（`deploy/magia-laboratory.service`）でデーモン化する。
 - 設計判断は `docs/adr/` に記録する。

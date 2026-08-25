@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import ContentIndex from "../components/ContentIndex.svelte";
-import Layout from "../layouts/Layout.astro";
+import ContentIndex from "@components/ContentIndex.svelte";
+import Layout from "@layouts/Layout.astro";
 
 const entries = (await getCollection("blog", ({ data }) => !data.draft)).map(
 	(entry) => ({ slug: entry.id, data: entry.data }),

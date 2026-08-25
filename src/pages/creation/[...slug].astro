@@ -1,9 +1,12 @@
 ---
 import { getCollection, render } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
+import Layout from "@layouts/Layout.astro";
 
 export async function getStaticPaths() {
-	const entries = await getCollection("creation", ({ data }) => !data.draft);
+	const entries = await getCollection(
+		"creation",
+		({ data, id }) => !data.draft && id !== "index",
+	);
 	return entries.map((entry) => ({
 		params: { slug: entry.id },
 		props: { entry },

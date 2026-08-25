@@ -1,0 +1,48 @@
+---
+import { getEntry, render } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+
+const entry = await getEntry("text", "index");
+if (!entry) {
+	throw new Error("text コレクションの index.md が見つかりません");
+}
+const { Content } = await render(entry);
+---
+
+<Layout title="Text" description="テキスト">
+	<div class="mx-auto max-w-5xl [&>p]:mb-4">
+		<h1 class="text-5xl font-bold mb-8">{entry.data.title}</h1>
+
+		<div class="prose prose-neutral dark:prose-invert max-w-full">
+			<Content />
+		</div>
+
+		<div
+			class="grid grid-cols-1 gap-4 sm:grid-cols-2 [&>div]:flex [&>div]:flex-col"
+		>
+			{entry.data.links?.map((link) => (
+				<div>
+					{link.href ? (
+						link.external ? (
+							<a
+								href={link.href}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="btn-game"
+							>
+								{link.label}
+							</a>
+						) : (
+							<a href={link.href} class="btn-game">
+								{link.label}
+							</a>
+						)
+					) : (
+						<span class="btn-game block">{link.label}</span>
+					)}
+					{link.description ? <p>{link.description}</p> : null}
+				</div>
+			))}
+		</div>
+	</div>
+</Layout>

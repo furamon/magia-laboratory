@@ -14,6 +14,10 @@ content:
         type: date
       - name: category
         type: string
+      - name: description
+        type: string
+      - name: draft
+        type: boolean
       - name: body
         type: rich-text
 
@@ -24,8 +28,26 @@ content:
     fields:
       - name: title
         type: string
+      - name: date
+        type: date
       - name: category
         type: string
+      - name: description
+        type: string
+      - name: draft
+        type: boolean
+      - name: links
+        type: object
+        list: true
+        fields:
+          - name: label
+            type: string
+          - name: href
+            type: string
+          - name: external
+            type: boolean
+          - name: description
+            type: string
       - name: body
         type: rich-text
 
@@ -36,8 +58,26 @@ content:
     fields:
       - name: title
         type: string
+      - name: date
+        type: date
       - name: category
         type: string
+      - name: description
+        type: string
+      - name: draft
+        type: boolean
+      - name: links
+        type: object
+        list: true
+        fields:
+          - name: label
+            type: string
+          - name: href
+            type: string
+          - name: external
+            type: boolean
+          - name: description
+            type: string
       - name: body
         type: rich-text
 
@@ -48,8 +88,26 @@ content:
     fields:
       - name: title
         type: string
+      - name: date
+        type: date
       - name: category
         type: string
+      - name: description
+        type: string
+      - name: draft
+        type: boolean
+      - name: links
+        type: object
+        list: true
+        fields:
+          - name: label
+            type: string
+          - name: href
+            type: string
+          - name: external
+            type: boolean
+          - name: description
+            type: string
       - name: body
         type: rich-text
 
@@ -60,7 +118,25 @@ content:
     fields:
       - name: title
         type: string
+      - name: date
+        type: date
       - name: category
         type: string
+      - name: description
+        type: string
+      - name: draft
+        type: boolean
+      - name: links
+        type: object
+        list: true
+        fields:
+          - name: label
+            type: string
+          - name: href
+            type: string
+          - name: external
+            type: boolean
+          - name: description
+            type: string
       - name: body
         type: rich-text
