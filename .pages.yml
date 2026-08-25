@@ -1,0 +1,66 @@
+media:
+  input: public
+  output: /
+
+content:
+  - name: blog
+    label: Posts
+    type: collection
+    path: src/content/blog
+    fields:
+      - name: title
+        type: string
+      - name: body
+        type: rich-text
+      - name: date
+        type: date
+      - name: category
+        type: string
+
+  - name: game
+    label: Posts
+    type: collection
+    path: src/content/game
+    fields:
+      - name: title
+        type: string
+      - name: body
+        type: rich-text
+      - name: category
+        type: string
+
+  - name: creation
+    label: Posts
+    type: collection
+    path: src/content/creation
+    fields:
+      - name: title
+        type: string
+      - name: body
+        type: rich-text
+      - name: category
+        type: string
+
+  - name: lily
+    label: Posts
+    type: collection
+    path: src/content/lily
+    fields:
+      - name: title
+        type: string
+      - name: body
+        type: rich-text
+      - name: category
+        type: string
+
+  - name: text
+    label: Posts
+    type: collection
+    path: src/content/text
+    fields:
+      - name: title
+        type: string
+      - name: body
+        type: rich-text
+      - name: category
+        type: string
