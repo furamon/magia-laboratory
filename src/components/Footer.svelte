@@ -46,7 +46,7 @@ function scrollToTop() {
 }
 </script>
 
-<footer class="border-t border-neutral-200 dark:border-neutral-800">
+<footer class="border-t border-neutral-200 dark:border-neutral-800 py-0">
 	<div class="mx-auto max-w-full px-4 py-8">
 		<div class="flex flex-wrap items-center justify-between gap-4 text-sm">
 			<!-- 左: コピーライト -->
