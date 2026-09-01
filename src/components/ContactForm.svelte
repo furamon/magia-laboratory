@@ -12,7 +12,11 @@ function autoResize(event: Event) {
 }
 </script>
 
-<form action={formUrl} method="post" class="flex flex-col items-center justify-center gap-4 w-full">
+<form
+	action={formUrl}
+	method="post"
+	class="flex flex-col items-center justify-center gap-4 w-full"
+>
 	<div class="flex flex-col gap-1 w-full">
 		<label for="contact-name" class="font-medium">お名前</label>
 		<input
