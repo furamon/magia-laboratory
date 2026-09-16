@@ -11,18 +11,18 @@ git -c safe.directory=/opt/magia-laboratory remote set-url origin https://${GITH
 git -c safe.directory=/opt/magia-laboratory pull origin main
 
 echo "[deploy] 依存関係をインストール中..."
-# bun をやめ npm に統一。npm は /usr/lib 配下の実体で、ProtectHome=true でも解決できる。
-# ProtectSystem=full で /root が read-only のため、npm のキャッシュ/ログを /opt 配下に置く。
-export npm_config_cache=/opt/magia-laboratory/.npm-cache
-export npm_config_logs_dir=/opt/magia-laboratory/.npm-logs
-# bun 由来の node_modules が残っていると npm ci が壊れるため、事前に削除する
+# bun は /usr/local/bin/bun の実体を使う。/home 配下の実体や symlink は ProtectHome=true の
+# サービスからは解決できないため、ユニットと同じ絶対パスに固定する。
+# ProtectHome=true で /root も読めないため、bun のキャッシュを /opt 配下に逃がす。
+export BUN_INSTALL_CACHE_DIR=/opt/magia-laboratory/.bun-cache
+# 別パッケージマネージャ由来の node_modules が残っていると壊れるため、事前に削除する
 rm -rf node_modules
-npm ci
+bun install --frozen-lockfile
 
 echo "[deploy] ビルド中..."
 # ProtectSystem=full で /root が read-only のため、Astro telemetry の設定書き込みを無効化する
 export ASTRO_TELEMETRY_DISABLED=1
-npm run build
+bun run build
 
 echo "[deploy] systemd サービスを再起動中..."
 sudo systemctl restart magia-laboratory

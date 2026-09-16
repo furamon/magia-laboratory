@@ -14,7 +14,7 @@ WorkingDirectory=/opt/magia-laboratory
 Environment=PORT=4322
 Environment=HOME=/root
 EnvironmentFile=/opt/magia-laboratory/.env
-ExecStart=/usr/bin/node buildHooks.ts
+ExecStart=/usr/local/bin/bun buildHooks.ts
 Restart=always
 RestartSec=3
 # セキュリティ強化（任意）

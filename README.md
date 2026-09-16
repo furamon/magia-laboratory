@@ -13,10 +13,10 @@ Markdownによるコンテンツ管理と、UnoCSSによるスタイリングを
 
 ```bash
 # 依存関係のインストール
-npm install
+bun install
 
 # 開発サーバーの起動
-npm run dev
+bun run dev
 ```
 
 ## デプロイ（systemd による永続化）
@@ -27,12 +27,13 @@ npm run dev
 
 | サービス | ユニット | ポート | 役割 |
 | --- | --- | --- | --- |
-| `magia-laboratory` | `deploy/magia-laboratory.service` | 4321 | サイト本体（`node ./dist/server/entry.mjs`） |
+| `magia-laboratory` | `deploy/magia-laboratory.service` | 4321 | サイト本体（`bun ./dist/server/entry.mjs`） |
 | `magia-webhook` | `deploy/magia-webhook.service` | 4322 | GitHub Webhook 受信 → `deploy.sh` 実行 |
 
 ### 前提
 
-- Node.js >= 22.12.0
+- bun >= 1.4（Node.js は不要。Astro/vitest は bun 上で動作する）
+- bun の実体を `/usr/local/bin/bun` に配置する（`ProtectHome=true` のため `/home` 配下の実体・symlink は解決できない）
 - 配置先: `/opt/magia-laboratory`（`deploy/*.service` の `WorkingDirectory` と一致させる）
 - 両ユニットは root で実行（`User=` 未指定）。`deploy.sh` が `sudo systemctl restart` を呼ぶため。
 
@@ -47,8 +48,8 @@ cd /opt/magia-laboratory
 cp .env.example .env   # WEBHOOK_SECRET / GITHUB_TOKEN / PUBLIC_SSGFORM_URL を記入
 
 # 3. ビルド
-npm ci
-npm run build
+bun install --frozen-lockfile
+bun run build
 
 # 4. ユニット配置と有効化
 sudo cp deploy/magia-laboratory.service deploy/magia-webhook.service /etc/systemd/system/
@@ -65,9 +66,9 @@ sudo systemctl enable --now magia-laboratory magia-webhook
 
 ### 自動デプロイ（Webhook）
 
-GitHub リポジトリの Webhook に `https://<公開ドメイン>/hooks`、Content type `application/json`、Secret に `WEBHOOK_SECRET` と同値を設定する。`push` イベント受信時に `deploy.sh` が走り、`git pull` → `npm ci` → `npm run build` → `systemctl restart magia-laboratory` を実行する。
+GitHub リポジトリの Webhook に `https://<公開ドメイン>/hooks`、Content type `application/json`、Secret に `WEBHOOK_SECRET` と同値を設定する。`push` イベント受信時に `deploy.sh` が走り、`git pull` → `bun install --frozen-lockfile` → `bun run build` → `systemctl restart magia-laboratory` を実行する。
 
-`deploy.sh` は `ProtectSystem=full` / `ProtectHome=true` 環境で動作するよう、npm キャッシュ・ログを `/opt/magia-laboratory/.npm-cache` などに退避し、`ASTRO_TELEMETRY_DISABLED=1` を設定している。
+`deploy.sh` は `ProtectSystem=full` / `ProtectHome=true` 環境で動作するよう、bun のキャッシュを `/opt/magia-laboratory/.bun-cache` に退避し（`BUN_INSTALL_CACHE_DIR`）、`ASTRO_TELEMETRY_DISABLED=1` を設定している。
 
 ### 手動デプロイ・運用
 
@@ -86,8 +87,9 @@ sudo systemctl stop magia-laboratory
 
 ### トラブルシュート
 
-- サービスが起動しない: `journalctl -u magia-laboratory -n 50` でエラー確認。`dist/server/entry.mjs` の有無（`npm run build` 未実行）を確認する。
-- ビルドが落ちる: `ProtectHome=true` により `/root` が read-only。npm/Astro の書き込み先を `/opt` 配下に置く（`deploy.sh` の `npm_config_cache` 等を参照）。
+- サービスが起動しない: `journalctl -u magia-laboratory -n 50` でエラー確認。`dist/server/entry.mjs` の有無（`bun run build` 未実行）を確認する。
+- ビルドが落ちる: `ProtectHome=true` により `/root` が read-only。bun のキャッシュ（`BUN_INSTALL_CACHE_DIR`）と Astro telemetry の書き込み先を `/opt` 配下に置く（`deploy.sh` を参照）。
+- `ExecStart` が `status=203/EXEC`: bun が `/usr/local/bin/bun` に無い、または `/home` 配下への symlink になっている。実体を `/usr/local/bin/bun` に配置する。
 - Webhook が 403: `WEBHOOK_SECRET` と GitHub 側 Secret の不一致。署名は生リクエストボディで検証する。
 - `git pull` が失敗: `deploy.sh` は `-c safe.directory=/opt/magia-laboratory` を付与して実行する。所有者不一致の場合は合わせる。
 
