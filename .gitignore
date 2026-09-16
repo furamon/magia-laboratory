@@ -13,7 +13,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+# bun のキャッシュ・HOME 配下の状態ディレクトリ（.bun はユニットの HOME が作業ディレクトリのため生成される）
 .bun-cache/
+.bun/
 
 # environment variables
 .env
