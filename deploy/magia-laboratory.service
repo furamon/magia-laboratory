@@ -1,17 +1,20 @@
-# Magia Laboratory（Astro SSR + Keystatic）systemd サービスユニット
+# Magia Laboratory（Astro SSR）systemd サービスユニット
 # 配置先: /etc/systemd/system/magia-laboratory.service
-# 有効化: sudo systemctl enable --now magia-laboratory
+# 有効化: systemctl enable --now magia-laboratory
 
 [Unit]
-Description=Magia Laboratory (Astro SSR + Keystatic)
+Description=Magia Laboratory (Astro SSR)
 After=network-online.target
 Wants=network-online.target
 
 [Service]
 Type=simple
+User=furamon
 WorkingDirectory=/opt/magia-laboratory
 Environment=HOST=0.0.0.0
 Environment=PORT=4321
+# ProtectHome=true で /root は読めないため、書き込み可能な作業ディレクトリを HOME にする
+Environment=HOME=/opt/magia-laboratory
 EnvironmentFile=/opt/magia-laboratory/.env
 ExecStart=/usr/local/bin/bun ./dist/server/entry.mjs
 Restart=always

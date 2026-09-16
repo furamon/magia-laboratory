@@ -35,13 +35,13 @@ bun run dev
 - bun >= 1.4（Node.js は不要。Astro/vitest は bun 上で動作する）
 - bun の実体を `/usr/local/bin/bun` に配置する（`ProtectHome=true` のため `/home` 配下の実体・symlink は解決できない）
 - 配置先: `/opt/magia-laboratory`（`deploy/*.service` の `WorkingDirectory` と一致させる）
-- 両ユニットは root で実行（`User=` 未指定）。`deploy.sh` が `sudo systemctl restart` を呼ぶため。
+- 両ユニットは `User=furamon` で実行する。`deploy.sh` の `systemctl restart` も同ユーザーで実行するため `sudo` を付けない。
 
 ### 初回セットアップ
 
 ```bash
 # 1. 配置
-sudo git clone https://github.com/furamon/magia-laboratory.git /opt/magia-laboratory
+git clone https://github.com/furamon/magia-laboratory.git /opt/magia-laboratory
 cd /opt/magia-laboratory
 
 # 2. 環境変数
@@ -52,9 +52,9 @@ bun install --frozen-lockfile
 bun run build
 
 # 4. ユニット配置と有効化
-sudo cp deploy/magia-laboratory.service deploy/magia-webhook.service /etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl enable --now magia-laboratory magia-webhook
+cp deploy/magia-laboratory.service deploy/magia-webhook.service /etc/systemd/system/
+systemctl daemon-reload
+systemctl enable --now magia-laboratory magia-webhook
 ```
 
 ### 環境変数（`.env`）
@@ -74,15 +74,15 @@ GitHub リポジトリの Webhook に `https://<公開ドメイン>/hooks`、Con
 
 ```bash
 # 手動デプロイ
-sudo sh /opt/magia-laboratory/deploy.sh
+sh /opt/magia-laboratory/deploy.sh
 
 # 状態確認・ログ
 systemctl status magia-laboratory magia-webhook
 journalctl -u magia-laboratory -f
 
 # 再起動・停止
-sudo systemctl restart magia-laboratory
-sudo systemctl stop magia-laboratory
+systemctl restart magia-laboratory
+systemctl stop magia-laboratory
 ```
 
 ### トラブルシュート

@@ -25,6 +25,8 @@ export ASTRO_TELEMETRY_DISABLED=1
 bun run build
 
 echo "[deploy] systemd サービスを再起動中..."
-sudo systemctl restart magia-laboratory
+# ユニットは User=furamon で動作するため、systemctl は sudo なしで実行する
+# （このホストの root は権限を持たず、sudo すると逆に操作できなくなる）
+systemctl restart magia-laboratory
 
 echo "[deploy] デプロイ完了"

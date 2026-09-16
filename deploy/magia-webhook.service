@@ -1,6 +1,6 @@
 # Magia Laboratory（GitHub Webhook）systemd サービスユニット
 # 配置先: /etc/systemd/system/magia-webhook.service
-# 有効化: sudo systemctl enable --now magia-webhook
+# 有効化: systemctl enable --now magia-webhook
 # Cloudflare Tunnel で 4322 ポートの /hooks を公開する
 
 [Unit]
@@ -10,9 +10,11 @@ Wants=network-online.target
 
 [Service]
 Type=simple
+User=furamon
 WorkingDirectory=/opt/magia-laboratory
 Environment=PORT=4322
-Environment=HOME=/root
+# ProtectHome=true で /root は読めないため、書き込み可能な作業ディレクトリを HOME にする
+Environment=HOME=/opt/magia-laboratory
 EnvironmentFile=/opt/magia-laboratory/.env
 ExecStart=/usr/local/bin/bun buildHooks.ts
 Restart=always

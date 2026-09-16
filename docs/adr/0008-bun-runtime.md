@@ -19,8 +19,10 @@
 
 ## 影響
 
-- **ユニット**: `ExecStart` を `/usr/local/bin/bun` に変更。bun の実体は `/home` 配下ではなく `/usr/local/bin/bun` に配置する（`install -m755` でコピー）。
-- **`deploy.sh`**: `npm ci` → `rm -rf node_modules && bun install --frozen-lockfile`、`npm run build` → `bun run build`。`BUN_INSTALL_CACHE_DIR=/opt/magia-laboratory/.bun-cache` を設定（`ProtectHome=true` で `/root` が read-only のため）。
+- **ユニット**: `ExecStart` を `/usr/local/bin/bun` に変更。bun の実体は `/home` 配下ではなく `/usr/local/bin/bun` に配置する。
+- **実行ユーザー**: `User=furamon` を明示する。デプロイ先ホストは NAS 構成で、`furamon` が実質の管理者（`/opt`・`/etc/systemd/system` を所有）であり、逆に literal な `root`（uid 9999）は capability を持たず `/opt` も `/etc` も書けない。そのため `sudo` は操作権限の**降格**になり、`deploy.sh` の `systemctl restart` からは `sudo` を外した。
+- **`HOME`**: `ProtectHome=true` で `/root`・`/home` が読めないため、両ユニットとも `HOME=/opt/magia-laboratory` を設定する（`/opt` は `ProtectSystem=full` でも書き込み可能）。
+- **`deploy.sh`**: `npm ci` → `rm -rf node_modules && bun install --frozen-lockfile`、`npm run build` → `bun run build`。`BUN_INSTALL_CACHE_DIR=/opt/magia-laboratory/.bun-cache` を設定。
 - **ロックファイル**: `package-lock.json` を削除、`bun.lock` を追加。
 - **`.gitignore`**: npm キャッシュ系（`.npm-cache/` / `.npm-logs/`）を `.bun-cache/` に置換。
 - **ドキュメント**: `README.md` / `AGENTS.md` のコマンド表記を `bun` に統一。憲章の品質ゲートは元々 `bun run totalcheck` 表記のため変更なし。
