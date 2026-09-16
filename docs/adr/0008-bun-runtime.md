@@ -24,6 +24,6 @@
 - **`HOME`**: `ProtectHome=true` で `/root`・`/home` が読めないため、両ユニットとも `HOME=/opt/magia-laboratory` を設定する（`/opt` は `ProtectSystem=full` でも書き込み可能）。
 - **`deploy.sh`**: `npm ci` → `rm -rf node_modules && bun install --frozen-lockfile`、`npm run build` → `bun run build`。`BUN_INSTALL_CACHE_DIR=/opt/magia-laboratory/.bun-cache` を設定。
 - **ロックファイル**: `package-lock.json` を削除、`bun.lock` を追加。
-- **`.gitignore`**: npm キャッシュ系（`.npm-cache/` / `.npm-logs/`）を `.bun-cache/` に置換。
+- **`.gitignore`**: npm キャッシュ系（`.npm-cache/` / `.npm-logs/`）を `.bun-cache/` と `.bun/` に置換。
 - **ドキュメント**: `README.md` / `AGENTS.md` のコマンド表記を `bun` に統一。憲章の品質ゲートは元々 `bun run totalcheck` 表記のため変更なし。
 - **Node 非依存**: ローカル開発・デプロイ環境ともに Node.js のインストールは不要になる。
