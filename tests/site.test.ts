@@ -115,14 +115,9 @@ describe('TOP_CATEGORY_LINKS（エンティティ 3: トップページ用カテ
 			'Text',
 			'Diary',
 			'BBS',
-			'Mastodon Server',
 		]);
 		expect(etc?.links[3]).toMatchObject({
 			href: 'https://alliera.magialabs.blog/',
-			external: true,
-		});
-		expect(etc?.links[4]).toMatchObject({
-			href: 'https://claudias.magialabs.blog/',
 			external: true,
 		});
 	});

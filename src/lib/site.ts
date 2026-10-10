@@ -72,11 +72,6 @@ export const TOP_CATEGORY_LINKS: TopCategoryLink[] = [
 			{ label: "Text", href: "/text" },
 			{ label: "Diary", href: "/blog" },
 			{ label: "BBS", href: "https://alliera.magialabs.blog/", external: true },
-			{
-				label: "Mastodon Server",
-				href: "https://claudias.magialabs.blog/",
-				external: true,
-			},
 		],
 	},
 	{
