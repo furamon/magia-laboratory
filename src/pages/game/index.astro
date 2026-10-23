@@ -1,6 +1,7 @@
 ---
 import { getEntry, render } from "astro:content";
 import Layout from "@layouts/Layout.astro";
+import { shouldOpenInNewTab } from "@lib/external-links";
 
 const entry = await getEntry("game", "index");
 if (!entry) {
@@ -23,20 +24,15 @@ const { Content } = await render(entry);
 			{entry.data.links?.map((link) => (
 				<div>
 					{link.href ? (
-						link.external ? (
-							<a
-								href={link.href}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="btn-game"
-							>
-								{link.label}
-							</a>
-						) : (
-							<a href={link.href} class="btn-game">
-								{link.label}
-							</a>
-						)
+						<a
+							href={link.href}
+							{...(shouldOpenInNewTab(link)
+								? { target: "_blank", rel: "noopener noreferrer" }
+								: {})}
+							class="btn-game"
+						>
+							{link.label}
+						</a>
 					) : (
 						<span class="btn-game block">{link.label}</span>
 					)}

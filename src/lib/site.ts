@@ -22,14 +22,15 @@ export const NAVI = [
 /**
  * トップページ用カテゴリリンク（data-model.md エンティティ 3）。
  * ヘッダーのナビゲーション項目（NAVI）とは別エンティティとして管理する。
- * external: true のリンクは target="_blank" + rel="noopener noreferrer" で表示する。
+ * 外部リンク（external: true または http(s) の絶対 URL）は target="_blank" +
+ * rel="noopener noreferrer" で新しいタブに表示する（src/lib/external-links.ts の shouldOpenInNewTab）。
  */
 export interface TopCategoryLinkItem {
 	/** ボタン表示ラベル */
 	label: string;
 	/** リンク先 URL */
 	href: string;
-	/** 外部リンクかどうか（true なら target="_blank" + rel="noopener noreferrer"） */
+	/** 外部リンクかどうか（true なら target="_blank" + rel="noopener noreferrer" で開く） */
 	external?: boolean;
 }
 

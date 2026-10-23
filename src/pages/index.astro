@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import ContactForm from "../components/ContactForm.svelte";
+import { shouldOpenInNewTab } from "../lib/external-links";
 import { TOP_CATEGORY_LINKS } from "../lib/site";
 
 /** カテゴリ見出しのリンク先（Game / Creation / Lily のみリンク） */
@@ -45,22 +46,17 @@ const { Content } = await render(latestPost);
 							{category.links.length === 0 ? (
 								<span>Coming Soon...</span>
 							) : (
-								category.links.map((link) =>
-									link.external ? (
-										<a
-											href={link.href}
-											target="_blank"
-											rel="noopener noreferrer"
-											class="btn-game"
-										>
-											{link.label}
-										</a>
-									) : (
-										<a href={link.href} class="btn-game">
-											{link.label}
-										</a>
-									),
-								)
+								category.links.map((link) => (
+									<a
+										href={link.href}
+										{...(shouldOpenInNewTab(link)
+											? { target: "_blank", rel: "noopener noreferrer" }
+											: {})}
+										class="btn-game"
+									>
+										{link.label}
+									</a>
+								))
 							)}
 						</div>
 					</div>

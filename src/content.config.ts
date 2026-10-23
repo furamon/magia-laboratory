@@ -13,7 +13,7 @@ const linkItemSchema = z.object({
 	label: z.string().min(1),
 	/** リンク先 URL（未指定時はリンクなしのラベルのみ表示） */
 	href: z.string().optional(),
-	/** 外部リンクかどうか（true なら target="_blank" + rel="noopener noreferrer"） */
+	/** 外部リンクかどうか（true なら target="_blank" + rel="noopener noreferrer" で開く） */
 	external: z.boolean().optional(),
 	/** カード下部の説明文（任意） */
 	description: z.string().optional(),

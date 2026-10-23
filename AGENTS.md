@@ -19,6 +19,7 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 - 単一プロジェクト構成（Astro 標準の `src/` レイアウト）。
 - サイト定数（`SITE` / `NAVI` / `TOP_CATEGORY_LINKS`）は `src/lib/site.ts` に一元管理（DRY）。
 - テーマ切替ロジックは `src/lib/theme.ts`、検索一覧ロジックは `src/lib/search.ts` の純粋関数に分離。
+- 外部リンク（http / https の絶対 URL）は新しいタブで開く。判定と付与は `src/lib/external-links.ts` に集約し、Markdown 本文は Sätteri の HAST プラグイン（`astro.config.mjs` の `markdown.processor`）、カードは `shouldOpenInNewTab()` を使う。内部リンクは同一タブ。
 - 対話性が必要なコンポーネント（Header / Footer / Search）は Svelte island として `client:load` でマウント。
 - コンテンツは `src/content/{collection}/` の Markdown（`.md`、blog / game / creation / lily / text の 5 コレクション）を管理する。編集は Pages CMS（`.pages.yml`、ページ数サイト）経由が基本だが、git + Markdown の手編集も可。
 - カテゴリランディングページ（game / lily / creation / text）の本文・カードは各コレクション直下の `index.md`（frontmatter の `links` 配列 + Markdown 本文）で管理し、`*.astro` は `getEntry(コレクション, "index")` で描画する。`[...slug].astro` の `getStaticPaths()` では `index` エントリを除外し重複 URL を防ぐ。
