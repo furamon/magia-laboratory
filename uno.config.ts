@@ -148,7 +148,7 @@ export default defineConfig({
         }
         main {
           flex: 1;
-          padding: 4rem 1rem 1rem;
+          padding: 6rem 1rem 1rem;
         }
         img {
           margin-left: auto;
